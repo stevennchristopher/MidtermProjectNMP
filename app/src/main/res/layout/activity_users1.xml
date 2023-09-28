@@ -6,4 +6,14 @@
     android:layout_height="match_parent"
     tools:context=".Users1">
 
+    <ImageView
+        android:id="@+id/icon_hamburg2"
+        android:layout_width="35dp"
+        android:layout_height="42dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="12dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/hamburger_icon" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
