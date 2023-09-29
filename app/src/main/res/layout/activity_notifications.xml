@@ -52,141 +52,10 @@
       app:layout_constraintTop_toTopOf="parent"
       app:srcCompat="@drawable/back_icon" />
 
-  <ImageView
-      android:id="@+id/navBar"
-      android:layout_width="412dp"
-      android:layout_height="99dp"
-      android:scaleType="centerCrop"
-      app:layout_constraintBottom_toBottomOf="parent"
-      app:layout_constraintEnd_toEndOf="parent"
-      app:layout_constraintStart_toStartOf="parent"
-      app:srcCompat="@drawable/navbar" />
-
-  <ImageView
-      android:id="@+id/icon_create"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:layout_marginStart="24dp"
-      android:layout_marginEnd="24dp"
-      android:layout_marginBottom="40dp"
-      app:layout_constraintBottom_toBottomOf="parent"
-      app:layout_constraintEnd_toStartOf="@+id/icon_users"
-      app:layout_constraintStart_toEndOf="@+id/icon_following"
-      app:srcCompat="@drawable/create_icon" />
-
-  <ImageView
-      android:id="@+id/icon_users"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:layout_marginEnd="28dp"
-      android:layout_marginBottom="40dp"
-      app:layout_constraintBottom_toBottomOf="parent"
-      app:layout_constraintEnd_toStartOf="@+id/icon_prefs"
-      app:srcCompat="@drawable/user_icon" />
-
-  <ImageView
-      android:id="@+id/icon_prefs"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:layout_marginEnd="24dp"
-      android:layout_marginBottom="40dp"
-      app:layout_constraintBottom_toBottomOf="parent"
-      app:layout_constraintEnd_toEndOf="parent"
-      app:srcCompat="@drawable/prefs_icon" />
-
-  <TextView
-      android:id="@+id/textFollowing"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:layout_marginStart="22dp"
-      android:layout_marginTop="8dp"
-      android:fontFamily="@font/roboto_medium"
-      android:text="Following"
-      android:textColor="#000000"
-      android:textStyle="normal"
-      app:layout_constraintStart_toEndOf="@+id/textHome"
-      app:layout_constraintTop_toBottomOf="@+id/icon_following" />
-
-  <ImageView
-      android:id="@+id/icon_following"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:layout_marginStart="28dp"
-      android:layout_marginBottom="40dp"
-      app:layout_constraintBottom_toBottomOf="parent"
-      app:layout_constraintStart_toEndOf="@+id/icon_home"
-      app:srcCompat="@drawable/following_icon" />
-
-  <TextView
-      android:id="@+id/textHome"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:layout_marginStart="27dp"
-      android:layout_marginTop="8dp"
-      android:fontFamily="@font/roboto_medium"
-      android:text="Home"
-      android:textColor="#000000"
-      android:textStyle="normal"
-      app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintTop_toBottomOf="@+id/icon_home" />
-
-  <TextView
-      android:id="@+id/txtPrefs"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:layout_marginTop="8dp"
-      android:layout_marginEnd="29dp"
-      android:fontFamily="@font/roboto_medium"
-      android:text="Prefs"
-      android:textColor="#000000"
-      android:textStyle="normal"
-      app:layout_constraintEnd_toEndOf="parent"
-      app:layout_constraintTop_toBottomOf="@+id/icon_prefs" />
-
-  <TextView
-      android:id="@+id/textCreate"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:layout_marginStart="24dp"
-      android:layout_marginTop="8dp"
-      android:layout_marginEnd="38dp"
-      android:fontFamily="@font/roboto_medium"
-      android:text="Create"
-      android:textColor="#000000"
-      android:textStyle="normal"
-      app:layout_constraintEnd_toStartOf="@+id/txtUsers"
-      app:layout_constraintHorizontal_bias="0.478"
-      app:layout_constraintStart_toEndOf="@+id/textFollowing"
-      app:layout_constraintTop_toBottomOf="@+id/icon_create" />
-
-  <TextView
-      android:id="@+id/txtUsers"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:layout_marginTop="8dp"
-      android:layout_marginEnd="37dp"
-      android:fontFamily="@font/roboto_medium"
-      android:text="Users"
-      android:textColor="#000000"
-      android:textStyle="normal"
-      app:layout_constraintEnd_toStartOf="@+id/txtPrefs"
-      app:layout_constraintTop_toBottomOf="@+id/icon_users" />
-
-  <ImageView
-      android:id="@+id/icon_home"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:layout_marginStart="24dp"
-      android:layout_marginBottom="40dp"
-      app:layout_constraintBottom_toBottomOf="parent"
-      app:layout_constraintStart_toStartOf="parent"
-      app:srcCompat="@drawable/home_icon" />
-
   <ScrollView
       android:layout_width="0dp"
       android:layout_height="0dp"
       android:layout_marginTop="65dp"
-      android:layout_marginBottom="99dp"
       android:fillViewport="true"
       app:layout_constraintBottom_toBottomOf="parent"
       app:layout_constraintEnd_toEndOf="parent"
@@ -199,6 +68,97 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         tools:layout_editor_absoluteX="-12dp"
-        tools:layout_editor_absoluteY="13dp"/>
+        tools:layout_editor_absoluteY="13dp" >
+
+      <Button
+          android:id="@+id/btnRespond4"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginEnd="16dp"
+          android:background="@android:color/transparent"
+          android:fontFamily="@font/roboto_medium"
+          android:text="View"
+          android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+          android:textColor="@color/purple_500"
+          app:layout_constraintBottom_toBottomOf="@+id/txtDescription5"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintTop_toTopOf="@+id/txtTanggal4" />
+
+      <TextView
+          android:id="@+id/txtDescription5"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="5dp"
+          android:text="ryanryan publish new Cerbung"
+          app:layout_constraintStart_toStartOf="@+id/txtTanggal4"
+          app:layout_constraintTop_toBottomOf="@+id/txtTanggal4" />
+
+      <TextView
+          android:id="@+id/txtTanggal4"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginStart="16dp"
+          android:layout_marginTop="24dp"
+          android:fontFamily="@font/roboto"
+          android:text="08/09/2023"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toBottomOf="@+id/divider3" />
+
+      <View
+          android:id="@+id/divider3"
+          android:layout_width="0dp"
+          android:layout_height="1dp"
+          android:layout_marginTop="16dp"
+          android:background="?android:attr/listDivider"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintHorizontal_bias="0.0"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toBottomOf="@+id/txtDescription3" />
+
+      <View
+          android:id="@+id/divider4"
+          android:layout_width="0dp"
+          android:layout_height="1dp"
+          android:layout_marginTop="16dp"
+          android:background="?android:attr/listDivider"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintHorizontal_bias="0.0"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toBottomOf="@+id/txtDescription5" />
+
+      <Button
+          android:id="@+id/btnRespond2"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginEnd="16dp"
+          android:background="@android:color/transparent"
+          android:fontFamily="@font/roboto_medium"
+          android:text="Respond"
+          android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+          android:textColor="@color/purple_500"
+          app:layout_constraintBottom_toBottomOf="@+id/txtDescription3"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintTop_toTopOf="@+id/txtTanggal3" />
+
+      <TextView
+          android:id="@+id/txtDescription3"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="5dp"
+          android:text="bluby82 Request to Contributes"
+          app:layout_constraintStart_toStartOf="@+id/txtTanggal3"
+          app:layout_constraintTop_toBottomOf="@+id/txtTanggal3" />
+
+      <TextView
+          android:id="@+id/txtTanggal3"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginStart="16dp"
+          android:layout_marginTop="24dp"
+          android:fontFamily="@font/roboto"
+          android:text="09/09/2023"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
   </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>
