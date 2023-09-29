@@ -99,7 +99,7 @@
           android:layout_height="wrap_content"
           android:layout_marginStart="16dp"
           android:layout_marginTop="24dp"
-          android:fontFamily="@font/roboto"
+          android:fontFamily="@font/roboto_regular"
           android:text="08/09/2023"
           app:layout_constraintStart_toStartOf="parent"
           app:layout_constraintTop_toBottomOf="@+id/divider3" />
@@ -155,7 +155,7 @@
           android:layout_height="wrap_content"
           android:layout_marginStart="16dp"
           android:layout_marginTop="24dp"
-          android:fontFamily="@font/roboto"
+          android:fontFamily="@font/roboto_regular"
           android:text="09/09/2023"
           app:layout_constraintStart_toStartOf="parent"
           app:layout_constraintTop_toTopOf="parent" />
