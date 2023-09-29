@@ -60,11 +60,11 @@
           android:textSize="20sp"
           app:layout_constraintEnd_toStartOf="@+id/icon_notif"
           app:layout_constraintHorizontal_bias="0.569"
-          app:layout_constraintStart_toEndOf="@+id/icon_hamburg"
+          app:layout_constraintStart_toEndOf="@+id/icon_back"
           app:layout_constraintTop_toTopOf="parent" />
 
       <ImageView
-          android:id="@+id/icon_hamburg"
+          android:id="@+id/icon_back"
           android:layout_width="35dp"
           android:layout_height="42dp"
           android:layout_marginStart="16dp"
