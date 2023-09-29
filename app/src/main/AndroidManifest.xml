@@ -25,7 +25,7 @@
             android:name=".Users1"
             android:exported="false" />
         <activity
-            android:name=".NotificationsRespond"
+            android:name=".Notifications"
             android:exported="false" />
         <activity
             android:name=".HomeActivity"
@@ -49,7 +49,7 @@
             android:name=".Create1"
             android:exported="false" />
         <activity
-            android:name=".Notifications"
+            android:name=".NotificationsRespond"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

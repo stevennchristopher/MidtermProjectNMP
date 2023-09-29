@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".NotificationsRespond">
@@ -70,6 +69,75 @@
           app:layout_constraintEnd_toEndOf="parent"
           app:layout_constraintTop_toTopOf="parent"
           app:srcCompat="@drawable/notif_icon" />
+
+      <ImageView
+          android:id="@+id/imageView"
+          android:layout_width="364.8sp"
+          android:layout_height="210sp"
+          android:layout_marginTop="64dp"
+          android:scaleType="fitCenter"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toBottomOf="@+id/topBar"
+          app:srcCompat="@drawable/rectangle" />
+
+      <ImageView
+          android:id="@+id/imgUser"
+          android:layout_width="120sp"
+          android:layout_height="120sp"
+          android:layout_marginTop="12dp"
+          android:scaleType="fitCenter"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintHorizontal_bias="0.498"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toBottomOf="@+id/topBar"
+          app:srcCompat="@drawable/profile_pic" />
+
+      <TextView
+          android:id="@+id/txtUsername"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="30dp"
+          android:fontFamily="@font/roboto"
+          android:text="bluby82"
+          app:layout_constraintEnd_toEndOf="@+id/imageView"
+          app:layout_constraintStart_toStartOf="@+id/imageView"
+          app:layout_constraintTop_toBottomOf="@+id/imgUser" />
+
+      <TextView
+          android:id="@+id/txtDetails"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="5dp"
+          android:fontFamily="@font/roboto"
+          android:text="209 Likes | 3 Cerbungs Created"
+          app:layout_constraintEnd_toEndOf="@+id/imageView"
+          app:layout_constraintStart_toStartOf="@+id/imageView"
+          app:layout_constraintTop_toBottomOf="@+id/txtUsername" />
+
+      <TextView
+          android:id="@+id/txtLatestPost"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="5dp"
+          android:fontFamily="@font/roboto"
+          android:text="Latest post: 09/09/2023"
+          app:layout_constraintEnd_toEndOf="@+id/imageView"
+          app:layout_constraintStart_toStartOf="@+id/imageView"
+          app:layout_constraintTop_toBottomOf="@+id/txtDetails" />
+
+      <TextView
+          android:id="@+id/txtDescription"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="16dp"
+          android:fontFamily="@font/roboto"
+          android:text="bluby82 wants to\ncontribute in"
+          android:textAlignment="center"
+          android:textSize="16sp"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
   </ScrollView>
