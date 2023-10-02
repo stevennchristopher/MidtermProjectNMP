@@ -31,7 +31,7 @@
             android:name=".NotificationsRespond"
             android:exported="false" />
         <activity
-            android:name=".HomeActivity"
+            android:name=".Following"
             android:exported="false" />
         <activity
             android:name=".ReadPublic"
@@ -46,10 +46,10 @@
             android:name=".Create2"
             android:exported="false" />
         <activity
-            android:name=".Create1"
+            android:name=".HomeActivity"
             android:exported="false" />
         <activity
-            android:name=".Following"
+            android:name=".Create1"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
