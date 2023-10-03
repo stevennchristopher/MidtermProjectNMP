@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Create1Activity">
@@ -24,7 +24,7 @@
       android:layout_height="wrap_content"
       android:layout_marginTop="18dp"
       android:fontFamily="@font/roboto_medium"
-      android:text="Create 1"
+      android:text="Create Cerbung"
       android:textColor="#000000"
       android:textSize="18sp"
       app:layout_constraintEnd_toStartOf="@+id/btnNotif"
@@ -199,7 +199,65 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content">
+
+      <com.google.android.material.textfield.TextInputLayout
+          android:id="@+id/txtInputLayoutTitle"
+          style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+          android:layout_width="0dp"
+          android:layout_height="wrap_content"
+          android:layout_marginStart="32dp"
+          android:layout_marginTop="32dp"
+          android:layout_marginEnd="32dp"
+          android:hint="Cerbung Title"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toTopOf="parent">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/txtInputTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+      </com.google.android.material.textfield.TextInputLayout>
+
+      <com.google.android.material.textfield.TextInputLayout
+          android:id="@+id/txtInputLayoutDescription"
+          style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+          android:layout_width="0dp"
+          android:layout_height="wrap_content"
+          android:layout_marginStart="32dp"
+          android:layout_marginTop="32dp"
+          android:layout_marginEnd="32dp"
+          android:hint="Short Description"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toBottomOf="@+id/txtInputLayoutTitle">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/txtInputDescription"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+      </com.google.android.material.textfield.TextInputLayout>
+
+      <com.google.android.material.textfield.TextInputLayout
+          android:id="@+id/txtInputLayoutImg"
+          style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+          android:layout_width="0dp"
+          android:layout_height="wrap_content"
+          android:layout_marginStart="32dp"
+          android:layout_marginTop="32dp"
+          android:layout_marginEnd="32dp"
+          android:hint="Cerbung Image Cover"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toBottomOf="@+id/txtInputLayoutDescription">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/txtInputImg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+      </com.google.android.material.textfield.TextInputLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
   </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

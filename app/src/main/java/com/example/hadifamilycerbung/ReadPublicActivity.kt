@@ -3,12 +3,13 @@ package com.example.hadifamilycerbung
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.hadifamilycerbung.databinding.ActivityHomeBinding
+import com.example.hadifamilycerbung.databinding.ActivityReadPublicBinding
 
 class ReadPublicActivity : AppCompatActivity() {
-    private lateinit var binding: ActivityHomeBinding
+    private lateinit var binding: ActivityReadPublicBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityHomeBinding.inflate(layoutInflater)
+        binding = ActivityReadPublicBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
     }
