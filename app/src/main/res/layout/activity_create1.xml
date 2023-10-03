@@ -217,6 +217,61 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
       </com.google.android.material.textfield.TextInputLayout>
+
+      <com.google.android.material.textfield.TextInputLayout
+          android:id="@+id/txtInputLayoutDescription"
+          android:layout_width="0dp"
+          android:layout_height="wrap_content"
+          android:layout_marginStart="32dp"
+          android:layout_marginTop="32dp"
+          android:layout_marginEnd="32dp"
+          android:hint="Short Description"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toBottomOf="@+id/txtInputLayoutTitle">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/txtInputEditDescription"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+      </com.google.android.material.textfield.TextInputLayout>
+
+      <com.google.android.material.textfield.TextInputLayout
+          android:id="@+id/txtInputLayoutImg"
+          android:layout_width="0dp"
+          android:layout_height="wrap_content"
+          android:layout_marginStart="32dp"
+          android:layout_marginTop="32dp"
+          android:layout_marginEnd="32dp"
+          android:hint="Cerbung Image Cover"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toBottomOf="@+id/txtInputLayoutDescription">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/txInputEditImg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+      </com.google.android.material.textfield.TextInputLayout>
+
+      <com.google.android.material.textfield.TextInputLayout
+          android:id="@+id/txtInputLayoutGenre"
+          android:layout_width="0dp"
+          android:layout_height="wrap_content"
+          android:layout_marginStart="32dp"
+          android:layout_marginTop="32dp"
+          android:layout_marginEnd="32dp"
+          android:hint="Choose Genre"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toBottomOf="@+id/txtInputLayoutImg">
+
+        <AutoCompleteTextView
+            android:id="@+id/txtInputEditGenre"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+      </com.google.android.material.textfield.TextInputLayout>
+
     </androidx.constraintlayout.widget.ConstraintLayout>
   </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>
