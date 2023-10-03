@@ -1,4 +1,4 @@
-package com.example.midtermprojectcerbung
+package com.example.hadifamilycerbung
 
 import org.junit.Test
 

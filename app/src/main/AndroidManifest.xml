@@ -2,8 +2,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <uses-permission android:name="android.permission.INTERNET" />
-
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -12,47 +10,46 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme"
-        android:usesCleartextTraffic="true"
+        android:theme="@style/Theme.HadiFamilyCerbung"
         tools:targetApi="31">
         <activity
-            android:name=".Prefs"
+            android:name=".PrefsActivity"
             android:exported="false" />
         <activity
-            android:name=".UsersProfile"
+            android:name=".ReadPublicActivity"
             android:exported="false" />
         <activity
-            android:name=".Users2"
+            android:name=".ReadRestrictActivity"
             android:exported="false" />
         <activity
-            android:name=".Users1"
+            android:name=".NotificationsRespondActivity"
             android:exported="false" />
         <activity
-            android:name=".Notifications"
+            android:name=".NotificationsActivity"
             android:exported="false" />
         <activity
-            android:name=".NotificationsRespond"
+            android:name=".UserProfileActivity"
             android:exported="false" />
         <activity
-            android:name=".Following"
+            android:name=".Users2Activity"
             android:exported="false" />
         <activity
-            android:name=".ReadPublic"
+            android:name=".Users1Activity"
             android:exported="false" />
         <activity
-            android:name=".ReadRestrict"
+            android:name=".FollowingActivity"
             android:exported="false" />
         <activity
-            android:name=".Create3"
+            android:name=".Create3Activity"
             android:exported="false" />
         <activity
-            android:name=".Create2"
+            android:name=".Create2Activity"
+            android:exported="false" />
+        <activity
+            android:name=".Create1Activity"
             android:exported="false" />
         <activity
             android:name=".HomeActivity"
-            android:exported="false" />
-        <activity
-            android:name=".Create1"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

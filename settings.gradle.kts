@@ -13,6 +13,6 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "MidtermProjectCerbung"
+rootProject.name = "HadiFamilyCerbung"
 include(":app")
  

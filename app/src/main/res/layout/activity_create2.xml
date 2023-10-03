@@ -5,200 +5,201 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Create2">
+    tools:context=".Create2Activity">
 
   <ImageView
       android:id="@+id/topBar"
-      android:layout_width="412dp"
-      android:layout_height="65dp"
+      android:layout_width="wrap_content"
+      android:layout_height="70dp"
       android:scaleType="centerCrop"
       app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintHorizontal_bias="0.0"
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintTop_toTopOf="parent"
       app:srcCompat="@drawable/top_app_bar" />
 
   <TextView
-      android:id="@+id/txtCerbung"
+      android:id="@+id/txtTitle"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
-      android:layout_marginStart="116dp"
-      android:layout_marginTop="20dp"
-      android:layout_marginEnd="116dp"
+      android:layout_marginTop="18dp"
       android:fontFamily="@font/roboto_medium"
       android:text="Create 2"
       android:textColor="#000000"
-      android:textSize="20sp"
-      app:layout_constraintEnd_toStartOf="@+id/icon_notif"
-      app:layout_constraintStart_toEndOf="@+id/icon_back"
-      app:layout_constraintTop_toTopOf="parent" />
+      android:textSize="18sp"
+      app:layout_constraintEnd_toStartOf="@+id/btnNotif"
+      app:layout_constraintStart_toEndOf="@+id/btnMenu"
+      app:layout_constraintTop_toTopOf="@+id/topBar" />
 
-  <ImageView
-      android:id="@+id/icon_notif"
-      android:layout_width="35dp"
-      android:layout_height="42dp"
-      android:layout_marginTop="12dp"
-      android:layout_marginEnd="16dp"
-      app:layout_constraintEnd_toEndOf="@+id/topBar"
-      app:layout_constraintTop_toTopOf="parent"
-      app:srcCompat="@drawable/notif_icon" />
-
-  <ImageView
-      android:id="@+id/icon_back"
-      android:layout_width="35dp"
-      android:layout_height="42dp"
+  <ImageButton
+      android:id="@+id/btnMenu"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
       android:layout_marginStart="16dp"
-      android:layout_marginTop="12dp"
-      app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintTop_toTopOf="parent"
-      app:srcCompat="@drawable/back_icon" />
+      android:layout_marginTop="8dp"
+      android:backgroundTint="#F2ECF6"
+      app:layout_constraintStart_toStartOf="@+id/topBar"
+      app:layout_constraintTop_toTopOf="@+id/topBar"
+      app:srcCompat="@drawable/icon_menu" />
+
+  <ImageButton
+      android:id="@+id/btnNotif"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="8dp"
+      android:layout_marginEnd="16dp"
+      android:backgroundTint="#F2ECF6"
+      app:layout_constraintEnd_toEndOf="@+id/topBar"
+      app:layout_constraintTop_toTopOf="@+id/topBar"
+      app:srcCompat="@drawable/icon_notif" />
 
   <ImageView
       android:id="@+id/navBar"
-      android:layout_width="412dp"
-      android:layout_height="99dp"
+      android:layout_width="0dp"
+      android:layout_height="70dp"
       android:scaleType="centerCrop"
       app:layout_constraintBottom_toBottomOf="parent"
       app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintStart_toStartOf="parent"
       app:srcCompat="@drawable/navbar" />
 
-  <ImageView
-      android:id="@+id/icon_create"
+  <ImageButton
+      android:id="@+id/btnHome"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
-      android:layout_marginStart="24dp"
-      android:layout_marginEnd="24dp"
-      android:layout_marginBottom="40dp"
-      app:layout_constraintBottom_toBottomOf="parent"
-      app:layout_constraintEnd_toStartOf="@+id/icon_users"
-      app:layout_constraintStart_toEndOf="@+id/icon_following"
-      app:srcCompat="@drawable/create_icon" />
+      android:layout_marginStart="16dp"
+      android:layout_marginTop="4dp"
+      android:backgroundTint="#F2ECF6"
+      app:layout_constraintStart_toStartOf="@+id/navBar"
+      app:layout_constraintTop_toTopOf="@+id/navBar"
+      app:srcCompat="@drawable/icon_home" />
 
-  <ImageView
-      android:id="@+id/icon_users"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:layout_marginEnd="28dp"
-      android:layout_marginBottom="40dp"
-      app:layout_constraintBottom_toBottomOf="parent"
-      app:layout_constraintEnd_toStartOf="@+id/icon_prefs"
-      app:srcCompat="@drawable/user_icon" />
+  <ImageButton
+      android:id="@+id/btnFollowing"
+      android:layout_width="48dp"
+      android:layout_height="43dp"
+      android:layout_marginStart="32dp"
+      android:layout_marginTop="4dp"
+      android:backgroundTint="#F2ECF6"
+      android:scaleType="fitCenter"
+      app:layout_constraintStart_toEndOf="@+id/btnHome"
+      app:layout_constraintTop_toTopOf="@+id/navBar"
+      app:srcCompat="@drawable/icon_following" />
 
-  <ImageView
-      android:id="@+id/icon_prefs"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:layout_marginEnd="24dp"
-      android:layout_marginBottom="40dp"
-      app:layout_constraintBottom_toBottomOf="parent"
+  <ImageButton
+      android:id="@+id/btnCreate"
+      android:layout_width="48dp"
+      android:layout_height="43dp"
+      android:layout_marginStart="36dp"
+      android:layout_marginTop="4dp"
+      android:backgroundTint="#F2ECF6"
+      android:scaleType="fitCenter"
+      app:layout_constraintEnd_toStartOf="@+id/btnUser"
+      app:layout_constraintHorizontal_bias="0.025"
+      app:layout_constraintStart_toEndOf="@+id/btnFollowing"
+      app:layout_constraintTop_toTopOf="@+id/navBar"
+      app:srcCompat="@drawable/icon_create" />
+
+  <ImageButton
+      android:id="@+id/btnUser"
+      android:layout_width="48dp"
+      android:layout_height="43dp"
+      android:layout_marginTop="4dp"
+      android:layout_marginEnd="32dp"
+      android:backgroundTint="#F2ECF6"
+      android:scaleType="fitCenter"
+      app:layout_constraintEnd_toStartOf="@+id/btnPrefs"
+      app:layout_constraintTop_toTopOf="@+id/navBar"
+      app:srcCompat="@drawable/icon_user" />
+
+  <ImageButton
+      android:id="@+id/btnPrefs"
+      android:layout_width="48dp"
+      android:layout_height="43dp"
+      android:layout_marginTop="4dp"
+      android:layout_marginEnd="16dp"
+      android:backgroundTint="#F2ECF6"
+      android:scaleType="fitCenter"
       app:layout_constraintEnd_toEndOf="parent"
-      app:srcCompat="@drawable/prefs_icon" />
+      app:layout_constraintTop_toTopOf="@+id/navBar"
+      app:srcCompat="@drawable/icon_prefs" />
 
   <TextView
-      android:id="@+id/textFollowing"
+      android:id="@+id/txtBtnHome"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
-      android:layout_marginStart="22dp"
-      android:layout_marginTop="8dp"
-      android:fontFamily="@font/roboto_medium"
-      android:text="Following"
-      android:textColor="#000000"
-      android:textStyle="normal"
-      app:layout_constraintStart_toEndOf="@+id/textHome"
-      app:layout_constraintTop_toBottomOf="@+id/icon_following" />
-
-  <ImageView
-      android:id="@+id/icon_following"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:layout_marginStart="28dp"
-      android:layout_marginBottom="40dp"
-      app:layout_constraintBottom_toBottomOf="parent"
-      app:layout_constraintStart_toEndOf="@+id/icon_home"
-      app:srcCompat="@drawable/following_icon" />
-
-  <TextView
-      android:id="@+id/textHome"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:layout_marginStart="27dp"
-      android:layout_marginTop="8dp"
+      android:layout_marginStart="21dp"
+      android:layout_marginTop="40dp"
       android:fontFamily="@font/roboto_medium"
       android:text="Home"
       android:textColor="#000000"
-      android:textStyle="normal"
-      app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintTop_toBottomOf="@+id/icon_home" />
+      app:layout_constraintStart_toStartOf="@+id/navBar"
+      app:layout_constraintTop_toTopOf="@+id/navBar" />
 
   <TextView
-      android:id="@+id/txtPrefs"
+      android:id="@+id/txtBtnFollowing"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
-      android:layout_marginTop="8dp"
-      android:layout_marginEnd="29dp"
+      android:layout_marginStart="25dp"
+      android:layout_marginTop="40dp"
       android:fontFamily="@font/roboto_medium"
-      android:text="Prefs"
+      android:text="Following"
       android:textColor="#000000"
-      android:textStyle="normal"
-      app:layout_constraintEnd_toEndOf="parent"
-      app:layout_constraintTop_toBottomOf="@+id/icon_prefs" />
+      app:layout_constraintStart_toEndOf="@+id/txtBtnHome"
+      app:layout_constraintTop_toTopOf="@+id/navBar" />
 
   <TextView
-      android:id="@+id/textCreate"
-      android:layout_width="wrap_content"
+      android:id="@+id/txtBtnCreate"
+      android:layout_width="0dp"
       android:layout_height="wrap_content"
-      android:layout_marginStart="24dp"
-      android:layout_marginTop="8dp"
-      android:layout_marginEnd="38dp"
+      android:layout_marginStart="30dp"
+      android:layout_marginTop="40dp"
+      android:layout_marginEnd="30dp"
       android:fontFamily="@font/roboto_medium"
       android:text="Create"
       android:textColor="#000000"
-      android:textStyle="normal"
-      app:layout_constraintEnd_toStartOf="@+id/txtUsers"
-      app:layout_constraintHorizontal_bias="0.478"
-      app:layout_constraintStart_toEndOf="@+id/textFollowing"
-      app:layout_constraintTop_toBottomOf="@+id/icon_create" />
+      app:layout_constraintEnd_toStartOf="@+id/txtBtnUsers"
+      app:layout_constraintHorizontal_bias="1.0"
+      app:layout_constraintStart_toEndOf="@+id/txtBtnFollowing"
+      app:layout_constraintTop_toTopOf="@+id/navBar" />
 
   <TextView
-      android:id="@+id/txtUsers"
+      android:id="@+id/txtBtnUsers"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
-      android:layout_marginTop="8dp"
-      android:layout_marginEnd="37dp"
+      android:layout_marginTop="40dp"
+      android:layout_marginEnd="41dp"
       android:fontFamily="@font/roboto_medium"
       android:text="Users"
       android:textColor="#000000"
-      android:textStyle="normal"
-      app:layout_constraintEnd_toStartOf="@+id/txtPrefs"
-      app:layout_constraintTop_toBottomOf="@+id/icon_users" />
+      app:layout_constraintEnd_toStartOf="@+id/txtBtnPrefs"
+      app:layout_constraintTop_toTopOf="@+id/navBar" />
 
-  <ImageView
-      android:id="@+id/icon_home"
+  <TextView
+      android:id="@+id/txtBtnPrefs"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
-      android:layout_marginStart="24dp"
-      android:layout_marginBottom="40dp"
-      app:layout_constraintBottom_toBottomOf="parent"
-      app:layout_constraintStart_toStartOf="parent"
-      app:srcCompat="@drawable/home_icon" />
+      android:layout_marginTop="40dp"
+      android:layout_marginEnd="22dp"
+      android:fontFamily="@font/roboto_medium"
+      android:text="Prefs"
+      android:textColor="#000000"
+      app:layout_constraintEnd_toEndOf="@+id/navBar"
+      app:layout_constraintTop_toTopOf="@+id/navBar" />
 
   <ScrollView
+      android:id="@+id/scrollView"
       android:layout_width="0dp"
       android:layout_height="0dp"
-      android:layout_marginTop="65dp"
-      android:layout_marginBottom="99dp"
       android:fillViewport="true"
-      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintBottom_toTopOf="@+id/navBar"
       app:layout_constraintEnd_toEndOf="parent"
-      app:layout_constraintHorizontal_bias="1.0"
       app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintTop_toTopOf="parent"
-      app:layout_constraintVertical_bias="1.0">
+      app:layout_constraintTop_toBottomOf="@+id/topBar">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        tools:layout_editor_absoluteX="-12dp"
-        tools:layout_editor_absoluteY="13dp"/>
+        android:layout_height="wrap_content"/>
   </ScrollView>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
