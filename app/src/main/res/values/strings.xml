@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">HadiFamilyCerbung</string>
+    <string-array name="genres">
+        <item>Misteri</item>
+        <item>Aksi</item>
+        <item>Horror</item>
+        <item>Kocak</item>
+    </string-array>
 </resources>

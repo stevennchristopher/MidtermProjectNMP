@@ -128,39 +128,38 @@
       android:id="@+id/txtBtnHome"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
-      android:layout_marginStart="21dp"
       android:layout_marginTop="40dp"
       android:fontFamily="@font/roboto_medium"
       android:text="Home"
       android:textColor="#000000"
-      app:layout_constraintStart_toStartOf="@+id/navBar"
+      app:layout_constraintEnd_toEndOf="@+id/btnHome"
+      app:layout_constraintStart_toStartOf="@+id/btnHome"
       app:layout_constraintTop_toTopOf="@+id/navBar" />
 
   <TextView
       android:id="@+id/txtBtnFollowing"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
-      android:layout_marginStart="25dp"
       android:layout_marginTop="40dp"
       android:fontFamily="@font/roboto_medium"
       android:text="Following"
       android:textColor="#000000"
-      app:layout_constraintStart_toEndOf="@+id/txtBtnHome"
+      app:layout_constraintEnd_toEndOf="@+id/btnFollowing"
+      app:layout_constraintStart_toStartOf="@+id/btnFollowing"
       app:layout_constraintTop_toTopOf="@+id/navBar" />
 
   <TextView
       android:id="@+id/txtBtnCreate"
       android:layout_width="0dp"
       android:layout_height="wrap_content"
-      android:layout_marginStart="30dp"
+      android:layout_marginStart="3dp"
       android:layout_marginTop="40dp"
-      android:layout_marginEnd="30dp"
       android:fontFamily="@font/roboto_medium"
       android:text="Create"
       android:textColor="#000000"
-      app:layout_constraintEnd_toStartOf="@+id/txtBtnUsers"
+      app:layout_constraintEnd_toEndOf="@+id/btnCreate"
       app:layout_constraintHorizontal_bias="1.0"
-      app:layout_constraintStart_toEndOf="@+id/txtBtnFollowing"
+      app:layout_constraintStart_toStartOf="@+id/btnCreate"
       app:layout_constraintTop_toTopOf="@+id/navBar" />
 
   <TextView
@@ -168,11 +167,11 @@
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:layout_marginTop="40dp"
-      android:layout_marginEnd="41dp"
       android:fontFamily="@font/roboto_medium"
       android:text="Users"
       android:textColor="#000000"
-      app:layout_constraintEnd_toStartOf="@+id/txtBtnPrefs"
+      app:layout_constraintEnd_toEndOf="@+id/btnUser"
+      app:layout_constraintStart_toStartOf="@+id/btnUser"
       app:layout_constraintTop_toTopOf="@+id/navBar" />
 
   <TextView
@@ -180,11 +179,11 @@
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:layout_marginTop="40dp"
-      android:layout_marginEnd="22dp"
       android:fontFamily="@font/roboto_medium"
       android:text="Prefs"
       android:textColor="#000000"
-      app:layout_constraintEnd_toEndOf="@+id/navBar"
+      app:layout_constraintEnd_toEndOf="@+id/btnPrefs"
+      app:layout_constraintStart_toStartOf="@+id/btnPrefs"
       app:layout_constraintTop_toTopOf="@+id/navBar" />
 
   <ScrollView
