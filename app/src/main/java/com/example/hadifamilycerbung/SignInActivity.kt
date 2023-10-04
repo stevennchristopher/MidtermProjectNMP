@@ -13,5 +13,9 @@ class SignInActivity : AppCompatActivity() {
         binding = ActivitySignInBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
+
+        binding.txtDontHaveAcc.setOnClickListener{
+
+        }
     }
 }
