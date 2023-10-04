@@ -290,7 +290,8 @@
           app:cornerRadius="18dp"
           app:layout_constraintBottom_toBottomOf="parent"
           app:layout_constraintEnd_toEndOf="parent"
-          app:layout_constraintTop_toBottomOf="@+id/txtInputLayoutParagraph" />
+          app:layout_constraintTop_toBottomOf="@+id/txtInputLayoutParagraph"
+          app:strokeColor="#79747E" />
 
       <TextView
           android:id="@+id/txtPageC2"
@@ -320,7 +321,8 @@
           app:cornerRadius="18dp"
           app:layout_constraintBottom_toBottomOf="parent"
           app:layout_constraintStart_toStartOf="parent"
-          app:layout_constraintTop_toBottomOf="@+id/txtInputLayoutParagraph" />
+          app:layout_constraintTop_toBottomOf="@+id/txtInputLayoutParagraph"
+          app:strokeColor="#79747E" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
   </ScrollView>

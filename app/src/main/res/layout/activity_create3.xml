@@ -214,7 +214,8 @@
           app:cornerRadius="18dp"
           app:layout_constraintBottom_toBottomOf="parent"
           app:layout_constraintStart_toStartOf="parent"
-          app:layout_constraintTop_toBottomOf="@+id/checkBoxTerms" />
+          app:layout_constraintTop_toBottomOf="@+id/checkBoxTerms"
+          app:strokeColor="#79747E" />
 
       <ImageView
           android:id="@+id/imageViewLine"
