@@ -193,12 +193,205 @@
       android:fillViewport="true"
       app:layout_constraintBottom_toTopOf="@+id/navBar"
       app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintHorizontal_bias="1.0"
       app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintTop_toBottomOf="@+id/topBar">
+      app:layout_constraintTop_toBottomOf="@+id/topBar"
+      app:layout_constraintVertical_bias="0.0">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content">
+
+      <TextView
+          android:id="@+id/txtCharacters"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="2dp"
+          android:layout_marginEnd="15dp"
+          android:text="(60 of 70 characters)"
+          android:textSize="12sp"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintTop_toBottomOf="@+id/txtInputLayoutSearch" />
+
+      <com.google.android.material.textfield.TextInputLayout
+          android:id="@+id/txtInputLayoutSearch"
+          style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+          android:layout_width="0dp"
+          android:layout_height="100dp"
+          android:layout_marginStart="15dp"
+          android:layout_marginTop="12dp"
+          android:layout_marginEnd="15dp"
+          android:hint="Continue the Story"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toBottomOf="@+id/imageView15">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/txtInputEditSearch"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:layout_editor_absoluteX="19dp"
+            tools:layout_editor_absoluteY="659dp" />
+      </com.google.android.material.textfield.TextInputLayout>
+
+      <ImageView
+          android:id="@+id/imageView13"
+          android:layout_width="20dp"
+          android:layout_height="20dp"
+          android:layout_marginStart="20dp"
+          android:layout_marginTop="8dp"
+          app:layout_constraintStart_toEndOf="@+id/txtComments"
+          app:layout_constraintTop_toBottomOf="@+id/textView2"
+          app:srcCompat="@drawable/likes" />
+
+      <ImageView
+          android:id="@+id/imageView12"
+          android:layout_width="0dp"
+          android:layout_height="200dp"
+          android:layout_marginStart="16dp"
+          android:layout_marginTop="10dp"
+          android:layout_marginEnd="16dp"
+          android:src="@drawable/read"
+          app:circularflow_radiusInDP="12dp"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintHorizontal_bias="0.0"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toTopOf="parent" />
+
+      <TextView
+          android:id="@+id/textView2"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginStart="16dp"
+          android:layout_marginTop="12dp"
+          android:text="Judul Cerbung"
+          android:textAlignment="textStart"
+          android:textColor="@color/black"
+          android:textSize="16sp"
+          android:textStyle="bold"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toBottomOf="@+id/imageView12" />
+
+      <TextView
+          android:id="@+id/txtComments"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginStart="2dp"
+          android:layout_marginTop="8dp"
+          android:text="3"
+          android:textAlignment="textStart"
+          android:textColor="#000000"
+          android:textSize="16sp"
+          app:layout_constraintStart_toEndOf="@+id/imageView14"
+          app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+      <TextView
+          android:id="@+id/txtComments2"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginStart="2dp"
+          android:layout_marginTop="8dp"
+          android:text="3"
+          android:textAlignment="textStart"
+          android:textColor="#000000"
+          android:textSize="16sp"
+          app:layout_constraintStart_toEndOf="@+id/imageView13"
+          app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+      <ImageView
+          android:id="@+id/imageView14"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginStart="24dp"
+          android:layout_marginTop="8dp"
+          android:src="@drawable/baseline_format_list_numbered_24"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+      <TextView
+          android:id="@+id/txtCreator"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginStart="16dp"
+          android:layout_marginTop="4dp"
+          android:text="by Username"
+          android:textColor="#4E4E4E"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toBottomOf="@+id/textView6" />
+
+      <TextView
+          android:id="@+id/txtCreator2"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="4dp"
+          android:layout_marginEnd="16dp"
+          android:text="dd/mm/yyyy"
+          android:textAlignment="textEnd"
+          android:textColor="#4E4E4E"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintTop_toBottomOf="@+id/textView6" />
+
+      <androidx.recyclerview.widget.RecyclerView
+          android:id="@+id/recyclerView"
+          android:layout_width="0dp"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="10dp"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toBottomOf="@+id/txtCreator" />
+
+      <ImageView
+          android:id="@+id/imageView15"
+          android:layout_width="350dp"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="11dp"
+          android:src="@drawable/line"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toBottomOf="@+id/recyclerView" />
+
+      <TextView
+          android:id="@+id/textView6"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginStart="16dp"
+          android:background="#DCCDE7"
+          android:backgroundTint="#DCCDE7"
+          android:padding="10dp"
+          android:paddingLeft="20dp"
+          android:paddingRight="20dp"
+          android:text="Misteri"
+          android:textColor="#000000"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toBottomOf="@+id/imageView14" />
+
+      <ImageView
+          android:id="@+id/imageView17"
+          android:layout_width="100dp"
+          android:layout_height="40dp"
+          android:layout_marginTop="40dp"
+          android:layout_marginEnd="66dp"
+          android:layout_marginBottom="32dp"
+          android:src="@drawable/follow"
+          app:layout_constraintBottom_toBottomOf="parent"
+          app:layout_constraintEnd_toStartOf="@+id/txtCharacters"
+          app:layout_constraintHorizontal_bias="0.128"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toBottomOf="@+id/txtInputLayoutSearch" />
+
+      <ImageView
+          android:id="@+id/imageView18"
+          android:layout_width="100dp"
+          android:layout_height="40dp"
+          android:layout_marginTop="40dp"
+          android:layout_marginEnd="12dp"
+          android:layout_marginBottom="32dp"
+          android:src="@drawable/submit"
+          app:layout_constraintBottom_toBottomOf="parent"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintTop_toBottomOf="@+id/txtInputLayoutSearch" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
   </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
