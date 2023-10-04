@@ -22,11 +22,11 @@
       android:id="@+id/txtTitle"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
+      android:layout_marginTop="18dp"
       android:fontFamily="@font/roboto_medium"
       android:text="Users"
       android:textColor="#000000"
       android:textSize="18sp"
-      app:layout_constraintBottom_toBottomOf="@+id/topBar"
       app:layout_constraintEnd_toStartOf="@+id/btnNotif"
       app:layout_constraintStart_toEndOf="@+id/btnMenu"
       app:layout_constraintTop_toTopOf="@+id/topBar" />
@@ -36,8 +36,8 @@
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:layout_marginStart="16dp"
+      android:layout_marginTop="8dp"
       android:backgroundTint="#F2ECF6"
-      app:layout_constraintBottom_toBottomOf="@+id/topBar"
       app:layout_constraintStart_toStartOf="@+id/topBar"
       app:layout_constraintTop_toTopOf="@+id/topBar"
       app:srcCompat="@drawable/icon_menu" />
@@ -46,9 +46,9 @@
       android:id="@+id/btnNotif"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
+      android:layout_marginTop="8dp"
       android:layout_marginEnd="16dp"
       android:backgroundTint="#F2ECF6"
-      app:layout_constraintBottom_toBottomOf="@+id/topBar"
       app:layout_constraintEnd_toEndOf="@+id/topBar"
       app:layout_constraintTop_toTopOf="@+id/topBar"
       app:srcCompat="@drawable/icon_notif" />
@@ -186,32 +186,6 @@
       app:layout_constraintStart_toStartOf="@+id/btnPrefs"
       app:layout_constraintTop_toTopOf="@+id/navBar" />
 
-  <TextView
-      android:id="@+id/txtTitle2"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:layout_marginStart="60dp"
-      android:layout_marginTop="20dp"
-      android:fontFamily="@font/roboto_medium"
-      android:text="Most Liked"
-      android:textColor="#000000"
-      android:textSize="16sp"
-      app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintTop_toBottomOf="@+id/topBar" />
-
-  <TextView
-      android:id="@+id/txtTitle3"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:layout_marginTop="20dp"
-      android:layout_marginEnd="60dp"
-      android:fontFamily="@font/roboto_medium"
-      android:text=" Following"
-      android:textColor="#000000"
-      android:textSize="16sp"
-      app:layout_constraintEnd_toEndOf="parent"
-      app:layout_constraintTop_toBottomOf="@+id/topBar" />
-
   <ScrollView
       android:id="@+id/scrollView"
       android:layout_width="0dp"
@@ -220,20 +194,75 @@
       app:layout_constraintBottom_toTopOf="@+id/navBar"
       app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintHorizontal_bias="0.0"
-      app:layout_constraintStart_toStartOf="parent">
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/topBar"
+      app:layout_constraintVertical_bias="0.0">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
+      <TextView
+          android:id="@+id/txtTitle2"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginStart="40dp"
+          android:layout_marginTop="20dp"
+          android:fontFamily="@font/roboto_medium"
+          android:text="Most Liked"
+          android:textColor="#000000"
+          android:textSize="16sp"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toTopOf="parent" />
+
+      <TextView
+          android:id="@+id/txtTitle3"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="20dp"
+          android:layout_marginEnd="40dp"
+          android:fontFamily="@font/roboto_medium"
+          android:text=" Following"
+          android:textColor="#000000"
+          android:textSize="16sp"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintTop_toTopOf="parent" />
+
+      <ImageView
+          android:id="@+id/imageView"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="55dp"
+          android:src="@drawable/line"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toTopOf="parent" />
+
+      <ImageView
+          android:id="@+id/imageView6"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginStart="12dp"
+          android:scaleX="0.6"
+          android:scaleY="0.6"
+          android:src="@drawable/selected"
+          app:layout_constraintBottom_toBottomOf="@+id/imageView"
+          app:layout_constraintStart_toStartOf="parent" />
+
       <androidx.recyclerview.widget.RecyclerView
-          android:layout_width="0dp"
-          android:layout_height="0dp"
-          android:layout_marginTop="10dp"
+          android:layout_width="409dp"
+          android:layout_height="532dp"
           app:layout_constraintBottom_toBottomOf="parent"
           app:layout_constraintEnd_toEndOf="parent"
           app:layout_constraintStart_toStartOf="parent"
-          app:layout_constraintTop_toBottomOf="@+id/imageView" />
+          app:layout_constraintTop_toBottomOf="@+id/imageView">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+      </androidx.recyclerview.widget.RecyclerView>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
   </ScrollView>

@@ -22,11 +22,11 @@
       android:id="@+id/txtTitle"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
+      android:layout_marginTop="18dp"
       android:fontFamily="@font/roboto_medium"
-      android:text="Users"
+      android:text="Users 2"
       android:textColor="#000000"
       android:textSize="18sp"
-      app:layout_constraintBottom_toBottomOf="@+id/topBar"
       app:layout_constraintEnd_toStartOf="@+id/btnNotif"
       app:layout_constraintStart_toEndOf="@+id/btnMenu"
       app:layout_constraintTop_toTopOf="@+id/topBar" />
@@ -36,8 +36,8 @@
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:layout_marginStart="16dp"
+      android:layout_marginTop="8dp"
       android:backgroundTint="#F2ECF6"
-      app:layout_constraintBottom_toBottomOf="@+id/topBar"
       app:layout_constraintStart_toStartOf="@+id/topBar"
       app:layout_constraintTop_toTopOf="@+id/topBar"
       app:srcCompat="@drawable/icon_menu" />
@@ -46,9 +46,9 @@
       android:id="@+id/btnNotif"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
+      android:layout_marginTop="8dp"
       android:layout_marginEnd="16dp"
       android:backgroundTint="#F2ECF6"
-      app:layout_constraintBottom_toBottomOf="@+id/topBar"
       app:layout_constraintEnd_toEndOf="@+id/topBar"
       app:layout_constraintTop_toTopOf="@+id/topBar"
       app:srcCompat="@drawable/icon_notif" />
@@ -186,45 +186,6 @@
       app:layout_constraintStart_toStartOf="@+id/btnPrefs"
       app:layout_constraintTop_toTopOf="@+id/navBar" />
 
-  <ImageView
-      android:id="@+id/imageView7"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:src="@drawable/line"
-      tools:layout_editor_absoluteY="122dp" />
-
-  <TextView
-      android:id="@+id/txtTitle4"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:fontFamily="@font/roboto_medium"
-      android:text="Most Liked"
-      android:textColor="#000000"
-      android:textSize="16sp"
-      tools:layout_editor_absoluteX="59dp"
-      tools:layout_editor_absoluteY="90dp" />
-
-  <TextView
-      android:id="@+id/txtTitle5"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:fontFamily="@font/roboto_medium"
-      android:text=" Following"
-      android:textColor="#000000"
-      android:textSize="16sp"
-      tools:layout_editor_absoluteX="282dp"
-      tools:layout_editor_absoluteY="80dp" />
-
-  <ImageView
-      android:id="@+id/imageView8"
-      android:layout_width="100dp"
-      android:layout_height="wrap_content"
-      android:scaleX="0.6"
-      android:scaleY="0.6"
-      android:src="@drawable/selected"
-      tools:layout_editor_absoluteX="267dp"
-      tools:layout_editor_absoluteY="116dp" />
-
   <ScrollView
       android:id="@+id/scrollView"
       android:layout_width="0dp"
@@ -233,17 +194,15 @@
       app:layout_constraintBottom_toTopOf="@+id/navBar"
       app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintTop_toBottomOf="@+id/imageView7">
+      app:layout_constraintTop_toBottomOf="@+id/topBar">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-<<<<<<< HEAD
       <androidx.recyclerview.widget.RecyclerView
           android:layout_width="0dp"
           android:layout_height="0dp"
-          android:layout_marginTop="10dp"
           app:layout_constraintBottom_toBottomOf="parent"
           app:layout_constraintEnd_toEndOf="parent"
           app:layout_constraintStart_toStartOf="parent"
@@ -296,8 +255,6 @@
           app:layout_constraintBottom_toBottomOf="@+id/imageView7"
           app:layout_constraintEnd_toEndOf="@+id/imageView7" />
 
-=======
->>>>>>> 26374b397fce301c60de6b2ae4bf96f54fde6da9
     </androidx.constraintlayout.widget.ConstraintLayout>
   </ScrollView>
 
