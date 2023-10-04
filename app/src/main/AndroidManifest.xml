@@ -13,7 +13,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.HadiFamilyCerbung"
+        android:usesCleartextTraffic="true"
         tools:targetApi="31">
+        <activity
+            android:name=".cardHome"
+            android:exported="false" />
         <activity
             android:name=".SignUpActivity"
             android:exported="false" />
@@ -54,10 +58,10 @@
             android:name=".Create2Activity"
             android:exported="false" />
         <activity
-            android:name=".HomeActivity"
+            android:name=".Create3Activity"
             android:exported="false" />
         <activity
-            android:name=".Create3Activity"
+            android:name=".HomeActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

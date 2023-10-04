@@ -2,6 +2,7 @@ package com.example.hadifamilycerbung
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.hadifamilycerbung.databinding.ActivityHomeBinding
 
 class HomeActivity : AppCompatActivity() {
@@ -11,5 +12,10 @@ class HomeActivity : AppCompatActivity() {
         binding = ActivityHomeBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
+
+        val lm: LinearLayoutManager = LinearLayoutManager(this)
+        binding.recycleViewHome.layoutManager = lm
+        binding.recycleViewHome.setHasFixedSize(true)
+        binding.recycleViewHome.adapter = CerbungHomeAdapter()
     }
 }

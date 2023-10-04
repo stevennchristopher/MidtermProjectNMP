@@ -200,23 +200,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-      <Button
-          android:id="@+id/btnPrevC3"
-          style="?attr/materialButtonOutlinedStyle"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:layout_marginStart="32dp"
-          android:layout_marginTop="16dp"
-          android:layout_marginBottom="32dp"
-          android:text="Prev"
-          android:textAllCaps="false"
-          android:textSize="16sp"
-          app:cornerRadius="18dp"
-          app:layout_constraintBottom_toBottomOf="parent"
-          app:layout_constraintStart_toStartOf="parent"
-          app:layout_constraintTop_toBottomOf="@+id/checkBoxTerms"
-          app:strokeColor="#79747E" />
-
       <ImageView
           android:id="@+id/imageViewLine"
           android:layout_width="0dp"
@@ -244,23 +227,6 @@
           app:cornerRadius="18dp"
           app:layout_constraintStart_toStartOf="parent"
           app:layout_constraintTop_toBottomOf="@+id/txtTitleCerbung" />
-
-      <Button
-          android:id="@+id/btnDisplayGenre3"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:layout_marginTop="16dp"
-          android:layout_marginEnd="32dp"
-          android:layout_marginBottom="32dp"
-          android:backgroundTint="#6750A4"
-          android:text="Publish This Cerbung"
-          android:textAllCaps="false"
-          android:textColor="@color/white"
-          android:textSize="16sp"
-          app:cornerRadius="18dp"
-          app:layout_constraintBottom_toBottomOf="parent"
-          app:layout_constraintEnd_toEndOf="parent"
-          app:layout_constraintTop_toBottomOf="@+id/checkBoxTerms" />
 
       <Button
           android:id="@+id/btnDisplayAccess"
@@ -343,6 +309,40 @@
           app:layout_constraintEnd_toEndOf="parent"
           app:layout_constraintStart_toStartOf="parent"
           app:layout_constraintTop_toBottomOf="@+id/txtDescriptionCerbung2" />
+
+      <Button
+          android:id="@+id/btnPrevC3"
+          style="?attr/materialButtonOutlinedStyle"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginStart="32dp"
+          android:layout_marginTop="16dp"
+          android:layout_marginBottom="32dp"
+          android:text="Prev"
+          android:textAllCaps="false"
+          android:textSize="16sp"
+          app:cornerRadius="18dp"
+          app:layout_constraintBottom_toBottomOf="parent"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toBottomOf="@+id/checkBoxTerms"
+          app:strokeColor="#79747E" />
+
+      <Button
+          android:id="@+id/btnPublish"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="16dp"
+          android:layout_marginEnd="32dp"
+          android:layout_marginBottom="32dp"
+          android:backgroundTint="#6750A4"
+          android:text="Publish This Cerbung"
+          android:textAllCaps="false"
+          android:textColor="@color/white"
+          android:textSize="16sp"
+          app:cornerRadius="18dp"
+          app:layout_constraintBottom_toBottomOf="parent"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintTop_toBottomOf="@+id/checkBoxTerms" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
   </ScrollView>
