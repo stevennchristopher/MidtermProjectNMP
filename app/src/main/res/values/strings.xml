@@ -6,4 +6,5 @@
         <item>Horror</item>
         <item>Kocak</item>
     </string-array>
+    <string name="donthaveaccount"><u>Don’t have an account? Sign Up</u></string>
 </resources>

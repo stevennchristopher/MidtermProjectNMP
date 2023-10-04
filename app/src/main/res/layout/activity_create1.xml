@@ -22,11 +22,11 @@
       android:id="@+id/txtTitle"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
-      android:layout_marginTop="18dp"
       android:fontFamily="@font/roboto_medium"
       android:text="Create Cerbung"
       android:textColor="@color/black"
       android:textSize="18sp"
+      app:layout_constraintBottom_toBottomOf="@+id/topBar"
       app:layout_constraintEnd_toStartOf="@+id/btnNotif"
       app:layout_constraintStart_toEndOf="@+id/btnMenu"
       app:layout_constraintTop_toTopOf="@+id/topBar" />
@@ -36,8 +36,8 @@
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:layout_marginStart="16dp"
-      android:layout_marginTop="8dp"
       android:backgroundTint="#F2ECF6"
+      app:layout_constraintBottom_toBottomOf="@+id/topBar"
       app:layout_constraintStart_toStartOf="@+id/topBar"
       app:layout_constraintTop_toTopOf="@+id/topBar"
       app:srcCompat="@drawable/icon_menu" />
@@ -46,9 +46,9 @@
       android:id="@+id/btnNotif"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
-      android:layout_marginTop="8dp"
       android:layout_marginEnd="16dp"
       android:backgroundTint="#F2ECF6"
+      app:layout_constraintBottom_toBottomOf="@+id/topBar"
       app:layout_constraintEnd_toEndOf="@+id/topBar"
       app:layout_constraintTop_toTopOf="@+id/topBar"
       app:srcCompat="@drawable/icon_notif" />
@@ -284,28 +284,33 @@
       </com.google.android.material.textfield.TextInputLayout>
 
       <Button
-          android:id="@+id/btnNext"
+          android:id="@+id/btnNextC1"
           style="?attr/materialButtonOutlinedStyle"
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
           android:layout_marginTop="48dp"
           android:layout_marginEnd="32dp"
+          android:layout_marginBottom="32dp"
           android:text="Next"
           android:textAllCaps="false"
           android:textSize="16sp"
           app:cornerRadius="18dp"
+          app:layout_constraintBottom_toBottomOf="parent"
           app:layout_constraintEnd_toEndOf="parent"
-          app:layout_constraintTop_toBottomOf="@+id/txtInputLayoutGenre" />
+          app:layout_constraintTop_toBottomOf="@+id/txtInputLayoutGenre"
+          app:strokeColor="#79747E" />
 
       <TextView
-          android:id="@+id/txtPage"
+          android:id="@+id/txtPageC1"
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
-          android:layout_marginTop="62dp"
+          android:layout_marginTop="48dp"
           android:layout_marginEnd="68dp"
+          android:layout_marginBottom="32dp"
           android:text="1 of 3"
           android:textColor="@color/black"
-          app:layout_constraintEnd_toStartOf="@+id/btnNext"
+          app:layout_constraintBottom_toBottomOf="parent"
+          app:layout_constraintEnd_toStartOf="@+id/btnNextC1"
           app:layout_constraintTop_toBottomOf="@+id/txtInputLayoutGenre" />
     </androidx.constraintlayout.widget.ConstraintLayout>
   </ScrollView>
