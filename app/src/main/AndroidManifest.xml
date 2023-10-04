@@ -48,7 +48,7 @@
             android:name=".FollowingActivity"
             android:exported="false" />
         <activity
-            android:name=".Create3Activity"
+            android:name=".Create1Activity"
             android:exported="false" />
         <activity
             android:name=".Create2Activity"
@@ -57,7 +57,7 @@
             android:name=".HomeActivity"
             android:exported="false" />
         <activity
-            android:name=".Create1Activity"
+            android:name=".Create3Activity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

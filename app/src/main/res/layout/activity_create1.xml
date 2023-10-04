@@ -284,28 +284,32 @@
       </com.google.android.material.textfield.TextInputLayout>
 
       <Button
-          android:id="@+id/btnNext"
+          android:id="@+id/btnNextC1"
           style="?attr/materialButtonOutlinedStyle"
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
           android:layout_marginTop="48dp"
           android:layout_marginEnd="32dp"
+          android:layout_marginBottom="32dp"
           android:text="Next"
           android:textAllCaps="false"
           android:textSize="16sp"
           app:cornerRadius="18dp"
+          app:layout_constraintBottom_toBottomOf="parent"
           app:layout_constraintEnd_toEndOf="parent"
           app:layout_constraintTop_toBottomOf="@+id/txtInputLayoutGenre" />
 
       <TextView
-          android:id="@+id/txtPage"
+          android:id="@+id/txtPageC1"
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
-          android:layout_marginTop="62dp"
+          android:layout_marginTop="48dp"
           android:layout_marginEnd="68dp"
+          android:layout_marginBottom="32dp"
           android:text="1 of 3"
           android:textColor="@color/black"
-          app:layout_constraintEnd_toStartOf="@+id/btnNext"
+          app:layout_constraintBottom_toBottomOf="parent"
+          app:layout_constraintEnd_toStartOf="@+id/btnNextC1"
           app:layout_constraintTop_toBottomOf="@+id/txtInputLayoutGenre" />
     </androidx.constraintlayout.widget.ConstraintLayout>
   </ScrollView>
