@@ -8,6 +8,9 @@ import com.example.hadifamilycerbung.databinding.ActivityPrefsBinding
 class PrefsActivity : AppCompatActivity() {
     private lateinit var binding: ActivityPrefsBinding
     override fun onCreate(savedInstanceState: Bundle?) {
+
+        supportActionBar?.hide()
+
         super.onCreate(savedInstanceState)
         binding = ActivityPrefsBinding.inflate(layoutInflater)
         val view = binding.root

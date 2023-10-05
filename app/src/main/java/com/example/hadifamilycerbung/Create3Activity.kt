@@ -9,6 +9,9 @@ import com.example.hadifamilycerbung.databinding.ActivityHomeBinding
 class Create3Activity : AppCompatActivity() {
     private lateinit var binding: ActivityCreate3Binding
     override fun onCreate(savedInstanceState: Bundle?) {
+
+        supportActionBar?.hide()
+
         super.onCreate(savedInstanceState)
         binding = ActivityCreate3Binding.inflate(layoutInflater)
         val view = binding.root

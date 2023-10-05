@@ -10,6 +10,9 @@ class Create1Activity : AppCompatActivity() {
     private lateinit var binding: ActivityCreate1Binding
 
     override fun onCreate(savedInstanceState: Bundle?) {
+
+        supportActionBar?.hide()
+
         super.onCreate(savedInstanceState)
         binding = ActivityCreate1Binding.inflate(layoutInflater)
         val view = binding.root

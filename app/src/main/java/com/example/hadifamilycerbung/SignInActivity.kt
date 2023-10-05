@@ -15,6 +15,9 @@ class SignInActivity : AppCompatActivity() {
         val USER_ID = "0"
     }
     override fun onCreate(savedInstanceState: Bundle?) {
+
+        supportActionBar?.hide()
+
         super.onCreate(savedInstanceState)
         binding = ActivitySignInBinding.inflate(layoutInflater)
         val view = binding.root
