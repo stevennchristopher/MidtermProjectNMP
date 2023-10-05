@@ -23,33 +23,35 @@ class SignInActivity : AppCompatActivity() {
         binding.txtDontHaveAcc.setOnClickListener{
             val intent = Intent(this, SignUpActivity::class.java)
             startActivity(intent)
+            finish()
         }
+
+        var failCondition = 0
 
         binding.buttonLogin.setOnClickListener{
             val usernameCheck = binding.txtInputUsername.text.toString()
             val passwordCheck = binding.txtInputPassword.text.toString()
 
             for (user in Global.userData) {
-               if(user.username == usernameCheck){
-                   if(user.password == passwordCheck){
-                       Toast.makeText(this, "Login Success", Toast.LENGTH_LONG).show()
-                       intent.putExtra(USER_ID, user.id.toString())
-                       val intent = Intent(this, HomeActivity::class.java)
-                       startActivity(intent)
-                       finish()
-                   }
-                   else{
-                       Toast.makeText(this, "Invalid Username / Password", Toast.LENGTH_LONG).show()
-                   }
+               if(user.username == usernameCheck && user.password == passwordCheck){
+                   failCondition = 0
+
+                   Toast.makeText(this, "Login Success", Toast.LENGTH_LONG).show()
+
+                   intent.putExtra(USER_ID, user.id.toString())
+                   val intent = Intent(this, HomeActivity::class.java)
+                   startActivity(intent)
+                   finish()
                }
                 else{
-                   Toast.makeText(this, "Invalid Username / Password", Toast.LENGTH_LONG).show()
-               }
+                   failCondition++
+                }
             }
 
+            if(failCondition != 0){
+                Toast.makeText(this, "Invalid Username / Password", Toast.LENGTH_LONG).show()
 
+            }
         }
-
-
     }
 }

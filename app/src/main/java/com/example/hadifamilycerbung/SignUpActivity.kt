@@ -15,7 +15,7 @@ class SignUpActivity : AppCompatActivity() {
         val view = binding.root
         setContentView(view)
         var counter = 0
-        var countData = 0;
+        var countData = 0
 
         binding.buttonSignUp.setOnClickListener{
             val username = binding.txtInputUsernameNew.text.toString()

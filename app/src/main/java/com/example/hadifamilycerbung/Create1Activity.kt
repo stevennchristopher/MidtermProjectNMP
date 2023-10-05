@@ -19,6 +19,11 @@ class Create1Activity : AppCompatActivity() {
         val arrayAdapter = ArrayAdapter(this, R.layout.dropdown_genre, genres)
         binding.autoCompleteTxtInputImg.setAdapter(arrayAdapter)
 
+        binding.btnNextC1.setOnClickListener{
+            val usernameCheck = binding.txtInputImg.text.toString()
+            val passwordCheck = binding.txtInputDescription.text.toString()
+        }
+
 
     }
 }
