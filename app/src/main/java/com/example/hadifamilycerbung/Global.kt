@@ -1,5 +1,10 @@
 package com.example.hadifamilycerbung
 
+import java.text.SimpleDateFormat
+import java.time.LocalDate
+import java.time.format.DateTimeFormatter
+import java.util.Locale
+
 object Global {
     val cerbungHome =
         arrayListOf(
@@ -11,5 +16,11 @@ object Global {
         arrayListOf(
             User(1, "steven", "https://live.staticflickr.com/737/32640476365_906f64ce29_b.jpg", "test123"),
             User(2, "melissa", "https://live.staticflickr.com/737/32640476365_906f64ce29_b.jpg", "test123")
+        )
+
+    val cerbungNotification =
+        arrayListOf(
+            Notification(SimpleDateFormat("dd/MM/yyyy", Locale.US).parse("09/09/2023"), "bluby82", "Request to Contributes", "Respond"),
+            Notification(SimpleDateFormat("dd/MM/yyyy", Locale.US).parse("07/09/2023"), "ryanryan", "publish new cerbung", "View")
         )
 }

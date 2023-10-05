@@ -8,6 +8,9 @@ import com.example.hadifamilycerbung.databinding.ActivityUsers2Binding
 class Users2Activity : AppCompatActivity() {
     private lateinit var binding: ActivityUsers2Binding
     override fun onCreate(savedInstanceState: Bundle?) {
+
+        supportActionBar?.hide()
+
         super.onCreate(savedInstanceState)
         binding = ActivityUsers2Binding.inflate(layoutInflater)
         val view = binding.root

@@ -9,6 +9,9 @@ import com.example.hadifamilycerbung.databinding.ActivityHomeBinding
 class Create2Activity : AppCompatActivity() {
     private lateinit var binding: ActivityCreate2Binding
     override fun onCreate(savedInstanceState: Bundle?) {
+
+        supportActionBar?.hide()
+
         super.onCreate(savedInstanceState)
         binding = ActivityCreate2Binding.inflate(layoutInflater)
         val view = binding.root

@@ -22,7 +22,7 @@
             android:name=".SignUpActivity"
             android:exported="false" />
         <activity
-            android:name=".HomeActivity"
+            android:name=".SignInActivity"
             android:exported="false" />
         <activity
             android:name=".PrefsActivity"
@@ -37,7 +37,7 @@
             android:name=".NotificationsRespondActivity"
             android:exported="false" />
         <activity
-            android:name=".NotificationsActivity"
+            android:name=".HomeActivity"
             android:exported="false" />
         <activity
             android:name=".UserProfileActivity"
@@ -61,7 +61,7 @@
             android:name=".Create3Activity"
             android:exported="false" />
         <activity
-            android:name=".SignInActivity"
+            android:name=".NotificationsActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
