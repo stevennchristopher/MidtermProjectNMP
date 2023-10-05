@@ -1,5 +1,6 @@
 package com.example.hadifamilycerbung
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -20,5 +21,30 @@ class HomeActivity : AppCompatActivity() {
         binding.recycleViewHome.layoutManager = lm
         binding.recycleViewHome.setHasFixedSize(true)
         binding.recycleViewHome.adapter = CerbungHomeAdapter()
+
+        binding.btnNotif.setOnClickListener{
+            val intent = Intent(this, NotificationsActivity::class.java)
+            startActivity(intent)
+        }
+
+        binding.btnFollowing.setOnClickListener{
+            val intent = Intent(this, FollowingActivity::class.java)
+            startActivity(intent)
+        }
+
+        binding.btnCreate.setOnClickListener{
+            val intent = Intent(this, Create1Activity::class.java)
+            startActivity(intent)
+        }
+
+        binding.btnUser.setOnClickListener{
+            val intent = Intent(this, Users1Activity::class.java)
+            startActivity(intent)
+        }
+
+        binding.btnPrefs.setOnClickListener{
+            val intent = Intent(this, PrefsActivity::class.java)
+            startActivity(intent)
+        }
     }
 }

@@ -6,6 +6,18 @@
     android:layout_height="match_parent"
     tools:context=".SignUpActivity">
 
+    <TextView
+        android:id="@+id/txtHaveAcc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:fontFamily="@font/roboto_medium"
+        android:text="@string/haveanaccount"
+        android:textAllCaps="false"
+        android:textColor="@color/purple_500"
+        app:layout_constraintEnd_toEndOf="@+id/buttonSignUp"
+        app:layout_constraintTop_toBottomOf="@+id/buttonSignUp" />
+
     <Button
         android:id="@+id/buttonSignUp"
         android:layout_width="0dp"
@@ -25,7 +37,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="78dp"
         android:fontFamily="@font/rochester"
         android:text="Sign Up"
         android:textColor="#000000"
@@ -91,7 +103,8 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/txtInputPasswordNew"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:password="true" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -111,6 +124,7 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/txtInputPasswordConfirmNew"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:password="true" />
     </com.google.android.material.textfield.TextInputLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -7,4 +7,5 @@
         <item>Kocak</item>
     </string-array>
     <string name="donthaveaccount"><u>Don’t have an account? Sign Up</u></string>
+    <string name="haveanaccount"><u>Already have an account? Log In</u></string>
 </resources>

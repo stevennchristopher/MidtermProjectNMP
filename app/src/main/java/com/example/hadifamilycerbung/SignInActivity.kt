@@ -45,15 +45,15 @@ class SignInActivity : AppCompatActivity() {
                    val intent = Intent(this, HomeActivity::class.java)
                    startActivity(intent)
                    finish()
+                   break
                }
                 else{
                    failCondition++
                 }
             }
 
-            if(failCondition != 0){
+            if(failCondition > 0){
                 Toast.makeText(this, "Invalid Username / Password", Toast.LENGTH_LONG).show()
-
             }
         }
     }
