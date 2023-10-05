@@ -38,7 +38,7 @@
                 android:layout_width="120dp"
                 android:layout_height="120dp"
                 android:layout_marginStart="18dp"
-                android:src="@tools:sample/avatars"
+                android:src="@drawable/profile_pic"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="@+id/imageView9"
                 app:layout_constraintTop_toTopOf="parent" />

@@ -64,7 +64,7 @@
                 android:layout_height="22dp"
                 android:layout_marginEnd="16dp"
                 android:layout_marginBottom="16dp"
-                android:src="@tools:sample/avatars"
+                android:src="@drawable/profile_pic"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:srcCompat="@drawable/like" />
