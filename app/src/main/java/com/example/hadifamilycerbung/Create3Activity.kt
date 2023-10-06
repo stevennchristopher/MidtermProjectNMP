@@ -58,12 +58,19 @@ class Create3Activity : AppCompatActivity() {
         binding.btnPublish.setOnClickListener{
             if (binding.checkBoxTerms.isChecked){
 
-                var countData = 0
+                var countCerbung = 0
                 for (Cerbung in Global.userData){
-                    countData++
+                    countCerbung++
                 }
 
-                val newCerbung = Cerbung((countData+1),url.toString(),title.toString(), userId.toString().toInt(),1,0,description.toString())
+                var countParagraph = 0
+                for (Cerbung in Global.userData){
+                    countParagraph++
+                }
+
+                val newCerbung = Cerbung((countCerbung+1),url.toString(),title.toString(), userId.toString().toInt(),1,0,description.toString(), genre.toString(), access.toString())
+                Global.cerbung.add(newCerbung)
+                val newParagraph = Paragraph((countParagraph+1),(countCerbung+1), userId.toString().toInt(),paragraph.toString())
                 Global.cerbung.add(newCerbung)
                 Toast.makeText(this, "Publish successful", Toast.LENGTH_LONG).show()
                 val intent = Intent(this, HomeActivity::class.java)

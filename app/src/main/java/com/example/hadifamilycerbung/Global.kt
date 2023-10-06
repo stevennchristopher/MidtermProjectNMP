@@ -14,11 +14,11 @@ object Global {
             Cerbung(4, "https://picsum.photos/500", "Rahasia Gedung TF", 3, 2, 10, "\"Rahasia Gedung TF\" Gedung TF atau yang biasa disebut gedung teknik oleh warga sekitar, adalah bangunan yang selalu menyimpan sejuta misteri. Terletak di tengah Universitas Surabaya yang lebat, gedung ini sudah berdiri sejak bertahun-tahun lalu, namun sampai saat ini hampir tidak ada yang tahu apa misteri di balik bangunan kuno tersebut")
         )
 
-    val comments =
+    val paragraph =
         arrayListOf(
-            Comment(1, 1, "Di perpustakaan kuno, tersembunyi naskah rahasia. Seekor kucing jadi penunjuk jalan. Rahasia penjaga perpustakaan."),
-            Comment(1,2,"Pemilik naskah rahasia pernah menjadi raja. Kucing menjaga pintu tersembunyi. Penjaga perpustakaan menjaga rahasia dengan teliti. Hanya yang berani berbagi kisah-kisah ini."),
-            Comment(1,3,"")
+            Paragraph(1, 1, 1,"Di perpustakaan kuno, tersembunyi naskah rahasia. Seekor kucing jadi penunjuk jalan. Rahasia penjaga perpustakaan."),
+            Paragraph(2,2,2,"Pemilik naskah rahasia pernah menjadi raja. Kucing menjaga pintu tersembunyi. Penjaga perpustakaan menjaga rahasia dengan teliti. Hanya yang berani berbagi kisah-kisah ini."),
+            Paragraph(3,3,3,"clash of clan clash of clan clash of clan clash of clan clash of clan ")
         )
 
     val userData =
