@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.RadioButton
+import android.widget.Toast
 import com.example.hadifamilycerbung.databinding.ActivityCreate1Binding
 import com.example.hadifamilycerbung.databinding.ActivityCreate2Binding
 import com.example.hadifamilycerbung.databinding.ActivityHomeBinding
@@ -54,23 +55,29 @@ class Create2Activity : AppCompatActivity() {
         binding.txtInputEditParagraph.setText(paragraph)
 
         binding.btnNextC2.setOnClickListener{
-            val intent = Intent(this, Create3Activity::class.java)
-            intent.putExtra(title_cerbungHadiFamily, title)
-            intent.putExtra(description_cerbungHadiFamily, description)
-            intent.putExtra(imgUrl_cerbungHadiFamily, url)
-            intent.putExtra(genre_cerbungHadiFamily, genre)
-            intent.putExtra(user_login_cerbungHadiFamily, userId)
-            intent.putExtra(Create3Activity.rules_agree_cerbungHadiFamily, rulesCheck)
+            if (binding.txtInputEditParagraph.text.toString().trim().isEmpty()){
+                Toast.makeText(this, "You must write a paragraph first", Toast.LENGTH_SHORT).show()
+            }
+            else{
+                val intent = Intent(this, Create3Activity::class.java)
+                intent.putExtra(title_cerbungHadiFamily, title)
+                intent.putExtra(description_cerbungHadiFamily, description)
+                intent.putExtra(imgUrl_cerbungHadiFamily, url)
+                intent.putExtra(genre_cerbungHadiFamily, genre)
+                intent.putExtra(user_login_cerbungHadiFamily, userId)
+                intent.putExtra(Create3Activity.rules_agree_cerbungHadiFamily, rulesCheck)
 
-            val selectedRadioButton = findViewById<RadioButton>(binding.radioGroupAccess.checkedRadioButtonId)
-            val access = selectedRadioButton.text.toString()
+                val selectedRadioButton = findViewById<RadioButton>(binding.radioGroupAccess.checkedRadioButtonId)
+                val access = selectedRadioButton.text.toString()
 
-            val paragraph = binding.txtInputEditParagraph.text.toString()
+                val paragraph = binding.txtInputEditParagraph.text.toString()
 
-            intent.putExtra(access_cerbungHadiFamily, access)
-            intent.putExtra(paragraph_cerbungHadiFamily, paragraph)
+                intent.putExtra(access_cerbungHadiFamily, access)
+                intent.putExtra(paragraph_cerbungHadiFamily, paragraph)
 
-            startActivity(intent)
+                startActivity(intent)
+                finish()
+            }
         }
 
         binding.btnPrevC2.setOnClickListener{
@@ -91,7 +98,7 @@ class Create2Activity : AppCompatActivity() {
             intent.putExtra(paragraph_cerbungHadiFamily, paragraph)
 
             startActivity(intent)
+            finish()
         }
-
     }
 }

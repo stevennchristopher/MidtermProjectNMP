@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.ArrayAdapter
 import android.widget.EditText
+import android.widget.Toast
 import com.example.hadifamilycerbung.databinding.ActivityCreate1Binding
 import com.example.hadifamilycerbung.databinding.ActivityHomeBinding
 
@@ -54,21 +55,36 @@ class Create1Activity : AppCompatActivity() {
         binding.autoCompleteTxtInputImg.setText(genre, false)
 
         binding.btnNextC1.setOnClickListener{
-            val title = binding.txtInputTitle.text.toString()
-            val description = binding.txtInputDescription.text.toString()
-            val imgCoverUrl = binding.txtInputImg.text.toString()
-            val genre = binding.autoCompleteTxtInputImg.text.toString()
+            if (binding.txtInputTitle.text.toString().trim().isEmpty()){
+                binding.txtInputTitle.error = "Title cannot be empty"
+            }
+            else if(binding.txtInputDescription.text.toString().trim().isEmpty()){
+                binding.txtInputDescription.error = "Description cannot be empty"
+            }
+            else if(binding.txtInputImg.text.toString().trim().isEmpty()){
+                binding.txtInputImg.error = "Image URL cannot be empty"
+            }
+            else if(binding.autoCompleteTxtInputImg.text.trim().isEmpty()){
+                Toast.makeText(this, "Choose a genre!", Toast.LENGTH_SHORT).show()
+            }
+            else{
+                val title = binding.txtInputTitle.text.toString()
+                val description = binding.txtInputDescription.text.toString()
+                val imgCoverUrl = binding.txtInputImg.text.toString()
+                val genre = binding.autoCompleteTxtInputImg.text.toString()
 
-            val intent = Intent(this, Create2Activity::class.java)
-            intent.putExtra(title_cerbungHadiFamily, title)
-            intent.putExtra(description_cerbungHadiFamily, description)
-            intent.putExtra(imgUrl_cerbungHadiFamily, imgCoverUrl)
-            intent.putExtra(genre_cerbungHadiFamily, genre)
-            intent.putExtra(user_login_cerbungHadiFamily, userId)
-            intent.putExtra(access_cerbungHadiFamily, access)
-            intent.putExtra(paragraph_cerbungHadiFamily, paragraph)
-            intent.putExtra(Create3Activity.rules_agree_cerbungHadiFamily, rulesCheck)
-            startActivity(intent)
+                val intent = Intent(this, Create2Activity::class.java)
+                intent.putExtra(title_cerbungHadiFamily, title)
+                intent.putExtra(description_cerbungHadiFamily, description)
+                intent.putExtra(imgUrl_cerbungHadiFamily, imgCoverUrl)
+                intent.putExtra(genre_cerbungHadiFamily, genre)
+                intent.putExtra(user_login_cerbungHadiFamily, userId)
+                intent.putExtra(access_cerbungHadiFamily, access)
+                intent.putExtra(paragraph_cerbungHadiFamily, paragraph)
+                intent.putExtra(Create3Activity.rules_agree_cerbungHadiFamily, rulesCheck)
+                startActivity(intent)
+                finish()
+            }
         }
 
 

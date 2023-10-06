@@ -63,12 +63,12 @@ class Create3Activity : AppCompatActivity() {
                     countData++
                 }
 
-                val newCerbung = Cerbung((countData+1),url.toString(),title.toString(), userId.toString().toInt(),0,0,description.toString())
+                val newCerbung = Cerbung((countData+1),url.toString(),title.toString(), userId.toString().toInt(),1,0,description.toString())
                 Global.cerbung.add(newCerbung)
                 Toast.makeText(this, "Publish successful", Toast.LENGTH_LONG).show()
                 val intent = Intent(this, HomeActivity::class.java)
                 startActivity(intent)
-
+                finish()
             }
             else {
                 Toast.makeText(this, "Please agree to our terms before publishing", Toast.LENGTH_SHORT).show()
@@ -93,6 +93,7 @@ class Create3Activity : AppCompatActivity() {
             intent.putExtra(rules_agree_cerbungHadiFamily, rulesCheck)
 
             startActivity(intent)
+            finish()
         }
     }
 }
