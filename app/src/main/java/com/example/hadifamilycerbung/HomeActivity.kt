@@ -3,6 +3,7 @@ package com.example.hadifamilycerbung
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.hadifamilycerbung.databinding.ActivityHomeBinding
 
@@ -22,7 +23,7 @@ class HomeActivity : AppCompatActivity() {
         val view = binding.root
         setContentView(view)
 
-        val user = intent.getStringExtra(user_login_cerbungHadiFamily)
+        val user = intent.getIntExtra(user_login_cerbungHadiFamily, 0)
 
         val lm: LinearLayoutManager = LinearLayoutManager(this)
         binding.recycleViewHome.layoutManager = lm

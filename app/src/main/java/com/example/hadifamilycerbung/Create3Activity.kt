@@ -37,7 +37,7 @@ class Create3Activity : AppCompatActivity() {
         val description = intent.getStringExtra(description_cerbungHadiFamily)
         val url = intent.getStringExtra(imgUrl_cerbungHadiFamily)
         val genre = intent.getStringExtra(genre_cerbungHadiFamily)
-        val userId = intent.getStringExtra(user_login_cerbungHadiFamily)
+        val userId = intent.getIntExtra(Create1Activity.user_login_cerbungHadiFamily, 0)
         val access = intent.getStringExtra(access_cerbungHadiFamily)
         val paragraph = intent.getStringExtra(paragraph_cerbungHadiFamily)
         val rulesCheck = intent.getStringExtra(Create1Activity.rules_agree_cerbungHadiFamily)
@@ -67,6 +67,7 @@ class Create3Activity : AppCompatActivity() {
                 Global.cerbung.add(newCerbung)
                 Toast.makeText(this, "Publish successful", Toast.LENGTH_LONG).show()
                 val intent = Intent(this, HomeActivity::class.java)
+                intent.putExtra(user_login_cerbungHadiFamily, userId)
                 startActivity(intent)
                 finish()
             }

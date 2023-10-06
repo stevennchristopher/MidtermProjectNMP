@@ -42,7 +42,7 @@ class SignInActivity : AppCompatActivity() {
                    Toast.makeText(this, "Login Success", Toast.LENGTH_LONG).show()
 
                    val intent = Intent(this, HomeActivity::class.java)
-                   intent.putExtra(user_login_cerbungHadiFamily, user.id.toString())
+                   intent.putExtra(user_login_cerbungHadiFamily, user.id)
                    startActivity(intent)
                    finish()
                    break
