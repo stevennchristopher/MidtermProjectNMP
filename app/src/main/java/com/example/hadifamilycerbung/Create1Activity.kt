@@ -21,6 +21,8 @@ class Create1Activity : AppCompatActivity() {
 
         val access_cerbungHadiFamily = "access_19283918231607210"
         val paragraph_cerbungHadiFamily = "firstpara_19283918231607210"
+
+        val rules_agree_cerbungHadiFamily = "rules_ryanryanryan10101010"
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -43,6 +45,7 @@ class Create1Activity : AppCompatActivity() {
         val userId = intent.getStringExtra(user_login_cerbungHadiFamily)
         val access = intent.getStringExtra(access_cerbungHadiFamily)
         val paragraph = intent.getStringExtra(paragraph_cerbungHadiFamily)
+        val rulesCheck = intent.getStringExtra(rules_agree_cerbungHadiFamily)
 
         binding.txtInputTitle.setText(title)
         binding.txtInputDescription.setText(description)
@@ -64,6 +67,7 @@ class Create1Activity : AppCompatActivity() {
             intent.putExtra(user_login_cerbungHadiFamily, userId)
             intent.putExtra(access_cerbungHadiFamily, access)
             intent.putExtra(paragraph_cerbungHadiFamily, paragraph)
+            intent.putExtra(Create3Activity.rules_agree_cerbungHadiFamily, rulesCheck)
             startActivity(intent)
         }
 

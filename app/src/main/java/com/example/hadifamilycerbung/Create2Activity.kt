@@ -21,6 +21,8 @@ class Create2Activity : AppCompatActivity() {
 
         val access_cerbungHadiFamily = "access_19283918231607210"
         val paragraph_cerbungHadiFamily = "firstpara_19283918231607210"
+
+        val rules_agree_cerbungHadiFamily = "rules_ryanryanryan10101010"
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -39,14 +41,15 @@ class Create2Activity : AppCompatActivity() {
         val userId = intent.getStringExtra(user_login_cerbungHadiFamily)
         val access = intent.getStringExtra(access_cerbungHadiFamily)
         val paragraph = intent.getStringExtra(paragraph_cerbungHadiFamily)
+        val rulesCheck = intent.getStringExtra(Create1Activity.rules_agree_cerbungHadiFamily)
 
-        if (access == "Restricted"){
-            binding.radioButtonRestricted.isChecked = true
-            binding.radioButtonPublic.isChecked = false
+        if (access == "Public"){
+            binding.radioButtonRestricted.isChecked = false
+            binding.radioButtonPublic.isChecked = true
         }
         else {
-            binding.radioButtonPublic.isChecked = true
-            binding.radioButtonRestricted.isChecked = false
+            binding.radioButtonPublic.isChecked = false
+            binding.radioButtonRestricted.isChecked = true
         }
         binding.txtInputEditParagraph.setText(paragraph)
 
@@ -57,6 +60,7 @@ class Create2Activity : AppCompatActivity() {
             intent.putExtra(imgUrl_cerbungHadiFamily, url)
             intent.putExtra(genre_cerbungHadiFamily, genre)
             intent.putExtra(user_login_cerbungHadiFamily, userId)
+            intent.putExtra(Create3Activity.rules_agree_cerbungHadiFamily, rulesCheck)
 
             val selectedRadioButton = findViewById<RadioButton>(binding.radioGroupAccess.checkedRadioButtonId)
             val access = selectedRadioButton.text.toString()
@@ -76,6 +80,7 @@ class Create2Activity : AppCompatActivity() {
             intent.putExtra(imgUrl_cerbungHadiFamily, url)
             intent.putExtra(genre_cerbungHadiFamily, genre)
             intent.putExtra(user_login_cerbungHadiFamily, userId)
+            intent.putExtra(Create3Activity.rules_agree_cerbungHadiFamily, rulesCheck)
 
             val selectedRadioButton = findViewById<RadioButton>(binding.radioGroupAccess.checkedRadioButtonId)
             val access = selectedRadioButton.text.toString()

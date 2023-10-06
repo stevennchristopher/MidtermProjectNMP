@@ -15,21 +15,21 @@ class CerbungHomeAdapter():RecyclerView.Adapter<CerbungHomeAdapter.CerbungViewHo
     }
 
     override fun getItemCount(): Int {
-        return Global.cerbungHome.size
+        return Global.cerbung.size
     }
 
     override fun onBindViewHolder(holder: CerbungViewHolder, position: Int) {
-        val url = Global.cerbungHome[position].url
+        val url = Global.cerbung[position].url
         val builder = Picasso.Builder(holder.itemView.context)
         builder.listener{picasso, url, exception -> exception.printStackTrace()}
 
         with(holder.binding){
             Picasso.get().load(url).into(imgCerbungCardHome)
-            txtTitleCardHome.text = Global.cerbungHome[position].title
-            txtUsernameCardHome.text = Global.cerbungHome[position].usernameCreate
-            txtNumberCardHome.text = Global.cerbungHome[position].number.toString()
-            txtThumbsCardHome.text = Global.cerbungHome[position].thumbs.toString()
-            txtDescCardHome.text = Global.cerbungHome[position].description
+            txtTitleCardHome.text = Global.cerbung[position].title
+            txtUsernameCardHome.text = "by " + Global.userData[Global.cerbung[position].userId-1].username
+            txtNumberCardHome.text = Global.cerbung[position].number.toString()
+            txtThumbsCardHome.text = Global.cerbung[position].thumbs.toString()
+            txtDescCardHome.text = Global.cerbung[position].description
             btnReadCardHome.setOnClickListener{
 
             }
