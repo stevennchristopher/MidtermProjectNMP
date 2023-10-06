@@ -1,13 +1,20 @@
 package com.example.hadifamilycerbung
 
+import android.app.Activity
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.hadifamilycerbung.databinding.ActivityCardHomeBinding
 import com.squareup.picasso.Picasso
 
-class CerbungHomeAdapter():RecyclerView.Adapter<CerbungHomeAdapter.CerbungViewHolder>() {
+class CerbungHomeAdapter(private val userId:Int):RecyclerView.Adapter<CerbungHomeAdapter.CerbungViewHolder>() {
     class CerbungViewHolder(val binding: ActivityCardHomeBinding):RecyclerView.ViewHolder(binding.root)
+
+    companion object {
+        val id_cerbungHadiFamily = "idcerbung_random_1928391823"
+        val user_login_cerbungHadiFamily = "random_16071239872_user"
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CerbungViewHolder {
         val binding = ActivityCardHomeBinding.inflate(LayoutInflater.from(parent.context), parent, false)
@@ -30,9 +37,16 @@ class CerbungHomeAdapter():RecyclerView.Adapter<CerbungHomeAdapter.CerbungViewHo
             txtNumberCardHome.text = Global.cerbung[position].number.toString()
             txtThumbsCardHome.text = Global.cerbung[position].thumbs.toString()
             txtDescCardHome.text = Global.cerbung[position].description
-            btnReadCardHome.setOnClickListener{
 
+            btnReadCardHome.setOnClickListener{
+                val context = holder.itemView.context
+                val intent = Intent(context, ReadPublicActivity::class.java)
+                intent.putExtra(id_cerbungHadiFamily, Global.cerbung[position].id)
+                intent.putExtra(user_login_cerbungHadiFamily, userId)
+                context.startActivity(intent)
+                (context as Activity).finish()
             }
+
         }
     }
 }

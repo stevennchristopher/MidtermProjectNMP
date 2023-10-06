@@ -23,36 +23,40 @@ class HomeActivity : AppCompatActivity() {
         val view = binding.root
         setContentView(view)
 
-        val user = intent.getIntExtra(user_login_cerbungHadiFamily, 0)
+        val userId = intent.getIntExtra(user_login_cerbungHadiFamily, 0)
 
         val lm: LinearLayoutManager = LinearLayoutManager(this)
         binding.recycleViewHome.layoutManager = lm
         binding.recycleViewHome.setHasFixedSize(true)
-        binding.recycleViewHome.adapter = CerbungHomeAdapter()
+        binding.recycleViewHome.adapter = CerbungHomeAdapter(userId)
 
         binding.btnNotif.setOnClickListener{
             val intent = Intent(this, NotificationsActivity::class.java)
+            intent.putExtra(user_login_cerbungHadiFamily, userId)
             startActivity(intent)
         }
 
         binding.btnFollowing.setOnClickListener{
             val intent = Intent(this, FollowingActivity::class.java)
+            intent.putExtra(user_login_cerbungHadiFamily, userId)
             startActivity(intent)
         }
 
         binding.btnCreate.setOnClickListener{
             val intent = Intent(this, Create1Activity::class.java)
-            intent.putExtra(user_login_cerbungHadiFamily, user)
+            intent.putExtra(user_login_cerbungHadiFamily, userId)
             startActivity(intent)
         }
 
         binding.btnUser.setOnClickListener{
             val intent = Intent(this, Users1Activity::class.java)
+            intent.putExtra(user_login_cerbungHadiFamily, userId)
             startActivity(intent)
         }
 
         binding.btnPrefs.setOnClickListener{
             val intent = Intent(this, PrefsActivity::class.java)
+            intent.putExtra(user_login_cerbungHadiFamily, userId)
             startActivity(intent)
         }
 
