@@ -55,5 +55,7 @@ class HomeActivity : AppCompatActivity() {
             val intent = Intent(this, PrefsActivity::class.java)
             startActivity(intent)
         }
+
+
     }
 }

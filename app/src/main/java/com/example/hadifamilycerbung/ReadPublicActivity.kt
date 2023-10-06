@@ -15,5 +15,7 @@ class ReadPublicActivity : AppCompatActivity() {
         binding = ActivityReadPublicBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
+
+
     }
 }
