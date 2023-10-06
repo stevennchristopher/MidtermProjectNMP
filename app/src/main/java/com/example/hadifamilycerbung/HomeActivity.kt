@@ -8,6 +8,11 @@ import com.example.hadifamilycerbung.databinding.ActivityHomeBinding
 
 class HomeActivity : AppCompatActivity() {
     private lateinit var binding: ActivityHomeBinding
+
+    companion object {
+        val user_login_cerbungHadiFamily = "random_16071239872_user"
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
 
         supportActionBar?.hide()
@@ -16,6 +21,8 @@ class HomeActivity : AppCompatActivity() {
         binding = ActivityHomeBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
+
+        val user = intent.getStringExtra(user_login_cerbungHadiFamily)
 
         val lm: LinearLayoutManager = LinearLayoutManager(this)
         binding.recycleViewHome.layoutManager = lm
@@ -34,6 +41,7 @@ class HomeActivity : AppCompatActivity() {
 
         binding.btnCreate.setOnClickListener{
             val intent = Intent(this, Create1Activity::class.java)
+            intent.putExtra(user_login_cerbungHadiFamily, user)
             startActivity(intent)
         }
 

@@ -12,7 +12,7 @@ class SignInActivity : AppCompatActivity() {
     private lateinit var binding: ActivitySignInBinding
 
     companion object {
-        val USER_ID = "0"
+        val user_login_cerbungHadiFamily = "random_16071239872_user"
     }
     override fun onCreate(savedInstanceState: Bundle?) {
 
@@ -41,8 +41,8 @@ class SignInActivity : AppCompatActivity() {
 
                    Toast.makeText(this, "Login Success", Toast.LENGTH_LONG).show()
 
-                   intent.putExtra(USER_ID, user.id.toString())
                    val intent = Intent(this, HomeActivity::class.java)
+                   intent.putExtra(user_login_cerbungHadiFamily, user.id.toString())
                    startActivity(intent)
                    finish()
                    break
