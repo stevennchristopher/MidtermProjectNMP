@@ -28,7 +28,7 @@
             android:name=".PrefsActivity"
             android:exported="false" />
         <activity
-            android:name=".ReadPublicActivity"
+            android:name=".ReadActivity"
             android:exported="false" />
         <activity
             android:name=".ReadRestrictActivity"

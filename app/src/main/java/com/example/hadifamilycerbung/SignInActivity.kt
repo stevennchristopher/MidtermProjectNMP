@@ -4,9 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
-import com.example.hadifamilycerbung.databinding.ActivityReadRestrictBinding
 import com.example.hadifamilycerbung.databinding.ActivitySignInBinding
-import com.example.hadifamilycerbung.databinding.ActivitySignUpBinding
 
 class SignInActivity : AppCompatActivity() {
     private lateinit var binding: ActivitySignInBinding

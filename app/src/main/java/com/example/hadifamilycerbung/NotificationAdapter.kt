@@ -16,7 +16,7 @@ class NotificationAdapter(): RecyclerView.Adapter<NotificationAdapter.Notificati
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NotificationViewHolder {
         val binding = NotificationItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-        return NotificationAdapter.NotificationViewHolder(binding)
+        return NotificationViewHolder(binding)
     }
 
     override fun getItemCount(): Int {
