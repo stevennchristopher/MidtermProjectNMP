@@ -87,6 +87,10 @@ class Create1Activity : AppCompatActivity() {
             }
         }
 
+        binding.btnHome.setOnClickListener{
+            finish()
+        }
+
 
     }
 }

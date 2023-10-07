@@ -100,5 +100,9 @@ class Create2Activity : AppCompatActivity() {
             startActivity(intent)
             finish()
         }
+
+        binding.btnHome.setOnClickListener{
+            finish()
+        }
     }
 }

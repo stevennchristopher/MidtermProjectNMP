@@ -7,6 +7,11 @@ import android.widget.Toast
 import com.example.hadifamilycerbung.databinding.ActivityCreate2Binding
 import com.example.hadifamilycerbung.databinding.ActivityCreate3Binding
 import com.example.hadifamilycerbung.databinding.ActivityHomeBinding
+import java.text.SimpleDateFormat
+import java.time.LocalDate
+import java.util.Calendar
+import java.util.Date
+import java.util.Locale
 
 class Create3Activity : AppCompatActivity() {
     private lateinit var binding: ActivityCreate3Binding
@@ -68,7 +73,14 @@ class Create3Activity : AppCompatActivity() {
                     countParagraph++
                 }
 
-                val newCerbung = Cerbung((countCerbung+1),url.toString(),title.toString(), userId.toString().toInt(),1,0,description.toString(), genre.toString(), access.toString())
+                val calendar = Calendar.getInstance()
+                val year = calendar.get(Calendar.YEAR)
+                val month = calendar.get(Calendar.MONTH) + 1  // Months are zero-based
+                val day = calendar.get(Calendar.DAY_OF_MONTH)
+
+                val currentDate = "$day/$month/$year"
+
+                val newCerbung = Cerbung((countCerbung+1),url.toString(),title.toString(), userId.toString().toInt(),1,0,description.toString(), genre.toString(), access.toString(), SimpleDateFormat("dd/MM/yyyy", Locale.US).parse(currentDate))
                 Global.cerbung.add(newCerbung)
                 val newParagraph = Paragraph((countParagraph+1),(countCerbung+1), userId.toString().toInt(),paragraph.toString())
                 Global.paragraph.add(newParagraph)
@@ -101,6 +113,10 @@ class Create3Activity : AppCompatActivity() {
             intent.putExtra(rules_agree_cerbungHadiFamily, rulesCheck)
 
             startActivity(intent)
+            finish()
+        }
+
+        binding.btnHome.setOnClickListener{
             finish()
         }
     }
