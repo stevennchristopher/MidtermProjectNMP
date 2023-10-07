@@ -59,19 +59,19 @@ class Create3Activity : AppCompatActivity() {
             if (binding.checkBoxTerms.isChecked){
 
                 var countCerbung = 0
-                for (Cerbung in Global.userData){
+                for (Cerbung in Global.cerbung){
                     countCerbung++
                 }
 
                 var countParagraph = 0
-                for (Cerbung in Global.userData){
+                for (Cerbung in Global.paragraph){
                     countParagraph++
                 }
 
                 val newCerbung = Cerbung((countCerbung+1),url.toString(),title.toString(), userId.toString().toInt(),1,0,description.toString(), genre.toString(), access.toString())
                 Global.cerbung.add(newCerbung)
                 val newParagraph = Paragraph((countParagraph+1),(countCerbung+1), userId.toString().toInt(),paragraph.toString())
-                Global.cerbung.add(newCerbung)
+                Global.paragraph.add(newParagraph)
                 Toast.makeText(this, "Publish successful", Toast.LENGTH_LONG).show()
                 val intent = Intent(this, HomeActivity::class.java)
                 intent.putExtra(user_login_cerbungHadiFamily, userId)

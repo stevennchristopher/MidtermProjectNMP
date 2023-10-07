@@ -44,7 +44,7 @@ class CerbungHomeAdapter(private val userId:Int):RecyclerView.Adapter<CerbungHom
                 intent.putExtra(id_cerbungHadiFamily, Global.cerbung[position].id)
                 intent.putExtra(user_login_cerbungHadiFamily, userId)
                 context.startActivity(intent)
-                (context as Activity).finish()
+//                (context as Activity).finish()
             }
 
         }
