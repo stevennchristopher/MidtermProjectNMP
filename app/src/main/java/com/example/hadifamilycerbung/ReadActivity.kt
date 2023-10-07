@@ -7,6 +7,10 @@ import androidx.core.view.isVisible
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.hadifamilycerbung.databinding.ActivityReadBinding
 import com.squareup.picasso.Picasso
+import java.text.SimpleDateFormat
+import java.time.format.DateTimeFormatter
+import java.util.Calendar
+import java.util.Locale
 
 class ReadActivity : AppCompatActivity() {
     private lateinit var binding: ActivityReadBinding
@@ -43,13 +47,17 @@ class ReadActivity : AppCompatActivity() {
             binding.txtInputLayoutSearch.visibility = View.GONE
         }
 
-
         Picasso.get().load(Global.cerbung[cerbungIndex].url).into(binding.imgPoster)
         binding.txtJudul.setText(Global.cerbung[cerbungIndex].title)
         binding.txtParagraph.setText(Global.cerbung[cerbungIndex].number.toString())
         binding.txtLike.setText(Global.cerbung[cerbungIndex].thumbs.toString())
         binding.txtGenre.setText(Global.cerbung[cerbungIndex].genre)
         binding.txtCreator.setText(Global.userData[Global.cerbung[cerbungIndex].userId-1].username)
+
+        val date = Global.cerbung[cerbungIndex].createDate
+        val dateFormat = SimpleDateFormat("dd/MM/yyyy", Locale.US)
+        val formattedDate = dateFormat.format(date)
+        binding.txtDate.text = formattedDate
 
         val lm: LinearLayoutManager = LinearLayoutManager(this)
         binding.recyclerViewParagraphs.layoutManager = lm
@@ -58,10 +66,6 @@ class ReadActivity : AppCompatActivity() {
 
         binding.btnHome.setOnClickListener{
             finish()
-        }
-
-        binding.btnCreate.setOnClickListener{
-
         }
     }
 }
