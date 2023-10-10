@@ -35,9 +35,10 @@ class Create1Activity : AppCompatActivity() {
         val view = binding.root
         setContentView(view)
 
-        val genres = resources.getStringArray(R.array.genres)
-        val arrayAdapter = ArrayAdapter(this, R.layout.dropdown_genre, genres)
-        binding.autoCompleteTxtInputImg.setAdapter(arrayAdapter)
+        val adapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, Global.genre)
+
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        binding.spinGenre.adapter = adapter
 
         val title = intent.getStringExtra(title_cerbungHadiFamily)
         val description = intent.getStringExtra(description_cerbungHadiFamily)
@@ -52,7 +53,14 @@ class Create1Activity : AppCompatActivity() {
         binding.txtInputDescription.setText(description)
         binding.txtInputImg.setText(imgUrl)
 
-        binding.autoCompleteTxtInputImg.setText(genre, false)
+        var genreIndex = 0
+        for ((index, genreTest) in Global.genre.withIndex()){
+            if (genreTest.name == genre){
+                genreIndex = index
+            }
+        }
+        binding.spinGenre.setSelection(genreIndex)
+
 
         binding.btnNextC1.setOnClickListener{
             if (binding.txtInputTitle.text.toString().trim().isEmpty()){
@@ -64,14 +72,11 @@ class Create1Activity : AppCompatActivity() {
             else if(binding.txtInputImg.text.toString().trim().isEmpty()){
                 binding.txtInputImg.error = "Image URL cannot be empty"
             }
-            else if(binding.autoCompleteTxtInputImg.text.trim().isEmpty()){
-                Toast.makeText(this, "Choose a genre!", Toast.LENGTH_SHORT).show()
-            }
             else{
                 val title = binding.txtInputTitle.text.toString()
                 val description = binding.txtInputDescription.text.toString()
                 val imgCoverUrl = binding.txtInputImg.text.toString()
-                val genre = binding.autoCompleteTxtInputImg.text.toString()
+                val genre = binding.spinGenre.selectedItem.toString()
 
                 val intent = Intent(this, Create2Activity::class.java)
                 intent.putExtra(title_cerbungHadiFamily, title)

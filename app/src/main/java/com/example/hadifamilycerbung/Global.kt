@@ -34,6 +34,14 @@ object Global {
             User(3, "ryan", "https://coc.guide/static/imgs/troop/barbarian.png", "h")
         )
 
+    val genre =
+        arrayListOf(
+            Genre(1, "Misteri"),
+            Genre(2, "Aksi"),
+            Genre(3, "Horror"),
+            Genre(4, "Kocak")
+        )
+
     val cerbungNotification =
         arrayListOf(
             Notification(SimpleDateFormat("dd/MM/yyyy").parse("09/09/2023"), "bluby82", "Request to Contributes", "Respond"),

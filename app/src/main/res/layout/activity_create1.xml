@@ -260,35 +260,11 @@
             android:layout_height="wrap_content" />
       </com.google.android.material.textfield.TextInputLayout>
 
-      <com.google.android.material.textfield.TextInputLayout
-          android:id="@+id/txtInputLayoutGenre"
-          style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
-          android:layout_width="0dp"
-          android:layout_height="wrap_content"
-          android:layout_marginStart="32dp"
-          android:layout_marginTop="32dp"
-          android:layout_marginEnd="32dp"
-          android:hint="Choose Genre"
-          app:layout_constraintEnd_toEndOf="parent"
-          app:layout_constraintStart_toStartOf="parent"
-          app:layout_constraintTop_toBottomOf="@+id/txtInputLayoutImg">
-
-        <AutoCompleteTextView
-            android:id="@+id/autoCompleteTxtInputImg"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:inputType="none"
-            android:text="Misteri" />
-
-      </com.google.android.material.textfield.TextInputLayout>
-
       <Button
           android:id="@+id/btnNextC1"
           style="?attr/materialButtonOutlinedStyle"
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
-          android:layout_marginTop="48dp"
           android:layout_marginEnd="32dp"
           android:layout_marginBottom="32dp"
           android:text="Next"
@@ -297,21 +273,27 @@
           app:cornerRadius="18dp"
           app:layout_constraintBottom_toBottomOf="parent"
           app:layout_constraintEnd_toEndOf="parent"
-          app:layout_constraintTop_toBottomOf="@+id/txtInputLayoutGenre"
           app:strokeColor="#79747E" />
 
       <TextView
           android:id="@+id/txtPageC1"
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
-          android:layout_marginTop="48dp"
           android:layout_marginEnd="68dp"
           android:layout_marginBottom="32dp"
           android:text="1 of 3"
           android:textColor="@color/black"
           app:layout_constraintBottom_toBottomOf="parent"
-          app:layout_constraintEnd_toStartOf="@+id/btnNextC1"
-          app:layout_constraintTop_toBottomOf="@+id/txtInputLayoutGenre" />
+          app:layout_constraintEnd_toStartOf="@+id/btnNextC1" />
+
+      <Spinner
+          android:id="@+id/spinGenre"
+          android:layout_width="0dp"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="32dp"
+          app:layout_constraintEnd_toEndOf="@+id/txtInputLayoutImg"
+          app:layout_constraintStart_toStartOf="@+id/txtInputLayoutImg"
+          app:layout_constraintTop_toBottomOf="@+id/txtInputLayoutImg" />
     </androidx.constraintlayout.widget.ConstraintLayout>
   </ScrollView>
 
