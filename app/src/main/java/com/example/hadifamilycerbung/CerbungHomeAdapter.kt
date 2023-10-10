@@ -42,7 +42,6 @@ class CerbungHomeAdapter(private val userId:Int):RecyclerView.Adapter<CerbungHom
                 val context = holder.itemView.context
                 val intent = Intent(context, ReadActivity::class.java)
                 intent.putExtra(id_cerbungHadiFamily, Global.cerbung[position].id)
-                intent.putExtra(user_login_cerbungHadiFamily, userId)
                 context.startActivity(intent)
 //                (context as Activity).finish()
             }

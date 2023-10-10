@@ -17,7 +17,6 @@ class ReadActivity : AppCompatActivity() {
 
     companion object {
         val id_cerbungHadiFamily = "idcerbung_random_1928391823"
-        val user_login_cerbungHadiFamily = "random_16071239872_user"
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -29,7 +28,6 @@ class ReadActivity : AppCompatActivity() {
         val view = binding.root
         setContentView(view)
 
-        val userId = intent.getIntExtra(user_login_cerbungHadiFamily, 0)
         val cerbungId = intent.getIntExtra(id_cerbungHadiFamily, 0)
 
         var cerbungIndex = 0
