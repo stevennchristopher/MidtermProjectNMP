@@ -80,7 +80,7 @@ class Create3Activity : AppCompatActivity() {
 
                 val currentDate = "$day/$month/$year"
 
-                val newCerbung = Cerbung((countCerbung+1),url.toString(),title.toString(), userId.toString().toInt(),1,0,description.toString(), genre.toString(), access.toString(), SimpleDateFormat("dd/MM/yyyy", Locale.US).parse(currentDate))
+                val newCerbung = Cerbung((countCerbung+1),url.toString(),title.toString(), userId.toString().toInt(),1,0,description.toString(), genre.toString(), access.toString(), SimpleDateFormat("dd/MM/yyyy").parse(currentDate))
                 Global.cerbung.add(newCerbung)
                 val newParagraph = Paragraph((countParagraph+1),(countCerbung+1), userId.toString().toInt(),paragraph.toString())
                 Global.paragraph.add(newParagraph)

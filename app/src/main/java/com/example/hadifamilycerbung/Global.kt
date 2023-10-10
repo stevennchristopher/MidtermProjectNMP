@@ -8,10 +8,10 @@ import java.util.Locale
 object Global {
     val cerbung =
         arrayListOf(
-            Cerbung(1, "https://live.staticflickr.com/737/32640476365_906f64ce29_b.jpg", "Rahasia Terkunci di Perpustakaan Kuno", 1, 2, 5, "\"Rahasia Terkunci di Perpustakaan Kuno\" mengisahkan tentang seorang mahasiswa bernama Alex yang secara tak sengaja menemukan sebuah buku kuno yang misterius di perpustakaan universitasnya. ", "Misteri", "Restricted", SimpleDateFormat("dd/MM/yyyy", Locale.US).parse("09/09/2023")),
-            Cerbung(2, "https://live.staticflickr.com/737/32640476365_906f64ce29_b.jpg", "Rahasia Terkunci di Perpustakaan Kuno Chapter 2", 2, 2, 5, "\"Rahasia Terkunci di Perpustakaan Kuno\" mengisahkan tentang seorang mahasiswa bernama Alex yang secara tak sengaja menemukan sebuah buku kuno yang misterius di perpustakaan universitasnya. ", "Misteri", "Restricted", SimpleDateFormat("dd/MM/yyyy", Locale.US).parse("08/09/2023")),
-            Cerbung(3, "https://coc.guide/static/imgs/troop/barbarian.png", "Rahasia Update Terbaru Clash of Clans", 3, 2, 200, "\"Rahasia Update Terbaru Clash of Clans\" blablbablalblalblablablbablalblalblablablbablalblalblablablbablalblalblablablbablalblalblablablbablalblalblablablbablalblalblablablbablalblalbla. ", "Kocak", "Public", SimpleDateFormat("dd/MM/yyyy", Locale.US).parse("16/05/2023")),
-            Cerbung(4, "https://picsum.photos/500", "Rahasia Gedung TF", 3, 3, 10, "\"Rahasia Gedung TF\" Gedung TF atau yang biasa disebut gedung teknik oleh warga sekitar, adalah bangunan yang selalu menyimpan sejuta misteri. Terletak di tengah Universitas Surabaya yang lebat, gedung ini sudah berdiri sejak bertahun-tahun lalu, namun sampai saat ini hampir tidak ada yang tahu apa misteri di balik bangunan kuno tersebut", "Horror", "Public", SimpleDateFormat("dd/MM/yyyy", Locale.US).parse("25/12/2022"))
+            Cerbung(1, "https://live.staticflickr.com/737/32640476365_906f64ce29_b.jpg", "Rahasia Terkunci di Perpustakaan Kuno", 1, 2, 5, "\"Rahasia Terkunci di Perpustakaan Kuno\" mengisahkan tentang seorang mahasiswa bernama Alex yang secara tak sengaja menemukan sebuah buku kuno yang misterius di perpustakaan universitasnya. ", "Misteri", "Restricted", SimpleDateFormat("dd/MM/yyyy").parse("09/09/2023")),
+            Cerbung(2, "https://live.staticflickr.com/737/32640476365_906f64ce29_b.jpg", "Rahasia Terkunci di Perpustakaan Kuno Chapter 2", 2, 2, 5, "\"Rahasia Terkunci di Perpustakaan Kuno\" mengisahkan tentang seorang mahasiswa bernama Alex yang secara tak sengaja menemukan sebuah buku kuno yang misterius di perpustakaan universitasnya. ", "Misteri", "Restricted", SimpleDateFormat("dd/MM/yyyy").parse("08/09/2023")),
+            Cerbung(3, "https://coc.guide/static/imgs/troop/barbarian.png", "Rahasia Update Terbaru Clash of Clans", 3, 2, 200, "\"Rahasia Update Terbaru Clash of Clans\" blablbablalblalblablablbablalblalblablablbablalblalblablablbablalblalblablablbablalblalblablablbablalblalblablablbablalblalblablablbablalblalbla. ", "Kocak", "Public", SimpleDateFormat("dd/MM/yyyy").parse("16/05/2023")),
+            Cerbung(4, "https://picsum.photos/500", "Rahasia Gedung TF", 3, 3, 10, "\"Rahasia Gedung TF\" Gedung TF atau yang biasa disebut gedung teknik oleh warga sekitar, adalah bangunan yang selalu menyimpan sejuta misteri. Terletak di tengah Universitas Surabaya yang lebat, gedung ini sudah berdiri sejak bertahun-tahun lalu, namun sampai saat ini hampir tidak ada yang tahu apa misteri di balik bangunan kuno tersebut", "Horror", "Public", SimpleDateFormat("dd/MM/yyyy").parse("25/12/2022"))
         )
 
     val paragraph =
@@ -36,7 +36,7 @@ object Global {
 
     val cerbungNotification =
         arrayListOf(
-            Notification(SimpleDateFormat("dd/MM/yyyy", Locale.US).parse("09/09/2023"), "bluby82", "Request to Contributes", "Respond"),
-            Notification(SimpleDateFormat("dd/MM/yyyy", Locale.US).parse("07/09/2023"), "ryanryan", "publish new cerbung", "View")
+            Notification(SimpleDateFormat("dd/MM/yyyy").parse("09/09/2023"), "bluby82", "Request to Contributes", "Respond"),
+            Notification(SimpleDateFormat("dd/MM/yyyy").parse("07/09/2023"), "ryanryan", "publish new cerbung", "View")
         )
 }
