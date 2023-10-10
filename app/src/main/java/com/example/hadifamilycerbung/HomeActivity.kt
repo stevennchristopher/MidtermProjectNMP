@@ -3,7 +3,6 @@ package com.example.hadifamilycerbung
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.hadifamilycerbung.databinding.ActivityHomeBinding
 
@@ -28,7 +27,7 @@ class HomeActivity : AppCompatActivity() {
         val lm: LinearLayoutManager = LinearLayoutManager(this)
         binding.recycleViewHome.layoutManager = lm
         binding.recycleViewHome.setHasFixedSize(true)
-        binding.recycleViewHome.adapter = CerbungHomeAdapter(userId)
+        binding.recycleViewHome.adapter = CerbungAdapter(userId)
 
         binding.btnNotif.setOnClickListener{
             val intent = Intent(this, NotificationsActivity::class.java)

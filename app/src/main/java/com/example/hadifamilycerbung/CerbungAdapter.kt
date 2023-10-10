@@ -1,6 +1,5 @@
 package com.example.hadifamilycerbung
 
-import android.app.Activity
 import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -8,7 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.hadifamilycerbung.databinding.ActivityCardHomeBinding
 import com.squareup.picasso.Picasso
 
-class CerbungHomeAdapter(private val userId:Int):RecyclerView.Adapter<CerbungHomeAdapter.CerbungViewHolder>() {
+class CerbungAdapter(private val userId:Int):RecyclerView.Adapter<CerbungAdapter.CerbungViewHolder>() {
     class CerbungViewHolder(val binding: ActivityCardHomeBinding):RecyclerView.ViewHolder(binding.root)
 
     companion object {
