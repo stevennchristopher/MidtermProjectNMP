@@ -16,9 +16,6 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
-            android:name=".cardHome"
-            android:exported="false" />
-        <activity
             android:name=".SignUpActivity"
             android:exported="false" />
         <activity
@@ -29,9 +26,6 @@
             android:exported="false" />
         <activity
             android:name=".ReadActivity"
-            android:exported="false" />
-        <activity
-            android:name=".ReadRestrictActivity"
             android:exported="false" />
         <activity
             android:name=".NotificationsRespondActivity"

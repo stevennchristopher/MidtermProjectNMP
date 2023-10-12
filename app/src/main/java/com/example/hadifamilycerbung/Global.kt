@@ -9,8 +9,8 @@ object Global {
     val cerbung =
         arrayListOf(
             Cerbung(1, "https://live.staticflickr.com/737/32640476365_906f64ce29_b.jpg", "Rahasia Terkunci di Perpustakaan Kuno", 1, 2, 5, "\"Rahasia Terkunci di Perpustakaan Kuno\" mengisahkan tentang seorang mahasiswa bernama Alex yang secara tak sengaja menemukan sebuah buku kuno yang misterius di perpustakaan universitasnya. ", "Misteri", "Restricted", SimpleDateFormat("dd/MM/yyyy").parse("09/09/2023")),
-            Cerbung(2, "https://coc.guide/static/imgs/troop/barbarian.png", "Rahasia Update Terbaru Clash of Clans", 3, 2, 200, "\"Rahasia Update Terbaru Clash of Clans\" blablbablalblalblablablbablalblalblablablbablalblalblablablbablalblalblablablbablalblalblablablbablalblalblablablbablalblalblablablbablalblalbla. ", "Kocak", "Public", SimpleDateFormat("dd/MM/yyyy").parse("16/05/2023")),
-            Cerbung(3, "https://picsum.photos/500", "Rahasia Gedung TF", 3, 3, 10, "\"Rahasia Gedung TF\" Gedung TF atau yang biasa disebut gedung teknik oleh warga sekitar, adalah bangunan yang selalu menyimpan sejuta misteri. Terletak di tengah Universitas Surabaya yang lebat, gedung ini sudah berdiri sejak bertahun-tahun lalu, namun sampai saat ini hampir tidak ada yang tahu apa misteri di balik bangunan kuno tersebut", "Horror", "Public", SimpleDateFormat("dd/MM/yyyy").parse("25/12/2022"))
+            Cerbung(2, "https://i.pinimg.com/originals/9e/29/85/9e29853fe479335a58bb773609b99527.png", "Rahasia Update Terbaru Clash of Clans", 3, 2, 200, "\"Rahasia Update Terbaru Clash of Clans\" blablbablalblalblablablbablalblalblablablbablalblalblablablbablalblalblablablbablalblalblablablbablalblalblablablbablalblalblablablbablalblalbla. ", "Kocak", "Public", SimpleDateFormat("dd/MM/yyyy").parse("16/05/2023")),
+            Cerbung(3, "https://teknik.ubaya.ac.id/wp-content/uploads/sites/25/2023/01/Teknik.jpg", "Rahasia Gedung TF", 3, 3, 10, "\"Rahasia Gedung TF\" Gedung TF atau yang biasa disebut gedung teknik oleh warga sekitar, adalah bangunan yang selalu menyimpan sejuta misteri. Terletak di tengah Universitas Surabaya yang lebat, gedung ini sudah berdiri sejak bertahun-tahun lalu, namun sampai saat ini hampir tidak ada yang tahu apa misteri di balik bangunan kuno tersebut", "Horror", "Public", SimpleDateFormat("dd/MM/yyyy").parse("25/12/2022"))
         )
 
     val paragraph =
@@ -24,8 +24,8 @@ object Global {
 
     val userData =
         arrayListOf(
-            User(1, "steven", "https://live.staticflickr.com/737/32640476365_906f64ce29_b.jpg", "test123"),
-            User(2, "melissa", "https://live.staticflickr.com/737/32640476365_906f64ce29_b.jpg", "test123"),
+            User(1, "steven", "https://live.staticflickr.com/737/32640476365_906f64ce29_b.jpg", "s"),
+            User(2, "melissa", "https://live.staticflickr.com/737/32640476365_906f64ce29_b.jpg", "m"),
             User(3, "ryan", "https://coc.guide/static/imgs/troop/barbarian.png", "h")
         )
 
