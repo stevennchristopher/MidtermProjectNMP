@@ -4,19 +4,18 @@ import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.hadifamilycerbung.databinding.ActivityCardHomeBinding
+import com.example.hadifamilycerbung.databinding.CardHomeItemBinding
 import com.squareup.picasso.Picasso
 
 class CerbungAdapter(private val userId:Int):RecyclerView.Adapter<CerbungAdapter.CerbungViewHolder>() {
-    class CerbungViewHolder(val binding: ActivityCardHomeBinding):RecyclerView.ViewHolder(binding.root)
+    class CerbungViewHolder(val binding: CardHomeItemBinding):RecyclerView.ViewHolder(binding.root)
 
     companion object {
         val id_cerbungHadiFamily = "idcerbung_random_1928391823"
-        val user_login_cerbungHadiFamily = "random_16071239872_user"
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CerbungViewHolder {
-        val binding = ActivityCardHomeBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        val binding = CardHomeItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return CerbungViewHolder(binding)
     }
 
@@ -42,7 +41,6 @@ class CerbungAdapter(private val userId:Int):RecyclerView.Adapter<CerbungAdapter
                 val intent = Intent(context, ReadActivity::class.java)
                 intent.putExtra(id_cerbungHadiFamily, Global.cerbung[position].id)
                 context.startActivity(intent)
-//                (context as Activity).finish()
             }
 
         }
