@@ -38,6 +38,7 @@ class ReadActivity : AppCompatActivity() {
         }
 
         if (Global.cerbung[cerbungIndex].tipe.equals("Restricted")) {
+            binding.txtRestricted.visibility = View.VISIBLE
             binding.imageView15.visibility = View.GONE
             binding.txtInputEditSearch.visibility = View.GONE
             binding.txtCharacters.visibility = View.GONE

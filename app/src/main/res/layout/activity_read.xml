@@ -392,6 +392,22 @@
           app:layout_constraintEnd_toEndOf="parent"
           app:layout_constraintTop_toBottomOf="@+id/txtInputLayoutSearch" />
 
+      <TextView
+          android:id="@+id/txtRestricted"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginStart="16dp"
+          android:layout_marginTop="10dp"
+          android:background="#DCCDE7"
+          android:padding="10dp"
+          android:paddingLeft="20dp"
+          android:paddingRight="20dp"
+          android:text="Restricted"
+          android:textColor="#000000"
+          android:visibility="invisible"
+          app:layout_constraintStart_toEndOf="@+id/txtGenre"
+          app:layout_constraintTop_toBottomOf="@+id/imageView14" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
   </ScrollView>
 
