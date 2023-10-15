@@ -87,8 +87,8 @@ class Create3Activity : AppCompatActivity() {
                 Toast.makeText(this, "Publish successful", Toast.LENGTH_LONG).show()
                 val intent = Intent(this, HomeActivity::class.java)
                 intent.putExtra(user_login_cerbungHadiFamily, userId)
+                finishAffinity()
                 startActivity(intent)
-                finish()
             }
             else {
                 Toast.makeText(this, "Please agree to our terms before publishing", Toast.LENGTH_SHORT).show()

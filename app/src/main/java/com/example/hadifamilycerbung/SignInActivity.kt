@@ -24,7 +24,6 @@ class SignInActivity : AppCompatActivity() {
         binding.txtDontHaveAcc.setOnClickListener{
             val intent = Intent(this, SignUpActivity::class.java)
             startActivity(intent)
-            finish()
         }
 
         var failCondition = 0
@@ -48,8 +47,8 @@ class SignInActivity : AppCompatActivity() {
 
                         val intent = Intent(this, HomeActivity::class.java)
                         intent.putExtra(user_login_cerbungHadiFamily, user.id)
+                        finishAffinity()
                         startActivity(intent)
-                        finish()
                         break
                     }
                     else{
