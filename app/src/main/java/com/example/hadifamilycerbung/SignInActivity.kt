@@ -33,25 +33,33 @@ class SignInActivity : AppCompatActivity() {
             val usernameCheck = binding.txtInputUsername.text.toString()
             val passwordCheck = binding.txtInputPassword.text.toString()
 
-            for (user in Global.userData) {
-               if(user.username == usernameCheck && user.password == passwordCheck){
-                   failCondition = 0
-
-                   Toast.makeText(this, "Login Success", Toast.LENGTH_LONG).show()
-
-                   val intent = Intent(this, HomeActivity::class.java)
-                   intent.putExtra(user_login_cerbungHadiFamily, user.id)
-                   startActivity(intent)
-                   finish()
-                   break
-               }
-                else{
-                   failCondition++
-                }
+            if (binding.txtInputUsername.text.toString().trim().isEmpty()){
+                binding.txtInputUsername.error = "Username cannot be empty"
             }
+            else if(binding.txtInputPassword.text.toString().trim().isEmpty()){
+                binding.txtInputPassword.error = "Password cannot be empty"
+            }
+            else{
+                for (user in Global.userData) {
+                    if(user.username == usernameCheck && user.password == passwordCheck){
+                        failCondition = 0
 
-            if(failCondition > 0){
-                Toast.makeText(this, "Invalid Username / Password", Toast.LENGTH_LONG).show()
+                        Toast.makeText(this, "Login Success", Toast.LENGTH_LONG).show()
+
+                        val intent = Intent(this, HomeActivity::class.java)
+                        intent.putExtra(user_login_cerbungHadiFamily, user.id)
+                        startActivity(intent)
+                        finish()
+                        break
+                    }
+                    else{
+                        failCondition++
+                    }
+                }
+
+                if(failCondition > 0){
+                    Toast.makeText(this, "Invalid Username / Password", Toast.LENGTH_LONG).show()
+                }
             }
         }
     }
