@@ -37,7 +37,6 @@
                 android:backgroundTint="#6750A4"
                 android:text="Read"
                 android:textAllCaps="false"
-                android:textColor="@color/white"
                 android:textSize="16sp"
                 app:cornerRadius="18dp"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -65,7 +64,6 @@
                 android:layout_marginEnd="16dp"
                 android:fontFamily="@font/roboto"
                 android:text="Rahasia Terkunci di Perpustakaan Kuno"
-                android:textColor="@color/black"
                 android:textSize="16sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
@@ -104,7 +102,6 @@
                 android:layout_marginTop="15dp"
                 android:fontFamily="@font/roboto"
                 android:text="13"
-                android:textColor="@color/black"
                 android:textSize="16sp"
                 app:layout_constraintStart_toEndOf="@+id/btnNumberCardHome"
                 app:layout_constraintTop_toBottomOf="@+id/txtUsernameCardHome" />
@@ -128,7 +125,6 @@
                 android:layout_marginTop="15dp"
                 android:fontFamily="@font/roboto"
                 android:text="5"
-                android:textColor="@color/black"
                 android:textSize="16sp"
                 app:layout_constraintStart_toEndOf="@+id/btnThumbsCardHome"
                 app:layout_constraintTop_toBottomOf="@+id/txtUsernameCardHome" />

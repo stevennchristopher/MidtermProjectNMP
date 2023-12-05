@@ -40,7 +40,6 @@
                 android:fontFamily="@font/roboto_medium"
                 android:text="Respond"
                 android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                android:textColor="@color/purple_500"
                 app:layout_constraintBottom_toBottomOf="@+id/txtDescription"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/txtTanggal" />

@@ -35,29 +35,29 @@ class HomeActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-        binding.btnFollowing.setOnClickListener{
-            val intent = Intent(this, FollowingActivity::class.java)
-            intent.putExtra(user_login_cerbungHadiFamily, userId)
-            startActivity(intent)
-        }
-
-        binding.btnCreate.setOnClickListener{
-            val intent = Intent(this, Create1Activity::class.java)
-            intent.putExtra(user_login_cerbungHadiFamily, userId)
-            startActivity(intent)
-        }
-
-        binding.btnUser.setOnClickListener{
-            val intent = Intent(this, Users1Activity::class.java)
-            intent.putExtra(user_login_cerbungHadiFamily, userId)
-            startActivity(intent)
-        }
-
-        binding.btnPrefs.setOnClickListener{
-            val intent = Intent(this, PrefsActivity::class.java)
-            intent.putExtra(user_login_cerbungHadiFamily, userId)
-            startActivity(intent)
-        }
+//        binding.btnFollowing.setOnClickListener{
+//            val intent = Intent(this, FollowingActivity::class.java)
+//            intent.putExtra(user_login_cerbungHadiFamily, userId)
+//            startActivity(intent)
+//        }
+//
+//        binding.btnCreate.setOnClickListener{
+//            val intent = Intent(this, Create1Activity::class.java)
+//            intent.putExtra(user_login_cerbungHadiFamily, userId)
+//            startActivity(intent)
+//        }
+//
+//        binding.btnUser.setOnClickListener{
+//            val intent = Intent(this, Users1Activity::class.java)
+//            intent.putExtra(user_login_cerbungHadiFamily, userId)
+//            startActivity(intent)
+//        }
+//
+//        binding.btnPrefs.setOnClickListener{
+//            val intent = Intent(this, PrefsActivity::class.java)
+//            intent.putExtra(user_login_cerbungHadiFamily, userId)
+//            startActivity(intent)
+//        }
 
 
     }

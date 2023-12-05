@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".HomeActivity">
+    tools:context=".HomeActivity"
+    tools:menu="@menu/bottom_navigation_menu">
 
   <ImageView
       android:id="@+id/topBar"
@@ -53,146 +53,12 @@
       app:layout_constraintTop_toTopOf="@+id/topBar"
       app:srcCompat="@drawable/icon_notif" />
 
-  <ImageView
-      android:id="@+id/navBar"
-      android:layout_width="0dp"
-      android:layout_height="70dp"
-      android:scaleType="centerCrop"
-      app:layout_constraintBottom_toBottomOf="parent"
-      app:layout_constraintEnd_toEndOf="parent"
-      app:layout_constraintStart_toStartOf="parent"
-      app:srcCompat="@drawable/navbar" />
-
-  <ImageButton
-      android:id="@+id/btnHome"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:layout_marginStart="16dp"
-      android:layout_marginTop="4dp"
-      android:backgroundTint="#F2ECF6"
-      app:layout_constraintStart_toStartOf="@+id/navBar"
-      app:layout_constraintTop_toTopOf="@+id/navBar"
-      app:srcCompat="@drawable/icon_home" />
-
-  <ImageButton
-      android:id="@+id/btnFollowing"
-      android:layout_width="48dp"
-      android:layout_height="43dp"
-      android:layout_marginStart="32dp"
-      android:layout_marginTop="4dp"
-      android:backgroundTint="#F2ECF6"
-      android:scaleType="fitCenter"
-      app:layout_constraintStart_toEndOf="@+id/btnHome"
-      app:layout_constraintTop_toTopOf="@+id/navBar"
-      app:srcCompat="@drawable/icon_following" />
-
-  <ImageButton
-      android:id="@+id/btnCreate"
-      android:layout_width="48dp"
-      android:layout_height="43dp"
-      android:layout_marginStart="36dp"
-      android:layout_marginTop="4dp"
-      android:layout_marginEnd="36dp"
-      android:backgroundTint="#F2ECF6"
-      android:scaleType="fitCenter"
-      app:layout_constraintEnd_toStartOf="@+id/btnUser"
-      app:layout_constraintHorizontal_bias="0.025"
-      app:layout_constraintStart_toEndOf="@+id/btnFollowing"
-      app:layout_constraintTop_toTopOf="@+id/navBar"
-      app:srcCompat="@drawable/icon_create" />
-
-  <ImageButton
-      android:id="@+id/btnUser"
-      android:layout_width="48dp"
-      android:layout_height="43dp"
-      android:layout_marginTop="4dp"
-      android:layout_marginEnd="32dp"
-      android:backgroundTint="#F2ECF6"
-      android:scaleType="fitCenter"
-      app:layout_constraintEnd_toStartOf="@+id/btnPrefs"
-      app:layout_constraintTop_toTopOf="@+id/navBar"
-      app:srcCompat="@drawable/icon_user" />
-
-  <ImageButton
-      android:id="@+id/btnPrefs"
-      android:layout_width="48dp"
-      android:layout_height="43dp"
-      android:layout_marginTop="4dp"
-      android:layout_marginEnd="16dp"
-      android:backgroundTint="#F2ECF6"
-      android:scaleType="fitCenter"
-      app:layout_constraintEnd_toEndOf="parent"
-      app:layout_constraintTop_toTopOf="@+id/navBar"
-      app:srcCompat="@drawable/icon_prefs" />
-
-  <TextView
-      android:id="@+id/txtBtnHome"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:layout_marginTop="40dp"
-      android:fontFamily="@font/roboto_medium"
-      android:text="Home"
-      android:textColor="#000000"
-      app:layout_constraintEnd_toEndOf="@+id/btnHome"
-      app:layout_constraintStart_toStartOf="@+id/btnHome"
-      app:layout_constraintTop_toTopOf="@+id/navBar" />
-
-  <TextView
-      android:id="@+id/txtBtnFollowing"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:layout_marginTop="40dp"
-      android:fontFamily="@font/roboto_medium"
-      android:text="Following"
-      android:textColor="#000000"
-      app:layout_constraintEnd_toEndOf="@+id/btnFollowing"
-      app:layout_constraintStart_toStartOf="@+id/btnFollowing"
-      app:layout_constraintTop_toTopOf="@+id/navBar" />
-
-  <TextView
-      android:id="@+id/txtBtnCreate"
-      android:layout_width="0dp"
-      android:layout_height="wrap_content"
-      android:layout_marginStart="3dp"
-      android:layout_marginTop="40dp"
-      android:fontFamily="@font/roboto_medium"
-      android:text="Create"
-      android:textColor="#000000"
-      app:layout_constraintEnd_toEndOf="@+id/btnCreate"
-      app:layout_constraintHorizontal_bias="1.0"
-      app:layout_constraintStart_toStartOf="@+id/btnCreate"
-      app:layout_constraintTop_toTopOf="@+id/navBar" />
-
-  <TextView
-      android:id="@+id/txtBtnUsers"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:layout_marginTop="40dp"
-      android:fontFamily="@font/roboto_medium"
-      android:text="Users"
-      android:textColor="#000000"
-      app:layout_constraintEnd_toEndOf="@+id/btnUser"
-      app:layout_constraintStart_toStartOf="@+id/btnUser"
-      app:layout_constraintTop_toTopOf="@+id/navBar" />
-
-  <TextView
-      android:id="@+id/txtBtnPrefs"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:layout_marginTop="40dp"
-      android:fontFamily="@font/roboto_medium"
-      android:text="Prefs"
-      android:textColor="#000000"
-      app:layout_constraintEnd_toEndOf="@+id/btnPrefs"
-      app:layout_constraintStart_toStartOf="@+id/btnPrefs"
-      app:layout_constraintTop_toTopOf="@+id/navBar" />
-
   <ScrollView
       android:id="@+id/scrollView"
       android:layout_width="0dp"
       android:layout_height="0dp"
       android:fillViewport="true"
-      app:layout_constraintBottom_toTopOf="@+id/navBar"
+      app:layout_constraintBottom_toTopOf="@+id/bottomNav"
       app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintTop_toBottomOf="@+id/topBar">
@@ -211,7 +77,6 @@
           android:backgroundTint="#FFFBFE"
           android:text="Aksi"
           android:textAllCaps="false"
-          android:textColor="@color/black"
           android:textSize="14sp"
           app:cornerRadius="8dp"
           app:layout_constraintStart_toEndOf="@+id/btnHomeAll"
@@ -228,7 +93,6 @@
           android:backgroundTint="#FFFBFE"
           android:text="Horror"
           android:textAllCaps="false"
-          android:textColor="@color/black"
           android:textSize="14sp"
           app:cornerRadius="8dp"
           app:layout_constraintStart_toEndOf="@+id/btnHomeAksi"
@@ -245,7 +109,6 @@
           android:backgroundTint="#FFFBFE"
           android:text="Kocak"
           android:textAllCaps="false"
-          android:textColor="@color/black"
           android:textSize="14sp"
           app:cornerRadius="8dp"
           app:layout_constraintStart_toEndOf="@+id/btnHomeHorror"
@@ -261,7 +124,6 @@
           android:backgroundTint="#E8DEF8"
           android:text="All"
           android:textAllCaps="false"
-          android:textColor="@color/black"
           android:textSize="14sp"
           app:cornerRadius="8dp"
           app:layout_constraintStart_toStartOf="parent"
@@ -296,5 +158,14 @@
           app:layout_constraintTop_toBottomOf="@+id/btnHomeAksi" />
     </androidx.constraintlayout.widget.ConstraintLayout>
   </ScrollView>
+
+  <com.google.android.material.bottomnavigation.BottomNavigationView
+      android:id="@+id/bottomNav"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:menu="@menu/bottom_navigation_menu" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

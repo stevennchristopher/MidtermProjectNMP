@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/itemHome"
+        android:enabled="true"
+        android:icon="@drawable/icon_home"
+        android:title="Home"
+        android:visible="true"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/itemFollwoing"
+        android:enabled="true"
+        android:icon="@drawable/icon_following"
+        android:title="Following"
+        android:visible="true"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/itemCreate"
+        android:enabled="true"
+        android:icon="@drawable/icon_create"
+        android:title="Create"
+        android:visible="true"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/itemUser"
+        android:enabled="true"
+        android:icon="@drawable/icon_user"
+        android:title="User"
+        android:visible="true"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/itemPref"
+        android:enabled="true"
+        android:icon="@drawable/icon_prefs"
+        android:title="Pref"
+        android:visible="true"
+        app:showAsAction="always" />
+</menu>

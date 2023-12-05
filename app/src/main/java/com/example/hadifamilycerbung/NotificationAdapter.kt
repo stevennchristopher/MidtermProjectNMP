@@ -3,7 +3,6 @@ package com.example.hadifamilycerbung
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.hadifamilycerbung.databinding.ActivityCardHomeBinding
 import com.example.hadifamilycerbung.databinding.NotificationItemBinding
 import com.squareup.picasso.Picasso
 import java.text.SimpleDateFormat
