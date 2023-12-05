@@ -31,7 +31,7 @@ class CerbungAdapter(private val userId:Int):RecyclerView.Adapter<CerbungAdapter
         with(holder.binding){
             Picasso.get().load(url).into(imgCerbungCardHome)
             txtTitleCardHome.text = Global.cerbung[position].title
-            txtUsernameCardHome.text = "by " + Global.userData[Global.cerbung[position].userId-1].username
+//            txtUsernameCardHome.text = "by " + Global.userData[Global.cerbung[position].userId-1].username
             txtNumberCardHome.text = Global.cerbung[position].number.toString()
             txtThumbsCardHome.text = Global.cerbung[position].thumbs.toString()
             txtDescCardHome.text = Global.cerbung[position].description

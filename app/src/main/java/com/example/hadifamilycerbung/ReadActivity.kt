@@ -63,8 +63,8 @@ class ReadActivity : AppCompatActivity() {
         binding.recyclerViewParagraphs.setHasFixedSize(true)
         binding.recyclerViewParagraphs.adapter = ParagraphAdapter(cerbungId)
 
-        binding.btnHome.setOnClickListener{
-            finish()
-        }
+//        binding.btnHome.setOnClickListener{
+//            finish()
+//        }
     }
 }
