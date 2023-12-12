@@ -10,6 +10,7 @@ import com.android.volley.Response
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
 import com.example.hadifamilycerbung.databinding.ActivitySignInBinding
+import org.json.JSONArray
 import org.json.JSONObject
 
 class SignInActivity : AppCompatActivity() {
@@ -32,12 +33,7 @@ class SignInActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-        var failCondition = 0
-
         binding.buttonLogin.setOnClickListener{
-            val usernameCheck = binding.txtInputUsername.text.toString()
-            val passwordCheck = binding.txtInputPassword.text.toString()
-
             if (binding.txtInputUsername.text.toString().trim().isEmpty()){
                 binding.txtInputUsername.error = "Username cannot be empty"
             }
@@ -48,26 +44,28 @@ class SignInActivity : AppCompatActivity() {
                 val q = Volley.newRequestQueue(this)
                 val url = "https://ubaya.me/native/160721046/project/login.php"
 
-                var stringRequest = object : StringRequest(
-                    Request.Method.POST, url,
-                    Response.Listener<String> {
+                var stringRequest = object : StringRequest(Request.Method.POST, url,
+                    {
                         Log.d("apiresult", it)
+                        var obj = JSONObject(it)
 
-                        val jsonObject = JSONObject(it)
-                        val result = jsonObject.getInt("result")
-
-                       if(result.toString() == "error"){
-                           Log.d("hasil", "error")
-                       }
-                        else if(result.toString() == "success")
+                        var result = obj.getString("result")
+                        if(result == "error"){
+                            Toast.makeText(this, "Invalid Username / Password", Toast.LENGTH_LONG).show()
+                        }
+                        else if(result == "success")
                        {
-                           val idUser = jsonObject.getInt("id")
-                           Log.d("hasil", idUser.toString())
+                           var userId = obj.getString("id")
+                           Toast.makeText(this, "Login Success", Toast.LENGTH_LONG).show()
+
+                           val intent = Intent(this, HomeActivity::class.java)
+                           intent.putExtra(user_login_cerbungHadiFamily, userId)
+                           finishAffinity()
+                           startActivity(intent)
                        }
                     },
                     Response.ErrorListener {
                         Log.e("apiresult", it.message.toString())
-                        Log.d("hasil", "error")
                     })
                 {
                     override fun getParams(): MutableMap<String, String>{
@@ -79,28 +77,6 @@ class SignInActivity : AppCompatActivity() {
                     }
                 }
                 q.add(stringRequest)
-
-
-//                for (user in Global.userData) {
-//                    if(user.username == usernameCheck && user.password == passwordCheck){
-//                        failCondition = 0
-//
-//                        Toast.makeText(this, "Login Success", Toast.LENGTH_LONG).show()
-//
-//                        val intent = Intent(this, HomeActivity::class.java)
-//                        intent.putExtra(user_login_cerbungHadiFamily, user.id)
-//                        finishAffinity()
-//                        startActivity(intent)
-//                        break
-//                    }
-//                    else{
-//                        failCondition++
-//                    }
-//                }
-//
-//                if(failCondition > 0){
-//                    Toast.makeText(this, "Invalid Username / Password", Toast.LENGTH_LONG).show()
-//                }
             }
         }
     }
