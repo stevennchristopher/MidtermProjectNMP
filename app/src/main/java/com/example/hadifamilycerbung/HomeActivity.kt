@@ -13,6 +13,8 @@ class HomeActivity : AppCompatActivity() {
         val user_login_cerbungHadiFamily = "random_16071239872_user"
     }
 
+    var cerbungs : ArrayList<Cerbung> = ArrayList()
+
     override fun onCreate(savedInstanceState: Bundle?) {
 
         supportActionBar?.hide()
@@ -27,7 +29,7 @@ class HomeActivity : AppCompatActivity() {
         val lm: LinearLayoutManager = LinearLayoutManager(this)
         binding.recycleViewHome.layoutManager = lm
         binding.recycleViewHome.setHasFixedSize(true)
-        binding.recycleViewHome.adapter = CerbungAdapter(userId)
+        binding.recycleViewHome.adapter = CerbungAdapter(cerbungs)
 
         binding.btnNotif.setOnClickListener{
             val intent = Intent(this, NotificationsActivity::class.java)
