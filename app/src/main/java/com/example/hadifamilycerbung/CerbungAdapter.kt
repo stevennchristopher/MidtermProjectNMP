@@ -30,49 +30,32 @@ class CerbungAdapter(private val cerbungs:ArrayList<Cerbung>):RecyclerView.Adapt
     }
 
     override fun onBindViewHolder(holder: CerbungViewHolder, position: Int) {
-        val q = Volley.newRequestQueue(holder.itemView.context)
-        val url = "https://ubaya.me/native/160721046/project/get_cerbung.php"
+        val currentCerbung = cerbungs[position]
 
-        var idCerbung = ""
-        var titleCerbung = ""
-        var urlPhotoCerbung = ""
-        var descriptionCerbung = ""
+        with(holder.binding) {
+            Picasso.get()
+                .load(currentCerbung.urlPhoto)
+                .into(imgCerbungCardHome)
 
-        var stringRequest = object : StringRequest(
-            Request.Method.POST, url,
-            {
-                Log.d("apiresult", it)
-                var obj = JSONObject(it)
+            txtTitleCardHome.text = currentCerbung.title
+            txtUsernameCardHome.text = "by user id " + currentCerbung.id
+            txtNumberCardHome.text = "20"
+            txtThumbsCardHome.text = "20"
+            txtDescCardHome.text = currentCerbung.description
 
-                idCerbung = obj.getString("id")
-                titleCerbung = obj.getString("title")
-                urlPhotoCerbung = obj.getString("urlPhoto")
-                descriptionCerbung = obj.getString("description")
-            },
-            Response.ErrorListener {
-                Log.e("apiresult", it.message.toString())
-            })
-        {}
-        q.add(stringRequest)
-
-
-        val builder = Picasso.Builder(holder.itemView.context)
-        builder.listener{picasso, urlPhotoCerbung, exception -> exception.printStackTrace()}
-
-        with(holder.binding){
-            Picasso.get().load(urlPhotoCerbung).into(imgCerbungCardHome)
-            txtTitleCardHome.text = titleCerbung
-//            txtUsernameCardHome.text = "by " + Global.userData[Global.cerbung[position].userId-1].username
-//            txtNumberCardHome.text = Global.cerbung[position].number.toString()
-//            txtThumbsCardHome.text = Global.cerbung[position].thumbs.toString()
-            txtDescCardHome.text = descriptionCerbung
-
-            btnReadCardHome.setOnClickListener{
+            btnReadCardHome.setOnClickListener {
                 val context = holder.itemView.context
                 val intent = Intent(context, ReadActivity::class.java)
-                intent.putExtra(id_cerbungHadiFamily, idCerbung)
+                intent.putExtra(id_cerbungHadiFamily, currentCerbung.id)
                 context.startActivity(intent)
             }
         }
     }
+
+    fun updateData(newCerbungs: List<Cerbung>) {
+        cerbungs.clear()
+        cerbungs.addAll(newCerbungs)
+        notifyDataSetChanged()
+    }
 }
+
