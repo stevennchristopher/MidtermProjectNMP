@@ -3,10 +3,17 @@ package com.example.hadifamilycerbung
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
+import com.android.volley.Request
+import com.android.volley.Response
+import com.android.volley.toolbox.StringRequest
+import com.android.volley.toolbox.Volley
 import com.example.hadifamilycerbung.databinding.ActivityCreate2Binding
 import com.example.hadifamilycerbung.databinding.ActivityCreate3Binding
 import com.example.hadifamilycerbung.databinding.ActivityHomeBinding
+import org.json.JSONException
+import org.json.JSONObject
 import java.text.SimpleDateFormat
 import java.time.LocalDate
 import java.util.Calendar
@@ -40,8 +47,8 @@ class Create3Activity : AppCompatActivity() {
 
         val title = intent.getStringExtra(title_cerbungHadiFamily)
         val description = intent.getStringExtra(description_cerbungHadiFamily)
-        val url = intent.getStringExtra(imgUrl_cerbungHadiFamily)
-        val genre = intent.getStringExtra(genre_cerbungHadiFamily)
+        val urlPhoto = intent.getStringExtra(imgUrl_cerbungHadiFamily)
+        val genre = intent.getIntExtra(genre_cerbungHadiFamily, 0)
         val userId = intent.getIntExtra(Create1Activity.user_login_cerbungHadiFamily, 0)
         val access = intent.getStringExtra(access_cerbungHadiFamily)
         val paragraph = intent.getStringExtra(paragraph_cerbungHadiFamily)
@@ -51,7 +58,7 @@ class Create3Activity : AppCompatActivity() {
         binding.txtDescriptionCerbung.text = description
         binding.txtDescriptionCerbung2.text = paragraph
         binding.btnDisplayAccess.text = access
-        binding.btnDisplayGenre.text = genre
+//        binding.btnDisplayGenre.text = genre
 
         if (rulesCheck == "yes"){
             binding.checkBoxTerms.isChecked = true
@@ -62,28 +69,77 @@ class Create3Activity : AppCompatActivity() {
 
         binding.btnPublish.setOnClickListener{
             if (binding.checkBoxTerms.isChecked){
+//                val newParagraph = Paragraph((countParagraph+1),(countCerbung+1), userId.toString().toInt(),paragraph.toString())
+//                Global.paragraph.add(newParagraph)
 
-                var countCerbung = 0
-                for (Cerbung in Global.cerbung){
-                    countCerbung++
+                // project baru
+                val q = Volley.newRequestQueue(this)
+                val url = "https://ubaya.me/native/160721046/project/add_cerbung.php"
+                var cerbungID = -1
+
+                val stringRequest = object: StringRequest(
+                    Request.Method.POST, url,
+                    Response.Listener { response ->
+                        Log.d("cekparams", response)
+
+                        try {
+                            val jsonResponse = JSONObject(response)
+                            if (jsonResponse.getString("result") == "OK") {
+                                cerbungID = jsonResponse.getInt("cerbungID")
+                            }
+                            val q2 = Volley.newRequestQueue(this)
+                            val url2 = "https://ubaya.me/native/160721046/project/add_paragraph.php"
+
+                            val stringRequest2 = object: StringRequest(
+                                Request.Method.POST, url2,
+                                Response.Listener { response ->
+                                    Log.d("cekparams", response)
+
+                                    try {
+                                        val jsonResponse = JSONObject(response)
+                                        if (jsonResponse.getString("result") == "OK") {
+                                        }
+                                    } catch (e: JSONException) {
+                                        e.printStackTrace()
+                                    }
+                                },
+                                Response.ErrorListener { error ->
+                                    Log.d("cekparams", error.message.toString())
+                                }
+                            )
+                            {
+                                override fun getParams(): MutableMap<String, String> {
+                                    val params = HashMap<String, String>()
+                                    params["cerbungID"] = cerbungID.toString()
+                                    params["userID"] = "1"
+                                    params["content"] = paragraph.toString()
+                                    return params
+                                }
+                            }
+                            q2.add(stringRequest2)
+                            finish()
+                        } catch (e: JSONException) {
+                            e.printStackTrace()
+                        }
+                    },
+                    Response.ErrorListener { error ->
+                        Log.d("cekparams", error.message.toString())
+                    }
+                )
+                {
+                    override fun getParams(): MutableMap<String, String> {
+                        val params = HashMap<String, String>()
+                        params["title"] = title.toString()
+                        params["url"] = urlPhoto.toString()
+                        params["description"] = description.toString()
+                        params["type"] = access.toString()
+                        params["userID"] = "1"
+                        params["genreID"] = (genre+1).toString()
+                        return params
+                    }
                 }
+                q.add(stringRequest)
 
-                var countParagraph = 0
-                for (Cerbung in Global.paragraph){
-                    countParagraph++
-                }
-
-                val calendar = Calendar.getInstance()
-                val year = calendar.get(Calendar.YEAR)
-                val month = calendar.get(Calendar.MONTH) + 1
-                val day = calendar.get(Calendar.DAY_OF_MONTH)
-
-                val currentDate = "$day/$month/$year"
-
-                val newCerbung = Cerbung((countCerbung+1),url.toString(),title.toString(), userId.toString().toInt(),1,0,description.toString(), genre.toString(), access.toString(), SimpleDateFormat("dd/MM/yyyy").parse(currentDate))
-                Global.cerbung.add(newCerbung)
-                val newParagraph = Paragraph((countParagraph+1),(countCerbung+1), userId.toString().toInt(),paragraph.toString())
-                Global.paragraph.add(newParagraph)
                 Toast.makeText(this, "Publish successful", Toast.LENGTH_LONG).show()
                 val intent = Intent(this, HomeActivity::class.java)
                 intent.putExtra(user_login_cerbungHadiFamily, userId)
@@ -99,7 +155,7 @@ class Create3Activity : AppCompatActivity() {
             val intent = Intent(this, Create2Activity::class.java)
             intent.putExtra(title_cerbungHadiFamily, title)
             intent.putExtra(description_cerbungHadiFamily, description)
-            intent.putExtra(imgUrl_cerbungHadiFamily, url)
+            intent.putExtra(imgUrl_cerbungHadiFamily, urlPhoto)
             intent.putExtra(genre_cerbungHadiFamily, genre)
             intent.putExtra(user_login_cerbungHadiFamily, userId)
             intent.putExtra(access_cerbungHadiFamily, access)

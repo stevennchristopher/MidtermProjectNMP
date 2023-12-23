@@ -38,7 +38,7 @@ class Create2Activity : AppCompatActivity() {
         val title = intent.getStringExtra(title_cerbungHadiFamily)
         val description = intent.getStringExtra(description_cerbungHadiFamily)
         val url = intent.getStringExtra(imgUrl_cerbungHadiFamily)
-        val genre = intent.getStringExtra(genre_cerbungHadiFamily)
+        val genre = intent.getIntExtra(genre_cerbungHadiFamily, 0)
         val userId = intent.getIntExtra(Create1Activity.user_login_cerbungHadiFamily, 0)
         val access = intent.getStringExtra(access_cerbungHadiFamily)
         val paragraph = intent.getStringExtra(paragraph_cerbungHadiFamily)
