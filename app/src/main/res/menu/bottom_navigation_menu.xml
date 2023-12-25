@@ -10,7 +10,7 @@
         android:visible="true"
         app:showAsAction="always" />
     <item
-        android:id="@+id/itemFollwoing"
+        android:id="@+id/itemFollowing"
         android:enabled="true"
         android:icon="@drawable/icon_following"
         android:title="Following"

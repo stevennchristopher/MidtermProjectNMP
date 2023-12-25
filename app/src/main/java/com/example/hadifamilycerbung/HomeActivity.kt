@@ -1,17 +1,18 @@
 package com.example.hadifamilycerbung
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.MenuItem
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.android.volley.Request
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
 import com.example.hadifamilycerbung.databinding.ActivityHomeBinding
-import org.json.JSONArray
 import org.json.JSONException
 import org.json.JSONObject
+
 
 class HomeActivity : AppCompatActivity() {
     private lateinit var binding: ActivityHomeBinding
@@ -84,39 +85,46 @@ class HomeActivity : AppCompatActivity() {
         {
 
         }
-
         q.add(stringRequest)
 
-        binding.btnNotif.setOnClickListener{
-            val intent = Intent(this, NotificationsActivity::class.java)
-            intent.putExtra(user_login_cerbungHadiFamily, userId)
-            startActivity(intent)
+        binding.bottomNav.selectedItemId = R.id.itemHome
+        binding.bottomNav.setOnNavigationItemSelectedListener { item ->
+            when (item.itemId) {
+                R.id.itemHome -> {
+                    true
+                }
+                R.id.itemFollowing -> {
+                    val intent = Intent(this, FollowingActivity::class.java)
+                    intent.putExtra(FollowingActivity.user_login_cerbungHadiFamily, userId)
+                    startActivity(intent)
+                    true
+                }
+                R.id.itemCreate -> {
+                    val intent = Intent(this, Create1Activity::class.java)
+                    intent.putExtra(Create1Activity.user_login_cerbungHadiFamily, userId)
+                    startActivity(intent)
+                    true
+                }
+                R.id.itemUser -> {
+                    val intent = Intent(this, Users1Activity::class.java)
+                    intent.putExtra(Users1Activity.user_login_cerbungHadiFamily, userId)
+                    startActivity(intent)
+                    true
+                }
+                R.id.itemPref -> {
+                    val intent = Intent(this, PrefsActivity::class.java)
+                    intent.putExtra(user_login_cerbungHadiFamily, userId)
+                    startActivity(intent)
+                    true
+                }
+                else -> false
+            }
         }
 
-//        binding.btnFollowing.setOnClickListener{
-//            val intent = Intent(this, FollowingActivity::class.java)
+//        binding.btnNotif.setOnClickListener{
+//            val intent = Intent(this, NotificationsActivity::class.java)
 //            intent.putExtra(user_login_cerbungHadiFamily, userId)
 //            startActivity(intent)
 //        }
-//
-//        binding.btnCreate.setOnClickListener{
-//            val intent = Intent(this, Create1Activity::class.java)
-//            intent.putExtra(user_login_cerbungHadiFamily, userId)
-//            startActivity(intent)
-//        }
-//
-//        binding.btnUser.setOnClickListener{
-//            val intent = Intent(this, Users1Activity::class.java)
-//            intent.putExtra(user_login_cerbungHadiFamily, userId)
-//            startActivity(intent)
-//        }
-//
-//        binding.btnPrefs.setOnClickListener{
-//            val intent = Intent(this, PrefsActivity::class.java)
-//            intent.putExtra(user_login_cerbungHadiFamily, userId)
-//            startActivity(intent)
-//        }
-
-
     }
 }

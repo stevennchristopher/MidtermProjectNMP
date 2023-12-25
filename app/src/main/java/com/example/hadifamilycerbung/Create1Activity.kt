@@ -108,8 +108,8 @@ class Create1Activity : AppCompatActivity() {
                 val title = binding.txtInputTitle.text.toString()
                 val description = binding.txtInputDescription.text.toString()
                 val imgCoverUrl = binding.txtInputImg.text.toString()
-                val selectedGenre = genreList[binding.spinGenre.selectedItemPosition-1]
-                genreId = selectedGenre.id
+                val selectedGenre = genreList[binding.spinGenre.selectedItemPosition]
+                genreId = selectedGenre.id-1
 
                 val intent = Intent(this, Create2Activity::class.java)
                 intent.putExtra(title_cerbungHadiFamily, title)
@@ -124,8 +124,47 @@ class Create1Activity : AppCompatActivity() {
                 finish()
             }
         }
-//        binding.btnHome.setOnClickListener{
-//            finish()
-//        }
+
+        binding.bottomNav.selectedItemId = R.id.itemCreate
+        binding.bottomNav.setOnNavigationItemSelectedListener { item ->
+            when (item.itemId) {
+                R.id.itemHome -> {
+                    val intent = Intent(this, HomeActivity::class.java)
+                    intent.putExtra(HomeActivity.user_login_cerbungHadiFamily, userId)
+                    startActivity(intent)
+                    finish()
+                    true
+                }
+                R.id.itemFollowing -> {
+                    val intent = Intent(this, FollowingActivity::class.java)
+                    intent.putExtra(FollowingActivity.user_login_cerbungHadiFamily, userId)
+                    startActivity(intent)
+                    finish()
+                    true
+                }
+                R.id.itemCreate -> {
+                    true
+                }
+                R.id.itemUser -> {
+                    val intent = Intent(this, Users1Activity::class.java)
+                    intent.putExtra(Users1Activity.user_login_cerbungHadiFamily, userId)
+                    startActivity(intent)
+                    finish()
+                    true
+                }
+                R.id.itemPref -> {
+                    val intent = Intent(this, PrefsActivity::class.java)
+                    intent.putExtra(user_login_cerbungHadiFamily, userId)
+                    startActivity(intent)
+                    finish()
+                    true
+                }
+                else -> false
+            }
+        }
+    }
+
+    override fun onBackPressed() {
+        binding.bottomNav.selectedItemId = R.id.itemHome
     }
 }
