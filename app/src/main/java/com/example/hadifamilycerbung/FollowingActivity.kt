@@ -39,7 +39,7 @@ class FollowingActivity : AppCompatActivity() {
         val lm: LinearLayoutManager = LinearLayoutManager(this)
         binding.recycleViewFollowing.layoutManager = lm
         binding.recycleViewFollowing.setHasFixedSize(true)
-        cerbungFollowingAdapter = FollowingAdapter(followingCerbungs)
+        cerbungFollowingAdapter = FollowingAdapter(followingCerbungs, userId)
         binding.recycleViewFollowing.adapter = cerbungFollowingAdapter
 
         val q = Volley.newRequestQueue(this)

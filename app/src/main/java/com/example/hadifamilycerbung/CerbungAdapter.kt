@@ -17,7 +17,7 @@ import com.squareup.picasso.Picasso
 import org.json.JSONException
 import org.json.JSONObject
 
-class CerbungAdapter(private val cerbungs:ArrayList<Cerbung>):RecyclerView.Adapter<CerbungAdapter.CerbungViewHolder>() {
+class CerbungAdapter(private val cerbungs:ArrayList<Cerbung>, private val userId: Int):RecyclerView.Adapter<CerbungAdapter.CerbungViewHolder>() {
     class CerbungViewHolder(val binding: CardHomeItemBinding):RecyclerView.ViewHolder(binding.root)
 
     companion object {
@@ -82,6 +82,7 @@ class CerbungAdapter(private val cerbungs:ArrayList<Cerbung>):RecyclerView.Adapt
                 val context = holder.itemView.context
                 val intent = Intent(context, ReadActivity::class.java)
                 intent.putExtra(id_cerbungHadiFamily, currentCerbung.id)
+                intent.putExtra(ReadActivity.user_login_cerbungHadiFamily, userId)
                 context.startActivity(intent)
             }
         }

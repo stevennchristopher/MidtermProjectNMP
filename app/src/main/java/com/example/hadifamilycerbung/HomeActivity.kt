@@ -43,7 +43,7 @@ class HomeActivity : AppCompatActivity() {
         val lm: LinearLayoutManager = LinearLayoutManager(this)
         binding.recycleViewHome.layoutManager = lm
         binding.recycleViewHome.setHasFixedSize(true)
-        cerbungAdapter = CerbungAdapter(cerbungs)
+        cerbungAdapter = CerbungAdapter(cerbungs, userId)
         binding.recycleViewHome.adapter = cerbungAdapter
 
         val q = Volley.newRequestQueue(this)

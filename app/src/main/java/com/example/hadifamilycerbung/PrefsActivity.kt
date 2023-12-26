@@ -49,24 +49,28 @@ class PrefsActivity : AppCompatActivity() {
                     val intent = Intent(this, HomeActivity::class.java)
                     intent.putExtra(HomeActivity.user_login_cerbungHadiFamily, userId)
                     startActivity(intent)
+                    finish()
                     true
                 }
                 R.id.itemFollowing -> {
                     val intent = Intent(this, FollowingActivity::class.java)
                     intent.putExtra(FollowingActivity.user_login_cerbungHadiFamily, userId)
                     startActivity(intent)
+                    finish()
                     true
                 }
                 R.id.itemCreate -> {
                     val intent = Intent(this, Create1Activity::class.java)
                     intent.putExtra(Create1Activity.user_login_cerbungHadiFamily, userId)
                     startActivity(intent)
+                    finish()
                     true
                 }
                 R.id.itemUser -> {
                     val intent = Intent(this, Users1Activity::class.java)
                     intent.putExtra(Users1Activity.user_login_cerbungHadiFamily, userId)
                     startActivity(intent)
+                    finish()
                     true
                 }
                 R.id.itemPref -> {

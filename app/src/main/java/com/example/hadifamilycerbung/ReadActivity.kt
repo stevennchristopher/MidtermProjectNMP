@@ -1,5 +1,6 @@
 package com.example.hadifamilycerbung
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -24,6 +25,7 @@ class ReadActivity : AppCompatActivity() {
 
     companion object {
         val id_cerbungHadiFamily = "idcerbung_random_1928391823"
+        val user_login_cerbungHadiFamily = "random_16071239872_user"
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -36,6 +38,8 @@ class ReadActivity : AppCompatActivity() {
         setContentView(view)
 
         val cerbungId = intent.getIntExtra(id_cerbungHadiFamily, 0)
+        val userId = intent.getIntExtra(user_login_cerbungHadiFamily, 0)
+        Log.d("hasil U", userId.toString())
 
         val q = Volley.newRequestQueue(this)
         val url = "https://ubaya.me/native/160721046/project/read_cerbung.php"
@@ -99,5 +103,49 @@ class ReadActivity : AppCompatActivity() {
 //        binding.recyclerViewParagraphs.setHasFixedSize(true)
 //        binding.recyclerViewParagraphs.adapter = ParagraphAdapter(cerbungId)
 
+        binding.bottomNav.selectedItemId = R.id.itemFollowing
+        binding.bottomNav.setOnNavigationItemSelectedListener { item ->
+            when (item.itemId) {
+                R.id.itemHome -> {
+                    val intent = Intent(this, HomeActivity::class.java)
+                    intent.putExtra(HomeActivity.user_login_cerbungHadiFamily, userId)
+                    startActivity(intent)
+                    finish()
+                    true
+                }
+                R.id.itemFollowing -> {
+                    val intent = Intent(this, FollowingActivity::class.java)
+                    intent.putExtra(FollowingActivity.user_login_cerbungHadiFamily, userId)
+                    startActivity(intent)
+                    finish()
+                    true
+                }
+                R.id.itemCreate -> {
+                    val intent = Intent(this, Create1Activity::class.java)
+                    intent.putExtra(Create1Activity.user_login_cerbungHadiFamily, userId)
+                    startActivity(intent)
+                    finish()
+                    true
+                }
+                R.id.itemUser -> {
+                    val intent = Intent(this, Users1Activity::class.java)
+                    intent.putExtra(Users1Activity.user_login_cerbungHadiFamily, userId)
+                    startActivity(intent)
+                    finish()
+                    true
+                }
+                R.id.itemPref -> {
+                    val intent = Intent(this, PrefsActivity::class.java)
+                    intent.putExtra(Users1Activity.user_login_cerbungHadiFamily, userId)
+                    startActivity(intent)
+                    finish()
+                    true
+                }
+                else -> false
+            }
+        }
+    }
+    override fun onBackPressed() {
+        binding.bottomNav.selectedItemId = R.id.itemHome
     }
 }

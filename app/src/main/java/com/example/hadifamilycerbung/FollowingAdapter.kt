@@ -21,7 +21,7 @@ import org.json.JSONObject
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 
-class FollowingAdapter(private val cerbungs:ArrayList<Cerbung>):RecyclerView.Adapter<FollowingAdapter.CerbungViewHolder>() {
+class FollowingAdapter(private val cerbungs:ArrayList<Cerbung>, private val userId: Int):RecyclerView.Adapter<FollowingAdapter.CerbungViewHolder>() {
     class CerbungViewHolder(val binding: CerbungItemFollowingBinding):RecyclerView.ViewHolder(binding.root)
 
     companion object {
@@ -86,6 +86,7 @@ class FollowingAdapter(private val cerbungs:ArrayList<Cerbung>):RecyclerView.Ada
                 val context = holder.itemView.context
                 val intent = Intent(context, ReadActivity::class.java)
                 intent.putExtra(id_cerbungHadiFamily, currentCerbung.id)
+                intent.putExtra(ReadActivity.user_login_cerbungHadiFamily, userId)
                 context.startActivity(intent)
             }
         }
