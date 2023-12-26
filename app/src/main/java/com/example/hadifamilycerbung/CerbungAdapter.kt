@@ -1,9 +1,11 @@
 package com.example.hadifamilycerbung
 
+import android.R
 import android.content.Intent
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.ArrayAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.android.volley.Request
 import com.android.volley.Response
@@ -11,6 +13,7 @@ import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
 import com.example.hadifamilycerbung.databinding.CardHomeItemBinding
 import com.squareup.picasso.Picasso
+import org.json.JSONException
 import org.json.JSONObject
 
 class CerbungAdapter(private val cerbungs:ArrayList<Cerbung>):RecyclerView.Adapter<CerbungAdapter.CerbungViewHolder>() {
@@ -38,9 +41,44 @@ class CerbungAdapter(private val cerbungs:ArrayList<Cerbung>):RecyclerView.Adapt
                 .into(imgCerbungCardHome)
 
             txtTitleCardHome.text = currentCerbung.title
-            txtUsernameCardHome.text = "by user id " + currentCerbung.id
-            txtNumberCardHome.text = "20"
-            txtThumbsCardHome.text = "20"
+
+            val q = Volley.newRequestQueue(holder.itemView.context)
+            val url = "https://ubaya.me/native/160721046/project/get_cerbung_detail1.php"
+
+            val stringRequest = object : StringRequest(
+                Request.Method.POST, url,
+                Response.Listener { response ->
+                    try {
+                        val jsonResponse = JSONObject(response)
+                        if (jsonResponse.getString("result") == "OK") {
+                            val paragraph = jsonResponse.getInt("paragraph").toString()
+                            val likes = jsonResponse.getInt("likes").toString()
+                            val author = "by " + jsonResponse.getString("author")
+
+                            Log.d("para", paragraph.toString())
+                            Log.d("like", likes.toString())
+                            Log.d("author", author.toString())
+
+                            txtUsernameCardHome.text = author
+                            txtNumberCardHome.text = paragraph
+                            txtThumbsCardHome.text = likes
+                        }
+                    } catch (e: JSONException) {
+                        e.printStackTrace()
+                    }
+                },
+                Response.ErrorListener { error ->
+                    Log.d("Error", error.message.toString())
+                }
+            ) {
+                override fun getParams(): Map<String, String> {
+                    val params = HashMap<String, String>()
+                    params["id"] = currentCerbung.id.toString()
+                    return params
+                }
+            }
+            q.add(stringRequest)
+
             txtDescCardHome.text = currentCerbung.description
 
             btnReadCardHome.setOnClickListener {
