@@ -39,7 +39,6 @@ class ReadActivity : AppCompatActivity() {
 
         val cerbungId = intent.getIntExtra(id_cerbungHadiFamily, 0)
         val userId = intent.getIntExtra(user_login_cerbungHadiFamily, 0)
-        Log.d("hasil U", userId.toString())
 
         val q = Volley.newRequestQueue(this)
         val url = "https://ubaya.me/native/160721046/project/read_cerbung.php"
