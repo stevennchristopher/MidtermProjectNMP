@@ -102,7 +102,7 @@ class ReadActivity : AppCompatActivity() {
 //        binding.recyclerViewParagraphs.setHasFixedSize(true)
 //        binding.recyclerViewParagraphs.adapter = ParagraphAdapter(cerbungId)
 
-        binding.bottomNav.selectedItemId = R.id.itemFollowing
+        binding.bottomNav.selectedItemId = R.id.itemHome
         binding.bottomNav.setOnNavigationItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.itemHome -> {
