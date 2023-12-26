@@ -46,7 +46,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/txtFollowing"
+                android:id="@+id/txtUsernameFollowingCerbung"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
@@ -65,7 +65,7 @@
                 android:text="Last updated: dd/mm/yyyy"
                 android:textAlignment="viewStart"
                 app:layout_constraintStart_toEndOf="@+id/imgCerbungFollowing"
-                app:layout_constraintTop_toBottomOf="@+id/txtFollowing" />
+                app:layout_constraintTop_toBottomOf="@+id/txtUsernameFollowingCerbung" />
 
             <Button
                 android:id="@+id/btnReadCerbung"

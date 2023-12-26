@@ -12,19 +12,20 @@ import com.android.volley.Response
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
 import com.example.hadifamilycerbung.databinding.CardHomeItemBinding
+import com.example.hadifamilycerbung.databinding.CerbungItemFollowingBinding
 import com.squareup.picasso.Picasso
 import org.json.JSONException
 import org.json.JSONObject
 
 class FollowingAdapter(private val cerbungs:ArrayList<Cerbung>):RecyclerView.Adapter<FollowingAdapter.CerbungViewHolder>() {
-    class CerbungViewHolder(val binding: CardHomeItemBinding):RecyclerView.ViewHolder(binding.root)
+    class CerbungViewHolder(val binding: CerbungItemFollowingBinding):RecyclerView.ViewHolder(binding.root)
 
     companion object {
         val id_cerbungHadiFamily = "idcerbung_random_1928391823"
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CerbungViewHolder {
-        val binding = CardHomeItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        val binding = CerbungItemFollowingBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return CerbungViewHolder(binding)
     }
 
@@ -38,11 +39,13 @@ class FollowingAdapter(private val cerbungs:ArrayList<Cerbung>):RecyclerView.Ada
         with(holder.binding) {
             Picasso.get()
                 .load(currentCerbung.urlPhoto)
-                .into(imgCerbungCardHome)
+                .into(imgCerbungFollowing)
 
-            txtTitleCardHome.text = currentCerbung.title
-            txtDescCardHome.text = currentCerbung.description
-            btnReadCardHome.setOnClickListener {
+            txtCerbungTitle.text = currentCerbung.title
+            txtUsernameFollowingCerbung.text = "by user id" + currentCerbung.id
+            txtLastUpdated.text = currentCerbung.createDate
+
+            btnReadCerbung.setOnClickListener {
                 val context = holder.itemView.context
                 val intent = Intent(context, ReadActivity::class.java)
                 intent.putExtra(id_cerbungHadiFamily, currentCerbung.id)
