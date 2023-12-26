@@ -42,16 +42,6 @@ class PrefsActivity : AppCompatActivity() {
             }
         }
 
-        // Handle bottom navigation item clicks
-        binding.bottomNav.selectedItemId = R.id.itemPref
-        binding.bottomNav.setOnNavigationItemSelectedListener { item ->
-            when (item.itemId) {
-                // Handle other navigation items as needed
-                else -> false
-            }
-        }
-
-
         binding.bottomNav.selectedItemId = R.id.itemPref
         binding.bottomNav.setOnNavigationItemSelectedListener { item ->
             when (item.itemId) {
