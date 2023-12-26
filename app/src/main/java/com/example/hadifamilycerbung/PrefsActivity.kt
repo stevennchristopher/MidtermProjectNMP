@@ -9,7 +9,6 @@ import android.widget.Switch
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.appcompat.widget.Toolbar
-import com.example.hadifamilycerbung.databinding.ActivityHomeBinding
 import com.example.hadifamilycerbung.databinding.ActivityPrefsBinding
 import com.google.android.material.appbar.MaterialToolbar
 
