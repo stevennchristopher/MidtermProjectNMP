@@ -11,8 +11,8 @@
       android:id="@+id/appbar"
       android:layout_width="match_parent"
       android:layout_height="wrap_content">
-<<<<<<< HEAD
-=======
+
+    =======
 <!--      android:theme="@style/AppTheme.AppBarOverlay">-->
 >>>>>>> beed5548f01ed44108c018fa37ef6aebe3852581
 
@@ -111,7 +111,7 @@
           app:layout_constraintTop_toBottomOf="@+id/logOut">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/txtInputTitle"
+            android:id="@+id/txtUsername"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:enabled="false" />

@@ -24,11 +24,11 @@ class ParagraphAdapter(val cerbung:Int): RecyclerView.Adapter<ParagraphAdapter.P
         with(holder.binding){
             if (Global.paragraph[position].cerbungId == cerbung){
                 txtPara.text = Global.paragraph[position].content
-                txtUsername.text = Global.userData[Global.paragraph[position].userId - 1].username
+                txtInputTitle.text = Global.userData[Global.paragraph[position].userId - 1].username
             }
             else {
                 txtPara.isVisible = false
-                txtUsername.isVisible = false
+                txtInputTitle.isVisible = false
                 btnLikeParagraph.isVisible = false
                 iconAuthor.isVisible = false
             }
