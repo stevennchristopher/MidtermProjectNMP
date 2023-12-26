@@ -10,8 +10,7 @@
   <com.google.android.material.appbar.AppBarLayout
       android:id="@+id/appbar"
       android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      android:theme="@style/AppTheme.AppBarOverlay">
+      android:layout_height="wrap_content">
 
     <include
         layout="@layout/custom_toolbar"
@@ -110,7 +109,8 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/txtUsername"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:enabled="false" />
       </com.google.android.material.textfield.TextInputLayout>
 
       <com.google.android.material.textfield.TextInputLayout
