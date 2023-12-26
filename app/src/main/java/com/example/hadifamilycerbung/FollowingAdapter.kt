@@ -2,10 +2,12 @@ package com.example.hadifamilycerbung
 
 import android.R
 import android.content.Intent
+import android.os.Build
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
+import androidx.annotation.RequiresApi
 import androidx.recyclerview.widget.RecyclerView
 import com.android.volley.Request
 import com.android.volley.Response
@@ -16,6 +18,8 @@ import com.example.hadifamilycerbung.databinding.CerbungItemFollowingBinding
 import com.squareup.picasso.Picasso
 import org.json.JSONException
 import org.json.JSONObject
+import java.time.LocalDateTime
+import java.time.format.DateTimeFormatter
 
 class FollowingAdapter(private val cerbungs:ArrayList<Cerbung>):RecyclerView.Adapter<FollowingAdapter.CerbungViewHolder>() {
     class CerbungViewHolder(val binding: CerbungItemFollowingBinding):RecyclerView.ViewHolder(binding.root)
@@ -33,6 +37,7 @@ class FollowingAdapter(private val cerbungs:ArrayList<Cerbung>):RecyclerView.Ada
         return cerbungs.size
     }
 
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun onBindViewHolder(holder: CerbungViewHolder, position: Int) {
         val currentCerbung = cerbungs[position]
 
@@ -42,8 +47,40 @@ class FollowingAdapter(private val cerbungs:ArrayList<Cerbung>):RecyclerView.Ada
                 .into(imgCerbungFollowing)
 
             txtCerbungTitle.text = currentCerbung.title
-            txtUsernameFollowingCerbung.text = "by user id" + currentCerbung.id
-            txtLastUpdated.text = currentCerbung.createDate
+
+            val q = Volley.newRequestQueue(holder.itemView.context)
+            val url = "https://ubaya.me/native/160721046/project/get_cerbung_detail1.php"
+
+            val stringRequest = object : StringRequest(
+                Request.Method.POST, url,
+                Response.Listener { response ->
+                    try {
+                        val jsonResponse = JSONObject(response)
+                        if (jsonResponse.getString("result") == "OK") {
+                            val author = "by " + jsonResponse.getString("author")
+
+                            txtUsernameFollowingCerbung.text = author
+                        }
+                    } catch (e: JSONException) {
+                        e.printStackTrace()
+                    }
+                },
+                Response.ErrorListener { error ->
+                    Log.d("Error", error.message.toString())
+                }
+            ) {
+                override fun getParams(): Map<String, String> {
+                    val params = HashMap<String, String>()
+                    params["id"] = currentCerbung.id.toString()
+                    return params
+                }
+            }
+            q.add(stringRequest)
+
+            val lastUpdate = LocalDateTime.parse(currentCerbung.createDate, DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"))
+            val outputFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd")
+
+            txtLastUpdated.text = "Last updated: " + lastUpdate.format(outputFormatter)
 
             btnReadCerbung.setOnClickListener {
                 val context = holder.itemView.context
