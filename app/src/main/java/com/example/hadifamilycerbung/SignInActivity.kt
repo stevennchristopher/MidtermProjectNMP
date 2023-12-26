@@ -55,7 +55,7 @@ class SignInActivity : AppCompatActivity() {
                         }
                         else if(result == "success")
                        {
-                           var userId = obj.getString("id")
+                           var userId = obj.getInt("id")
                            Toast.makeText(this, "Login Success", Toast.LENGTH_LONG).show()
 
                            val intent = Intent(this, HomeActivity::class.java)
