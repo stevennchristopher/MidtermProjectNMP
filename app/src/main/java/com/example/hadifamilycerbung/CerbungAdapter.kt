@@ -55,10 +55,6 @@ class CerbungAdapter(private val cerbungs:ArrayList<Cerbung>):RecyclerView.Adapt
                             val likes = jsonResponse.getInt("likes").toString()
                             val author = "by " + jsonResponse.getString("author")
 
-                            Log.d("para", paragraph.toString())
-                            Log.d("like", likes.toString())
-                            Log.d("author", author.toString())
-
                             txtUsernameCardHome.text = author
                             txtNumberCardHome.text = paragraph
                             txtThumbsCardHome.text = likes
