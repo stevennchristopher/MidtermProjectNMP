@@ -4,12 +4,14 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.MenuItem
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.android.volley.Request
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
 import com.example.hadifamilycerbung.databinding.ActivityHomeBinding
+import com.google.android.material.appbar.MaterialToolbar
 import org.json.JSONException
 import org.json.JSONObject
 
@@ -34,6 +36,9 @@ class HomeActivity : AppCompatActivity() {
         setContentView(view)
 
         val userId = intent.getIntExtra(user_login_cerbungHadiFamily, 0)
+        val toolbar = findViewById<MaterialToolbar>(R.id.toolbar)
+        val titleTextView = toolbar.findViewById<TextView>(R.id.title)
+        titleTextView.text = "Home"
 
         val lm: LinearLayoutManager = LinearLayoutManager(this)
         binding.recycleViewHome.layoutManager = lm

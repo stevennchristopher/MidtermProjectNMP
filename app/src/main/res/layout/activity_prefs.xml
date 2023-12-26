@@ -14,7 +14,6 @@
 
     =======
 <!--      android:theme="@style/AppTheme.AppBarOverlay">-->
->>>>>>> beed5548f01ed44108c018fa37ef6aebe3852581
 
     <include
         layout="@layout/custom_toolbar"

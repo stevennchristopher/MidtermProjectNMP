@@ -32,7 +32,6 @@ class PrefsActivity : AppCompatActivity() {
 
         val darkModeSwitch = findViewById<Switch>(R.id.btnDarkMode)
 
-        // Check the current mode and set the switch state accordingly
         darkModeSwitch.isChecked = AppCompatDelegate.getDefaultNightMode() == AppCompatDelegate.MODE_NIGHT_YES
 
         darkModeSwitch.setOnCheckedChangeListener { _, isChecked ->
@@ -41,6 +40,15 @@ class PrefsActivity : AppCompatActivity() {
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
             } else {
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+            }
+        }
+
+        // Handle bottom navigation item clicks
+        binding.bottomNav.selectedItemId = R.id.itemPref
+        binding.bottomNav.setOnNavigationItemSelectedListener { item ->
+            when (item.itemId) {
+                // Handle other navigation items as needed
+                else -> false
             }
         }
 
