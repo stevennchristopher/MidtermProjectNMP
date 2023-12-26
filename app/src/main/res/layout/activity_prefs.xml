@@ -50,65 +50,17 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-      <TextView
-          android:id="@+id/textView3"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:layout_marginStart="40dp"
-          android:layout_marginTop="24dp"
-          android:layout_weight="1"
-          android:text="Dark Mode"
-          android:textSize="16sp"
-          app:layout_constraintStart_toStartOf="parent"
-          app:layout_constraintTop_toBottomOf="@+id/txtInputLayoutTitle" />
-
-      <TextView
-          android:id="@+id/textView5"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:layout_marginStart="40dp"
-          android:layout_marginTop="16dp"
-          android:layout_weight="1"
-          android:text="Notification"
-          android:textSize="16sp"
-          app:layout_constraintStart_toStartOf="parent"
-          app:layout_constraintTop_toBottomOf="@+id/textView3" />
-
-      <ImageView
-          android:id="@+id/profileImage"
-          android:layout_width="100dp"
-          android:layout_height="100dp"
-          android:layout_marginTop="16dp"
-          android:background="@drawable/circle"
-          android:scaleType="fitCenter"
-          android:src="@drawable/profile_pic"
-          app:layout_constraintEnd_toEndOf="parent"
-          app:layout_constraintStart_toStartOf="parent"
-          app:layout_constraintTop_toTopOf="parent" />
-
-      <ImageView
-          android:id="@+id/logOut"
-          android:layout_width="32dp"
-          android:layout_height="32dp"
-          android:layout_marginTop="80dp"
-          android:layout_marginEnd="150dp"
-          android:background="@drawable/circle"
-          android:scaleType="fitCenter"
-          android:src="@drawable/baseline_logout_24"
-          app:layout_constraintEnd_toEndOf="parent"
-          app:layout_constraintTop_toTopOf="@+id/profileImage" />
-
       <com.google.android.material.textfield.TextInputLayout
           android:id="@+id/txtInputLayoutTitle"
           style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
           android:layout_width="0dp"
           android:layout_height="wrap_content"
           android:layout_marginStart="32dp"
-          android:layout_marginTop="24dp"
+          android:layout_marginTop="32dp"
           android:layout_marginEnd="32dp"
           app:layout_constraintEnd_toEndOf="parent"
           app:layout_constraintStart_toStartOf="parent"
-          app:layout_constraintTop_toBottomOf="@+id/logOut">
+          app:layout_constraintTop_toBottomOf="@+id/profileImage">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/txtUsername"
@@ -199,6 +151,52 @@
           android:layout_marginEnd="40dp"
           app:layout_constraintEnd_toEndOf="parent"
           app:layout_constraintTop_toBottomOf="@+id/btnDarkMode" />
+
+      <Button
+          android:id="@+id/btnLogOut"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginStart="32dp"
+          android:layout_marginTop="24dp"
+          android:text="Log Out"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toBottomOf="@+id/textInputLayout3" />
+
+      <TextView
+          android:id="@+id/textView3"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginStart="40dp"
+          android:layout_marginTop="24dp"
+          android:layout_weight="1"
+          android:text="Dark Mode"
+          android:textSize="16sp"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toBottomOf="@+id/txtInputLayoutTitle" />
+
+      <TextView
+          android:id="@+id/textView5"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginStart="40dp"
+          android:layout_marginTop="16dp"
+          android:layout_weight="1"
+          android:text="Notification"
+          android:textSize="16sp"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+      <ImageView
+          android:id="@+id/profileImage"
+          android:layout_width="100dp"
+          android:layout_height="100dp"
+          android:layout_marginTop="16dp"
+          android:background="@drawable/circle"
+          android:scaleType="fitCenter"
+          android:src="@drawable/profile_pic"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toTopOf="parent" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

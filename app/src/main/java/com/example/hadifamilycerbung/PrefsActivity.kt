@@ -5,7 +5,9 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.Switch
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.appcompat.widget.Toolbar
 import com.example.hadifamilycerbung.databinding.ActivityHomeBinding
 import com.example.hadifamilycerbung.databinding.ActivityPrefsBinding
@@ -27,6 +29,21 @@ class PrefsActivity : AppCompatActivity() {
         // Find the TextView inside the toolbar and set the title
         val titleTextView = toolbar.findViewById<TextView>(R.id.title)
         titleTextView.text = "Prefs"
+
+        val darkModeSwitch = findViewById<Switch>(R.id.btnDarkMode)
+
+        // Check the current mode and set the switch state accordingly
+        darkModeSwitch.isChecked = AppCompatDelegate.getDefaultNightMode() == AppCompatDelegate.MODE_NIGHT_YES
+
+        darkModeSwitch.setOnCheckedChangeListener { _, isChecked ->
+            // Set the appropriate mode based on isChecked value
+            if (isChecked) {
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+            } else {
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+            }
+        }
+
 
         binding.bottomNav.selectedItemId = R.id.itemPref
         binding.bottomNav.setOnNavigationItemSelectedListener { item ->
