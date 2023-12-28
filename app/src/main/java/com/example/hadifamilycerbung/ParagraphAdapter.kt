@@ -5,9 +5,15 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
+import com.android.volley.Request
+import com.android.volley.Response
+import com.android.volley.toolbox.StringRequest
+import com.android.volley.toolbox.Volley
 import com.example.hadifamilycerbung.databinding.ParagraphBinding
+import org.json.JSONException
+import org.json.JSONObject
 
-class ParagraphAdapter(val cerbung:Int): RecyclerView.Adapter<ParagraphAdapter.ParagraphViewHolder>() {
+class ParagraphAdapter(val paragraphs:ArrayList<Paragraph>): RecyclerView.Adapter<ParagraphAdapter.ParagraphViewHolder>() {
 
     class ParagraphViewHolder(val binding: ParagraphBinding):RecyclerView.ViewHolder(binding.root)
 
@@ -17,22 +23,49 @@ class ParagraphAdapter(val cerbung:Int): RecyclerView.Adapter<ParagraphAdapter.P
     }
 
     override fun getItemCount(): Int {
-        return Global.paragraph.size
+        return paragraphs.size
     }
 
     override fun onBindViewHolder(holder: ParagraphViewHolder, position: Int) {
+        val currentParagraph = paragraphs[position]
         with(holder.binding){
-            if (Global.paragraph[position].cerbungId == cerbung){
-                txtPara.text = Global.paragraph[position].content
-                txtInputTitle.text = Global.userData[Global.paragraph[position].userId - 1].username
+            txtPara.text = currentParagraph.content
+
+            val q = Volley.newRequestQueue(holder.itemView.context)
+            val url = "https://ubaya.me/native/160721046/project/get_username.php"
+
+            val stringRequest = object : StringRequest(
+                Request.Method.POST, url,
+                Response.Listener { response ->
+                    try {
+                        val jsonResponse = JSONObject(response)
+                        if (jsonResponse.getString("result") == "OK") {
+                            val author = jsonResponse.getString("uname")
+
+                            txtInputTitle.text = author //gk tau kenapa gabisa diubah jadi txtAuthor namae di layout mungkin karena copas layout lain
+                        }
+                    } catch (e: JSONException) {
+                        e.printStackTrace()
+                    }
+                },
+                Response.ErrorListener { error ->
+                    Log.d("Error", error.message.toString())
+                }
+            ) {
+                override fun getParams(): Map<String, String> {
+                    val params = HashMap<String, String>()
+                    params["id"] = currentParagraph.userId.toString()
+                    return params
+                }
             }
-            else {
-                txtPara.isVisible = false
-                txtInputTitle.isVisible = false
-                btnLikeParagraph.isVisible = false
-                iconAuthor.isVisible = false
-            }
+            q.add(stringRequest)
         }
+    }
+
+    fun updateData(newParagraph: List<Paragraph>) {
+        paragraphs.clear()
+        paragraphs.addAll(newParagraph)
+        notifyDataSetChanged()
     }
 
 

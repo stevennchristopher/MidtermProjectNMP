@@ -27,7 +27,6 @@ class ReadAdapter() : RecyclerView.Adapter<ReadAdapter.ReadViewHolder>() {
             val userId = Global.paragraph[position].userId
             val builder = Picasso.Builder(holder.itemView.context)
             builder.listener { picasso, uri, exception -> exception.printStackTrace() }
-
         }
 
 
