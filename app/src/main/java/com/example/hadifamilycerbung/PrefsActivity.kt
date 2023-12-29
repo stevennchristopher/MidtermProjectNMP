@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.Button
 import android.widget.Switch
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatDelegate
@@ -24,10 +25,15 @@ class PrefsActivity : AppCompatActivity() {
         setContentView(view)
         val userId = intent.getIntExtra(HomeActivity.user_login_cerbungHadiFamily, 0)
         val toolbar = findViewById<MaterialToolbar>(R.id.toolbar)
-
-        // Find the TextView inside the toolbar and set the title
         val titleTextView = toolbar.findViewById<TextView>(R.id.title)
         titleTextView.text = "Prefs"
+
+        binding.btnLogOut.setOnClickListener {
+            val intent = Intent(this, SignInActivity::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+            startActivity(intent)
+            finish()
+        }
 
         val darkModeSwitch = findViewById<Switch>(R.id.btnDarkMode)
 
