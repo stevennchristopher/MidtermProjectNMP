@@ -393,7 +393,14 @@ class ReadActivity : AppCompatActivity() {
 
                     binding.txtRestricted.visibility = View.VISIBLE
 
-                    if (type == "Restricted") {
+                    if (jsonObjectCerbung.getInt("userId").equals(userId)){
+                        if (type == "Restricted"){
+                            binding.txtRestricted.text = "It's your Cerbung (Restricted)"
+                        } else {
+                            binding.txtRestricted.text = "It's your Cerbung (Public)"
+                        }
+                    }
+                    else if (type == "Restricted") {
                         binding.txtRestricted.text = "Restricted"
                         binding.btnRequest.visibility = View.VISIBLE
                         binding.imageView15.visibility = View.GONE
