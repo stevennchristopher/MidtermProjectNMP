@@ -13,7 +13,7 @@ import com.example.hadifamilycerbung.databinding.ParagraphBinding
 import org.json.JSONException
 import org.json.JSONObject
 
-class ParagraphAdapter(val paragraphs:ArrayList<Paragraph>): RecyclerView.Adapter<ParagraphAdapter.ParagraphViewHolder>() {
+class ParagraphAdapter(val paragraphs:ArrayList<Paragraph>, val userId: Int): RecyclerView.Adapter<ParagraphAdapter.ParagraphViewHolder>() {
 
     class ParagraphViewHolder(val binding: ParagraphBinding):RecyclerView.ViewHolder(binding.root)
 
@@ -42,7 +42,7 @@ class ParagraphAdapter(val paragraphs:ArrayList<Paragraph>): RecyclerView.Adapte
                         if (jsonResponse.getString("result") == "OK") {
                             val author = jsonResponse.getString("uname")
 
-                            txtInputTitle.text = author //gk tau kenapa gabisa diubah jadi txtAuthor namae di layout mungkin karena copas layout lain
+                            txtInputTitle.text = author //gabisa diubah jadi txtAuthor namae di layout mungkin karena copas layout lain
                         }
                     } catch (e: JSONException) {
                         e.printStackTrace()
@@ -59,7 +59,38 @@ class ParagraphAdapter(val paragraphs:ArrayList<Paragraph>): RecyclerView.Adapte
                 }
             }
             q.add(stringRequest)
+
+//            val q2 = Volley.newRequestQueue(holder.itemView.context)
+//            val url2 = "https://ubaya.me/native/160721046/project/get_username.php"
+//
+//            val stringRequest2 = object : StringRequest(
+//                Request.Method.POST, url2,
+//                Response.Listener { response ->
+//                    try {
+//                        val jsonResponse = JSONObject(response)
+//                        if (jsonResponse.getString("result") == "OK") {
+//                            val author = jsonResponse.getString("uname")
+//
+//                            txtInputTitle.text = author //gabisa diubah jadi txtAuthor namae di layout mungkin karena copas layout lain
+//                        }
+//                    } catch (e: JSONException) {
+//                        e.printStackTrace()
+//                    }
+//                },
+//                Response.ErrorListener { error ->
+//                    Log.d("Error", error.message.toString())
+//                }
+//            ) {
+//                override fun getParams(): Map<String, String> {
+//                    val params = HashMap<String, String>()
+//                    params["id"] = currentParagraph.userId.toString()
+//                    return params
+//                }
+//            }
+//            q2.add(stringRequest2)
         }
+
+
     }
 
     fun updateData(newParagraph: List<Paragraph>) {

@@ -102,14 +102,14 @@
       </com.google.android.material.textfield.TextInputLayout>
 
       <ImageView
-          android:id="@+id/imageView13"
+          android:id="@+id/btnLike"
           android:layout_width="20dp"
           android:layout_height="20dp"
           android:layout_marginStart="16dp"
           android:layout_marginTop="8dp"
           app:layout_constraintStart_toEndOf="@+id/txtParagraph"
           app:layout_constraintTop_toBottomOf="@+id/txtJudul"
-          app:srcCompat="@drawable/likes" />
+          app:srcCompat="@drawable/like" />
 
       <ImageView
           android:id="@+id/imgPoster"
@@ -161,7 +161,7 @@
           android:textAlignment="textStart"
           android:textColor="#000000"
           android:textSize="16sp"
-          app:layout_constraintStart_toEndOf="@+id/imageView13"
+          app:layout_constraintStart_toEndOf="@+id/btnLike"
           app:layout_constraintTop_toBottomOf="@+id/txtJudul" />
 
       <ImageView
