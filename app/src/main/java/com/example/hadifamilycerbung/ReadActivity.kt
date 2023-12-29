@@ -96,53 +96,6 @@ class ReadActivity : AppCompatActivity() {
         paragraphAdapter = ParagraphAdapter(paragraphs, userId)
         binding.recyclerViewParagraphs.adapter = paragraphAdapter
 
-        val q2 = Volley.newRequestQueue(this)
-        val url2 = "https://ubaya.me/native/160721046/project/get_paragraph_for_cerbung.php"
-
-        val stringRequest2 = object : StringRequest(
-            Request.Method.POST, url2,
-            { response ->
-                Log.d("apiresult", response)
-
-                try {
-                    val jsonResponse = JSONObject(response)
-                    val result = jsonResponse.getString("result")
-
-                    if (result == "OK") {
-                        val jsonArray = jsonResponse.getJSONArray("data")
-                        val paragraphList = ArrayList<Paragraph>()
-
-                        for (i in 0 until jsonArray.length()) {
-                            val jsonObject = jsonArray.getJSONObject(i)
-                            val id = jsonObject.getInt("id")
-                            val cerbungId = jsonObject.getInt("cerbung_id")
-                            val userId = jsonObject.getInt("user_id")
-                            val content = jsonObject.getString("content")
-
-
-                            val para = Paragraph(id, cerbungId, userId, content)
-                            paragraphList.add(para)
-                        }
-                        paragraphAdapter.updateData(paragraphList)
-                    } else {
-                        Log.e("apiresult", "error API:" + jsonResponse.getString("message"))
-                    }
-                } catch (e: JSONException) {
-                    Log.e("apiresult", "error get para: " + e.message)
-                }
-            },
-            { error ->
-                Log.e("apiresult", error.message.toString())
-            })
-        {
-            override fun getParams(): Map<String, String> {
-                val params = HashMap<String, String>()
-                params["id"] = cerbungId.toString()
-                return params
-            }
-        }
-        q2.add(stringRequest2)
-
         binding.bottomNav.selectedItemId = R.id.itemHome
         binding.bottomNav.setOnNavigationItemSelectedListener { item ->
             when (item.itemId) {
@@ -184,6 +137,48 @@ class ReadActivity : AppCompatActivity() {
                 else -> false
             }
         }
+
+        binding.btnSubmit.setOnClickListener(){
+            if (binding.txtInputEditSearch.text.toString() == ""){
+                Toast.makeText(this, "Paragraf tidak boleh kosong", Toast.LENGTH_SHORT).show()
+            } else {
+                val q2 = Volley.newRequestQueue(this)
+                val url2 = "https://ubaya.me/native/160721046/project/add_paragraph.php"
+
+                val stringRequest2 = object: StringRequest(
+                    Request.Method.POST, url2,
+                    Response.Listener { response ->
+                        Log.d("cekparams", response)
+
+                        try {
+                            val jsonResponse = JSONObject(response)
+                            if (jsonResponse.getString("result") == "OK") {
+                                Toast.makeText(this, "Berhasil menambahkan paragraf", Toast.LENGTH_SHORT).show()
+                                binding.txtInputEditSearch.setText("")
+                                refresh()
+                            }
+                        } catch (e: JSONException) {
+                            e.printStackTrace()
+                        }
+                    },
+                    Response.ErrorListener { error ->
+                        Log.d("cekparams", error.message.toString())
+                        Toast.makeText(this, "Gagal menambahkan paragraf", Toast.LENGTH_SHORT).show()
+                    }
+                )
+                {
+                    override fun getParams(): MutableMap<String, String> {
+                        val params = HashMap<String, String>()
+                        params["cerbungID"] = cerbungId.toString()
+                        params["userID"] = userId.toString()
+                        params["content"] = binding.txtInputEditSearch.text.toString()
+                        return params
+                    }
+                }
+                q2.add(stringRequest2)
+            }
+        }
+
         binding.btnFollow.setOnClickListener(){
             if (binding.btnFollow.text.equals("Unfollow")){
                 val q3 = Volley.newRequestQueue(this)
@@ -363,7 +358,6 @@ class ReadActivity : AppCompatActivity() {
                         binding.txtRestricted.visibility = View.VISIBLE
                         binding.imageView15.visibility = View.GONE
                         binding.txtInputEditSearch.visibility = View.GONE
-                        binding.txtCharacters.visibility = View.GONE
                         binding.btnSubmit.visibility = View.GONE
                         binding.txtInputLayoutSearch.visibility = View.GONE
                     }
@@ -439,6 +433,54 @@ class ReadActivity : AppCompatActivity() {
             }
         }
         q4.add(stringRequest4)
+
+        val q2 = Volley.newRequestQueue(this)
+        val url2 = "https://ubaya.me/native/160721046/project/get_paragraph_for_cerbung.php"
+
+        val stringRequest2 = object : StringRequest(
+            Request.Method.POST, url2,
+            { response ->
+                Log.d("apiresult", response)
+
+                try {
+                    val jsonResponse = JSONObject(response)
+                    val result = jsonResponse.getString("result")
+
+                    if (result == "OK") {
+                        val jsonArray = jsonResponse.getJSONArray("data")
+                        val paragraphList = ArrayList<Paragraph>()
+
+                        for (i in 0 until jsonArray.length()) {
+                            val jsonObject = jsonArray.getJSONObject(i)
+                            val id = jsonObject.getInt("id")
+                            val cerbungId = jsonObject.getInt("cerbung_id")
+                            val userId = jsonObject.getInt("user_id")
+                            val content = jsonObject.getString("content")
+
+
+                            val para = Paragraph(id, cerbungId, userId, content)
+                            paragraphList.add(para)
+                        }
+                        paragraphAdapter.updateData(paragraphList)
+                    } else {
+                        Log.e("apiresult", "error API:" + jsonResponse.getString("message"))
+                    }
+                } catch (e: JSONException) {
+                    Log.e("apiresult", "error get para: " + e.message)
+                }
+            },
+            { error ->
+                Log.e("apiresult", error.message.toString())
+            })
+        {
+            override fun getParams(): Map<String, String> {
+                val params = HashMap<String, String>()
+                params["id"] = cerbungId.toString()
+                return params
+            }
+        }
+        q2.add(stringRequest2)
     }
+
 
 }
