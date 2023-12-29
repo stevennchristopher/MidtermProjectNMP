@@ -336,6 +336,43 @@ class ReadActivity : AppCompatActivity() {
                 q3.add(stringRequest3)
             }
         }
+
+        binding.btnRequest.setOnClickListener(){
+            val q3 = Volley.newRequestQueue(this)
+            val url3 = "https://ubaya.me/native/160721046/project/add_request.php"
+
+            val stringRequest3 = object : StringRequest(
+                Request.Method.POST, url3,
+                { response ->
+                    Log.d("apiresult", response)
+
+                    try {
+                        val jsonResponse = JSONObject(response)
+                        val result = jsonResponse.getString("result")
+
+                        if (result == "OK") {
+                            Toast.makeText(this , "Berhasil mengirimkan request", Toast.LENGTH_SHORT).show()
+                        } else {
+                            Toast.makeText(this , "Sudah pernah request sebelumnya", Toast.LENGTH_SHORT).show()
+                        }
+                    } catch (e: JSONException) {
+                        Log.e("apiresult", "error di try catch: " + e.message)
+                    }
+                },
+                { error ->
+                    Log.e("apiresult", error.message.toString())
+                    Toast.makeText(this , "Sudah pernah request sebelumnya", Toast.LENGTH_SHORT).show()
+                })
+            {
+                override fun getParams(): Map<String, String> {
+                    val params = HashMap<String, String>()
+                    params["userId"] = userId.toString()
+                    params["cerbungId"] = cerbungId.toString()
+                    return params
+                }
+            }
+            q3.add(stringRequest3)
+        }
     }
     override fun onBackPressed() {
         binding.bottomNav.selectedItemId = R.id.itemHome
@@ -354,12 +391,18 @@ class ReadActivity : AppCompatActivity() {
                     val type = jsonObjectCerbung.getString("type").toString()
                     Log.d("type", type +"halohalo")
 
+                    binding.txtRestricted.visibility = View.VISIBLE
+
                     if (type == "Restricted") {
-                        binding.txtRestricted.visibility = View.VISIBLE
+                        binding.txtRestricted.text = "Restricted"
+                        binding.btnRequest.visibility = View.VISIBLE
                         binding.imageView15.visibility = View.GONE
                         binding.txtInputEditSearch.visibility = View.GONE
                         binding.btnSubmit.visibility = View.GONE
                         binding.txtInputLayoutSearch.visibility = View.GONE
+                    }
+                    else {
+                        binding.txtRestricted.text = "Public"
                     }
 
                     val urlPhoto = jsonObjectCerbung.getString("urlPhoto").toString()
