@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.android.volley.Request
@@ -42,6 +43,42 @@ class ReadActivity : AppCompatActivity() {
 
         val cerbungId = intent.getIntExtra(id_cerbungHadiFamily, 0)
         val userId = intent.getIntExtra(user_login_cerbungHadiFamily, 0)
+
+        val q4 = Volley.newRequestQueue(this)
+        val url4 = "https://ubaya.me/native/160721046/project/cek_follow_cerbung.php"
+
+        val stringRequest4 = object : StringRequest(
+            Request.Method.POST, url4,
+            { response ->
+                Log.d("apiresult", response)
+
+                try {
+                    val jsonResponse = JSONObject(response)
+                    val result = jsonResponse.getString("result")
+
+                    if (result == "Sudah follow") {
+                        Log.d("apiresult", "Sudah")
+                        binding.btnFollow.text = "Unfollow"
+                    } else {
+                        Log.d("apiresult", "Belum")
+                        binding.btnFollow.text = "Follow"
+                    }
+                } catch (e: JSONException) {
+                    Log.e("apiresult", "error di try catch: " + e.message)
+                }
+            },
+            { error ->
+                Log.e("apiresult", error.message.toString())
+            })
+        {
+            override fun getParams(): Map<String, String> {
+                val params = HashMap<String, String>()
+                params["userId"] = userId.toString()
+                params["cerbungId"] = cerbungId.toString()
+                return params
+            }
+        }
+        q4.add(stringRequest4)
 
         val q = Volley.newRequestQueue(this)
         val url = "https://ubaya.me/native/160721046/project/read_cerbung.php"
@@ -194,8 +231,85 @@ class ReadActivity : AppCompatActivity() {
                 else -> false
             }
         }
+        binding.btnFollow.setOnClickListener(){
+            if (binding.btnFollow.text.equals("Unfollow")){
+                val q3 = Volley.newRequestQueue(this)
+                val url3 = "https://ubaya.me/native/160721046/project/unfollow_cerbung.php"
+
+                val stringRequest3 = object : StringRequest(
+                    Request.Method.POST, url3,
+                    { response ->
+                        Log.d("apiresult", response)
+
+                        try {
+                            val jsonResponse = JSONObject(response)
+                            val result = jsonResponse.getString("result")
+
+                            if (result == "OK") {
+                                Toast.makeText(this , "Berhasil unfollow", Toast.LENGTH_SHORT).show()
+                                binding.btnFollow.text = "Follow"
+                            } else {
+                                Toast.makeText(this , "Cerbung belum difollow", Toast.LENGTH_SHORT).show()
+                            }
+                        } catch (e: JSONException) {
+                            Log.e("apiresult", "error di try catch: " + e.message)
+                        }
+                    },
+                    { error ->
+                        Log.e("apiresult", error.message.toString())
+                        Toast.makeText(this , "Cerbung belum difollow", Toast.LENGTH_SHORT).show()
+                    })
+                {
+                    override fun getParams(): Map<String, String> {
+                        val params = HashMap<String, String>()
+                        params["userId"] = userId.toString()
+                        params["cerbungId"] = cerbungId.toString()
+                        return params
+                    }
+                }
+                q3.add(stringRequest3)
+            }else{
+                val q3 = Volley.newRequestQueue(this)
+                val url3 = "https://ubaya.me/native/160721046/project/follow_cerbung.php"
+
+                val stringRequest3 = object : StringRequest(
+                    Request.Method.POST, url3,
+                    { response ->
+                        Log.d("apiresult", response)
+
+                        try {
+                            val jsonResponse = JSONObject(response)
+                            val result = jsonResponse.getString("result")
+
+                            if (result == "OK") {
+                                Toast.makeText(this , "Berhasil follow", Toast.LENGTH_SHORT).show()
+                                binding.btnFollow.text = "Unfollow"
+                            } else {
+                                Toast.makeText(this , "Cerbung sudah difollow", Toast.LENGTH_SHORT).show()
+                            }
+                        } catch (e: JSONException) {
+                            Log.e("apiresult", "error di try catch: " + e.message)
+                        }
+                    },
+                    { error ->
+                        Log.e("apiresult", error.message.toString())
+                        Toast.makeText(this , "Cerbung sudah difollow", Toast.LENGTH_SHORT).show()
+                    })
+                {
+                    override fun getParams(): Map<String, String> {
+                        val params = HashMap<String, String>()
+                        params["userId"] = userId.toString()
+                        params["cerbungId"] = cerbungId.toString()
+                        return params
+                    }
+                }
+                q3.add(stringRequest3)
+            }
+
+        }
     }
     override fun onBackPressed() {
         binding.bottomNav.selectedItemId = R.id.itemHome
     }
+
 }
