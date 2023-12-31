@@ -37,9 +37,6 @@
             android:name=".UserProfileActivity"
             android:exported="false" />
         <activity
-            android:name=".Users2Activity"
-            android:exported="false" />
-        <activity
             android:name=".Users1Activity"
             android:exported="false" />
         <activity
