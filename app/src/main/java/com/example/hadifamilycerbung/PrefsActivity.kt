@@ -3,15 +3,24 @@ package com.example.hadifamilycerbung
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Button
 import android.widget.Switch
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.appcompat.widget.Toolbar
+import com.android.volley.Request
+import com.squareup.picasso.Picasso
+import com.android.volley.Response
+import com.android.volley.toolbox.StringRequest
+import com.android.volley.toolbox.Volley
+import com.android.volley.RequestQueue
 import com.example.hadifamilycerbung.databinding.ActivityPrefsBinding
 import com.google.android.material.appbar.MaterialToolbar
+import org.json.JSONObject
 
 class PrefsActivity : AppCompatActivity() {
     private lateinit var binding: ActivityPrefsBinding
@@ -23,30 +32,115 @@ class PrefsActivity : AppCompatActivity() {
         binding = ActivityPrefsBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
+
+        setSupportActionBar(binding.customToolbar.toolbar)
+        supportActionBar?.setDisplayShowTitleEnabled(false)
+
+        binding.customToolbar.title.text = "Prefs"
+
+        var username: String
+        var password: String
+        var urlPhoto: String
+
         val userId = intent.getIntExtra(HomeActivity.user_login_cerbungHadiFamily, 0)
-        val toolbar = findViewById<MaterialToolbar>(R.id.toolbar)
-        val titleTextView = toolbar.findViewById<TextView>(R.id.title)
-        titleTextView.text = "Prefs"
+        val q = Volley.newRequestQueue(this)
+        val url = "https://ubaya.me/native/160721046/project/profile_data.php"
+        val stringRequest = object : StringRequest(
+            Request.Method.POST, url,
+            { response ->
+                val obj = JSONObject(response)
+                val result = obj.getString("result")
+                if (result == "OK") {
+                    username = obj.getString("username")
+                    password = obj.getString("password")
+                    urlPhoto = obj.getString("urlPhoto")
+                }
+                else {
+                   Toast.makeText(this, "Gagal Mengambil Data Profile", Toast.LENGTH_LONG).show()
+                }
+            },
+            Response.ErrorListener { error ->
+                Log.e("apiresult", "Error: ${error.message}", error)
+            }
+        ) {
+            override fun getParams(): Map<String, String> {
+                val params = HashMap<String, String>()
+                params["userId"] = userId.toString()
+                return params
+            }
+        }
+        q.add(stringRequest)
+
+        binding.txtUsername.setText(username)
+        binding.txtUsername.keyListener = null
 
         binding.btnLogOut.setOnClickListener {
             val intent = Intent(this, SignInActivity::class.java)
             intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
             startActivity(intent)
-            finish()
+            finishAffinity()
         }
 
-        val darkModeSwitch = findViewById<Switch>(R.id.btnDarkMode)
+        val darkModeSwitch = binding.btnDarkMode
 
         darkModeSwitch.isChecked = AppCompatDelegate.getDefaultNightMode() == AppCompatDelegate.MODE_NIGHT_YES
 
         darkModeSwitch.setOnCheckedChangeListener { _, isChecked ->
-            // Set the appropriate mode based on isChecked value
             if (isChecked) {
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
             } else {
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
             }
         }
+
+        binding.btnChangePass.setOnClickListener {
+            val oldPassword = binding.txtOldPassword.text.toString()
+            val newPassword = binding.txtNewPassword.text.toString()
+            val retypeNewPassword = binding.txtRetypeNewPassword.text.toString()
+
+            if (oldPassword.isEmpty() || newPassword.isEmpty() || retypeNewPassword.isEmpty()) {
+                Toast.makeText(applicationContext, "Please fill in all fields", Toast.LENGTH_SHORT).show()
+                binding.txtOldPassword.setText("")
+                binding.txtNewPassword.setText("")
+                binding.txtRetypeNewPassword.setText("")
+            } else if (newPassword != retypeNewPassword) {
+                Toast.makeText(applicationContext, "New password and retype password don't match", Toast.LENGTH_SHORT).show()
+                binding.txtOldPassword.setText("")
+                binding.txtNewPassword.setText("")
+                binding.txtRetypeNewPassword.setText("")
+            } else {
+                if (oldPassword != password) {
+                    Toast.makeText(applicationContext, "Incorrect Old Password", Toast.LENGTH_SHORT).show()
+                    binding.txtOldPassword.setText("")
+                    binding.txtNewPassword.setText("")
+                    binding.txtRetypeNewPassword.setText("")
+                } else {
+                    val q = Volley.newRequestQueue(this)
+                    val url = "https://ubaya.me/native/160721046/project/change_password.php"
+
+                    val stringRequest = object : StringRequest(
+                        Request.Method.POST, url,
+                        { response ->
+                            Toast.makeText(applicationContext, "Password changed successfully", Toast.LENGTH_SHORT).show()
+                        },
+                        Response.ErrorListener { error ->
+                            Log.e("apiresult", "Error: ${error.message}", error)
+                            password = newPassword
+                        }
+                    ) {
+                        override fun getParams(): Map<String, String> {
+                            val params = HashMap<String, String>()
+                            params["userId"] = userId.toString()
+                            params["newPassword"] = newPassword
+                            return params
+                        }
+                    }
+                    q.add(stringRequest)
+                }
+            }
+        }
+
+
 
         binding.bottomNav.selectedItemId = R.id.itemPref
         binding.bottomNav.setOnNavigationItemSelectedListener { item ->
@@ -89,4 +183,6 @@ class PrefsActivity : AppCompatActivity() {
     override fun onBackPressed() {
         binding.bottomNav.selectedItemId = R.id.itemHome
     }
+
+
 }

@@ -16,6 +16,7 @@
 <!--      android:theme="@style/AppTheme.AppBarOverlay">-->
 
     <include
+        android:id="@+id/customToolbar"
         layout="@layout/custom_toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
@@ -65,8 +66,10 @@
             android:id="@+id/txtUsername"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:enabled="false" />
+            android:inputType="none"
+            android:focusable="false" />
       </com.google.android.material.textfield.TextInputLayout>
+
 
       <com.google.android.material.textfield.TextInputLayout
           android:id="@+id/textInputLayout"
