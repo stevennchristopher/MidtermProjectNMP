@@ -63,7 +63,7 @@
           app:layout_constraintTop_toBottomOf="@+id/profileImage">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/txtUsername"
+            android:id="@+id/txtUsernamePref"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="none"
@@ -199,6 +199,16 @@
           android:scaleType="fitCenter"
           android:src="@drawable/profile_pic"
           app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toTopOf="parent" />
+
+      <TextView
+          android:id="@+id/textSimpenPassHidden"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginStart="40dp"
+          android:layout_marginTop="24dp"
+          android:text="TextView"
           app:layout_constraintStart_toStartOf="parent"
           app:layout_constraintTop_toTopOf="parent" />
 

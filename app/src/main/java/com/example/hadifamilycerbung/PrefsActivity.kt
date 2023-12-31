@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
 import android.widget.Button
 import android.widget.Switch
 import android.widget.TextView
@@ -37,10 +38,7 @@ class PrefsActivity : AppCompatActivity() {
         supportActionBar?.setDisplayShowTitleEnabled(false)
 
         binding.customToolbar.title.text = "Prefs"
-
-        var username: String
-        var password: String
-        var urlPhoto: String
+        binding.textSimpenPassHidden.visibility = View.GONE
 
         val userId = intent.getIntExtra(HomeActivity.user_login_cerbungHadiFamily, 0)
         val q = Volley.newRequestQueue(this)
@@ -48,12 +46,18 @@ class PrefsActivity : AppCompatActivity() {
         val stringRequest = object : StringRequest(
             Request.Method.POST, url,
             { response ->
-                val obj = JSONObject(response)
-                val result = obj.getString("result")
-                if (result == "OK") {
-                    username = obj.getString("username")
-                    password = obj.getString("password")
-                    urlPhoto = obj.getString("urlPhoto")
+                val jsonResponse = JSONObject(response)
+                if (jsonResponse.getString("result") == "OK") {
+                    var username = jsonResponse.getString("username").toString()
+                    val password = jsonResponse.getString("password").toString()
+                    val urlPhoto = jsonResponse.getString("urlPhoto").toString()
+
+                    binding.txtUsernamePref.setText(username)
+                    binding.textSimpenPassHidden.text = password
+
+                    Picasso.get()
+                        .load(urlPhoto)
+                        .into(binding.profileImage)
                 }
                 else {
                    Toast.makeText(this, "Gagal Mengambil Data Profile", Toast.LENGTH_LONG).show()
@@ -71,8 +75,7 @@ class PrefsActivity : AppCompatActivity() {
         }
         q.add(stringRequest)
 
-        binding.txtUsername.setText(username)
-        binding.txtUsername.keyListener = null
+//        binding.txtUsername.keyListener = null
 
         binding.btnLogOut.setOnClickListener {
             val intent = Intent(this, SignInActivity::class.java)
@@ -94,9 +97,11 @@ class PrefsActivity : AppCompatActivity() {
         }
 
         binding.btnChangePass.setOnClickListener {
-            val oldPassword = binding.txtOldPassword.text.toString()
-            val newPassword = binding.txtNewPassword.text.toString()
-            val retypeNewPassword = binding.txtRetypeNewPassword.text.toString()
+            var oldPassword = binding.txtOldPassword.text.toString()
+            var newPassword = binding.txtNewPassword.text.toString()
+            var retypeNewPassword = binding.txtRetypeNewPassword.text.toString()
+
+            var password = binding.textSimpenPassHidden.text.toString()
 
             if (oldPassword.isEmpty() || newPassword.isEmpty() || retypeNewPassword.isEmpty()) {
                 Toast.makeText(applicationContext, "Please fill in all fields", Toast.LENGTH_SHORT).show()
@@ -115,32 +120,38 @@ class PrefsActivity : AppCompatActivity() {
                     binding.txtNewPassword.setText("")
                     binding.txtRetypeNewPassword.setText("")
                 } else {
-                    val q = Volley.newRequestQueue(this)
-                    val url = "https://ubaya.me/native/160721046/project/change_password.php"
+                    val urlChangePass = "https://ubaya.me/native/160721046/project/change_password.php"
 
-                    val stringRequest = object : StringRequest(
-                        Request.Method.POST, url,
+                    val stringRequestChangePass = object : StringRequest(
+                        Request.Method.POST, urlChangePass,
                         { response ->
-                            Toast.makeText(applicationContext, "Password changed successfully", Toast.LENGTH_SHORT).show()
+                            Log.d("hasilU", "berhasil change pass " + password)
+                            val jsonResponse = JSONObject(response)
+                            if (jsonResponse.getString("result") == "OK") {
+                                Toast.makeText(applicationContext, "Password changed successfully", Toast.LENGTH_SHORT).show()
+                                binding.txtOldPassword.setText("")
+                                binding.txtNewPassword.setText("")
+                                binding.txtRetypeNewPassword.setText("")
+
+                                password = newPassword
+
+                            }
                         },
                         Response.ErrorListener { error ->
                             Log.e("apiresult", "Error: ${error.message}", error)
-                            password = newPassword
                         }
                     ) {
                         override fun getParams(): Map<String, String> {
                             val params = HashMap<String, String>()
-                            params["userId"] = userId.toString()
-                            params["newPassword"] = newPassword
+                            params["user_id"] = userId.toString()
+                            params["new_password"] = newPassword
                             return params
                         }
                     }
-                    q.add(stringRequest)
+                    q.add(stringRequestChangePass)
                 }
             }
         }
-
-
 
         binding.bottomNav.selectedItemId = R.id.itemPref
         binding.bottomNav.setOnNavigationItemSelectedListener { item ->
@@ -180,6 +191,7 @@ class PrefsActivity : AppCompatActivity() {
             }
         }
     }
+
     override fun onBackPressed() {
         binding.bottomNav.selectedItemId = R.id.itemHome
     }
