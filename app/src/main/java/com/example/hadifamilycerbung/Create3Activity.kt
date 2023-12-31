@@ -111,7 +111,7 @@ class Create3Activity : AppCompatActivity() {
                                 override fun getParams(): MutableMap<String, String> {
                                     val params = HashMap<String, String>()
                                     params["cerbungID"] = cerbungID.toString()
-                                    params["userID"] = "1"
+                                    params["userID"] = userId.toString()
                                     params["content"] = paragraph.toString()
                                     return params
                                 }
@@ -133,7 +133,7 @@ class Create3Activity : AppCompatActivity() {
                         params["url"] = urlPhoto.toString()
                         params["description"] = description.toString()
                         params["type"] = access.toString()
-                        params["userID"] = "1"
+                        params["userID"] = userId.toString()
                         params["genreID"] = (genre+1).toString()
                         return params
                     }
