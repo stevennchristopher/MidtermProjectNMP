@@ -39,7 +39,7 @@ class Users1Activity : AppCompatActivity() {
         val lm: LinearLayoutManager = LinearLayoutManager(this)
         binding.recycleViewUser.layoutManager = lm
         binding.recycleViewUser.setHasFixedSize(true)
-        userAdapter = UserAdapter(users)
+        userAdapter = UserAdapter(users, userId)
         binding.recycleViewUser.adapter = userAdapter
 
         val q = Volley.newRequestQueue(this)

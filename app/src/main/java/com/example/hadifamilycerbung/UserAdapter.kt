@@ -12,7 +12,7 @@ import com.squareup.picasso.Picasso
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 
-class UserAdapter (private val users:ArrayList<UserInUser>): RecyclerView.Adapter<UserAdapter.UserViewHolder>() {
+class UserAdapter (private val users:ArrayList<UserInUser>, private val userId: Int): RecyclerView.Adapter<UserAdapter.UserViewHolder>() {
     class UserViewHolder(val binding: UsersItemBinding):RecyclerView.ViewHolder(binding.root)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): UserViewHolder {
@@ -41,13 +41,13 @@ class UserAdapter (private val users:ArrayList<UserInUser>): RecyclerView.Adapte
 
             txtCerbungLikes.text = currentUser.totalLikes.toString()
 
-//            btnReadCerbung.setOnClickListener {
-//                val context = holder.itemView.context
-//                val intent = Intent(context, ReadActivity::class.java)
-//                intent.putExtra(FollowingAdapter.id_cerbungHadiFamily, currentCerbung.id)
-//                intent.putExtra(ReadActivity.user_login_cerbungHadiFamily, userId)
-//                context.startActivity(intent)
-//            }
+            cardViewUser.setOnClickListener{
+                val context = holder.itemView.context
+                val intent = Intent(context, UserProfileActivity::class.java)
+                intent.putExtra(UserProfileActivity.id_userSelectedHadiFamily, currentUser.id)
+                intent.putExtra(UserProfileActivity.user_login_cerbungHadiFamily, userId)
+                context.startActivity(intent)
+            }
         }
     }
 

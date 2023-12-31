@@ -122,11 +122,12 @@
           android:id="@+id/imageView4"
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
+          android:layout_marginTop="32dp"
           android:src="@drawable/line"
           app:layout_constraintEnd_toEndOf="parent"
           app:layout_constraintHorizontal_bias="1.0"
           app:layout_constraintStart_toStartOf="parent"
-          tools:layout_editor_absoluteY="289dp" />
+          app:layout_constraintTop_toBottomOf="@+id/imageView3" />
 
       <ImageView
           android:id="@+id/profileImageAtUserProfile"
@@ -144,12 +145,14 @@
           android:id="@+id/txtCerbungs"
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
+          android:layout_marginTop="16dp"
           android:fontFamily="@font/roboto_medium"
           android:text="Users Cerbung"
           android:textColor="#000000"
           android:textSize="18sp"
-          tools:layout_editor_absoluteX="146dp"
-          tools:layout_editor_absoluteY="309dp" />
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toBottomOf="@+id/imageView4" />
 
       <androidx.recyclerview.widget.RecyclerView
           android:id="@+id/recyclerViewProfile"

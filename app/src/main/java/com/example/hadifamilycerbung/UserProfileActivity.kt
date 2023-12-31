@@ -7,6 +7,10 @@ import com.example.hadifamilycerbung.databinding.ActivityUsersProfileBinding
 
 class UserProfileActivity : AppCompatActivity() {
     private lateinit var binding: ActivityUsersProfileBinding
+    companion object {
+        val user_login_cerbungHadiFamily = "random_16071239872_user"
+        val id_userSelectedHadiFamily = "idcerbung_random_1928391823"
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
 
         supportActionBar?.hide()
