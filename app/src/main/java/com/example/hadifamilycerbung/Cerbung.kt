@@ -3,6 +3,7 @@ package com.example.hadifamilycerbung
 import java.util.Date
 
 data class User(val id:Int, val username:String, val urlProfile:String, val password:String)
+data class UserInUser(val id:Int, val username:String, val urlProfile:String, val createdSince:String, val totalLikes:Int)
 data class Cerbung(val id:Int, val title:String, val urlPhoto:String, val description:String, val type:String, val userId:Int, val genreId:Int, val createDate: String)
 
 data class CerbungFollowing(val id:Int)
