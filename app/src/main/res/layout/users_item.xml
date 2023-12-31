@@ -25,7 +25,6 @@
                 android:layout_marginEnd="32dp"
                 android:text="171"
                 android:textAlignment="viewEnd"
-                android:textColor="#000000"
                 android:textSize="16sp"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -38,7 +37,6 @@
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="8dp"
                 android:text="since 2023"
-                android:textColor="#373737"
                 android:textSize="13sp"
                 app:layout_constraintStart_toEndOf="@+id/imgUserBg"
                 app:layout_constraintTop_toBottomOf="@+id/txtUsernameItem" />
@@ -50,7 +48,6 @@
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="32dp"
                 android:text="Username"
-                android:textColor="#373737"
                 app:layout_constraintStart_toEndOf="@+id/imgUserBg"
                 app:layout_constraintTop_toTopOf="parent" />
 
