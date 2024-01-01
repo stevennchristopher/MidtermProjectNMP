@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
 import androidx.annotation.RequiresApi
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.android.volley.Request
 import com.android.volley.Response
 import com.android.volley.toolbox.StringRequest
@@ -20,10 +21,14 @@ import java.time.format.DateTimeFormatter
 
 class UserProfileActivity : AppCompatActivity() {
     private lateinit var binding: ActivityUsersProfileBinding
+    private lateinit var cerbungProfile: CerbungProfileAdapter
     companion object {
         val user_login_cerbungHadiFamily = "random_16071239872_user"
         val id_userSelectedHadiFamily = "idcerbung_random_1928391823"
     }
+
+    var cerbungsProfile : ArrayList<CerbungProfile> = ArrayList()
+
     override fun onCreate(savedInstanceState: Bundle?) {
 
         supportActionBar?.hide()
@@ -67,6 +72,50 @@ class UserProfileActivity : AppCompatActivity() {
                     binding.txtLatest.setText("Latest Post: " + sinceJoin.format(outputFormatter))
 
                     binding.txtCerbungs.setText(username + " Cerbungs")
+
+                    val lm: LinearLayoutManager = LinearLayoutManager(this)
+                    binding.recyclerViewProfile.layoutManager = lm
+                    binding.recyclerViewProfile.setHasFixedSize(true)
+                    cerbungProfile = CerbungProfileAdapter(cerbungsProfile)
+                    binding.recyclerViewProfile.adapter = cerbungProfile
+
+                    val urlCerbung = "https://ubaya.me/native/160721046/project/get_cerbung_by_userid_and_totalLikes.php"
+                    var stringRequestCerbung = object : StringRequest(
+                        Request.Method.POST, urlCerbung,
+                        {
+                            Log.d("apiresult", it)
+                            val registrationObj  = JSONObject(it)
+                            val resultRegistration = registrationObj.getString("result")
+
+                            if(resultRegistration == "OK"){
+                                val jsonArray = registrationObj.getJSONArray("dataCerbung")
+                                val cerbungProfileList = ArrayList<CerbungProfile>()
+
+                                for (i in 0 until jsonArray.length()) {
+                                    val jsonObject = jsonArray.getJSONObject(i)
+                                    val id = jsonObject.getInt("id")
+                                    val title = jsonObject.getString("title")
+                                    val urlPhoto = jsonObject.getString("urlPhoto")
+                                    val createDate = jsonObject.getString("createDate")
+                                    val cerbungLikes = jsonObject.getInt("totalLikes")
+
+                                    val cerbungFix = CerbungProfile(id, title, urlPhoto, createDate, cerbungLikes)
+                                    cerbungProfileList.add(cerbungFix)
+                                }
+                                cerbungProfile.updateData(cerbungProfileList)
+                            }
+                        },
+                        Response.ErrorListener {
+                            Log.e("apiresult", it.message.toString())
+                        })
+                    {
+                        override fun getParams(): MutableMap<String, String>{
+                            val params = HashMap<String, String>()
+                            params["userId"] = selectedUserId.toString()
+                            return params
+                        }
+                    }
+                    q.add(stringRequestCerbung)
                 }
                 else {
                     Toast.makeText(this, "Gagal Mengambil Data Profile", Toast.LENGTH_LONG).show()
