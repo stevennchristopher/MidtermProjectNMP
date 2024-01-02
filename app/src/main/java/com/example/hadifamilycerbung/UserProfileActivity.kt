@@ -163,6 +163,10 @@ class UserProfileActivity : AppCompatActivity() {
                     true
                 }
                 R.id.itemUser -> {
+                    val intent = Intent(this, Users1Activity::class.java)
+                    intent.putExtra(Users1Activity.user_login_cerbungHadiFamily, userId)
+                    startActivity(intent)
+                    finish()
                     true
                 }
                 R.id.itemPref -> {
