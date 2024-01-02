@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.widget.TextView
 import android.widget.Toast
 import com.android.volley.Request
 import com.android.volley.Response
@@ -12,6 +13,7 @@ import com.android.volley.toolbox.Volley
 import com.example.hadifamilycerbung.databinding.ActivityCreate2Binding
 import com.example.hadifamilycerbung.databinding.ActivityCreate3Binding
 import com.example.hadifamilycerbung.databinding.ActivityHomeBinding
+import com.google.android.material.appbar.MaterialToolbar
 import org.json.JSONException
 import org.json.JSONObject
 import java.text.SimpleDateFormat
@@ -44,6 +46,11 @@ class Create3Activity : AppCompatActivity() {
         binding = ActivityCreate3Binding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
+
+        val toolbar = findViewById<MaterialToolbar>(R.id.toolbar)
+        val titleTextView = toolbar.findViewById<TextView>(R.id.title)
+        titleTextView.text = "Create Cerbung"
+
 
         val title = intent.getStringExtra(title_cerbungHadiFamily)
         val description = intent.getStringExtra(description_cerbungHadiFamily)

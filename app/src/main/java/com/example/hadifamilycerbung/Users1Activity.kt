@@ -33,6 +33,11 @@ class Users1Activity : AppCompatActivity() {
         val view = binding.root
         setContentView(view)
 
+        setSupportActionBar(binding.customToolbar.toolbar)
+        supportActionBar?.setDisplayShowTitleEnabled(false)
+
+        binding.customToolbar.title.text = "Users"
+
         val userId = intent.getIntExtra(HomeActivity.user_login_cerbungHadiFamily, 0)
         Log.d("apiresult", userId.toString())
 

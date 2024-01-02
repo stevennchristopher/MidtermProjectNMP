@@ -33,6 +33,11 @@ class FollowingActivity : AppCompatActivity() {
         val view = binding.root
         setContentView(view)
 
+        setSupportActionBar(binding.customToolbar.toolbar)
+        supportActionBar?.setDisplayShowTitleEnabled(false)
+
+        binding.customToolbar.title.text = "Following"
+
         val userId = intent.getIntExtra(user_login_cerbungHadiFamily, 0)
         Log.d("apiresult", userId.toString())
 

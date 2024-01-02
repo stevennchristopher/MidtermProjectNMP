@@ -36,9 +36,10 @@ class HomeActivity : AppCompatActivity() {
         setContentView(view)
 
         val userId = intent.getIntExtra(user_login_cerbungHadiFamily, 0)
-        val toolbar = findViewById<MaterialToolbar>(R.id.toolbar)
-        val titleTextView = toolbar.findViewById<TextView>(R.id.title)
-        titleTextView.text = "Home"
+        setSupportActionBar(binding.customToolbar.toolbar)
+        supportActionBar?.setDisplayShowTitleEnabled(false)
+
+        binding.customToolbar.title.text = "Home"
 
         val lm: LinearLayoutManager = LinearLayoutManager(this)
         binding.recycleViewHome.layoutManager = lm

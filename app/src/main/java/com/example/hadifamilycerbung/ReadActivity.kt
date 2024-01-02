@@ -47,6 +47,11 @@ class ReadActivity : AppCompatActivity() {
         val view = binding.root
         setContentView(view)
 
+        setSupportActionBar(binding.customToolbar.toolbar)
+        supportActionBar?.setDisplayShowTitleEnabled(false)
+
+        binding.customToolbar.title.text = "Read Cerbung"
+
         cerbungId = intent.getIntExtra(id_cerbungHadiFamily, 0)
         userId = intent.getIntExtra(user_login_cerbungHadiFamily, 0)
 

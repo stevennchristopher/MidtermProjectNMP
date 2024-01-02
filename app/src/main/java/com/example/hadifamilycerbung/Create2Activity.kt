@@ -5,10 +5,12 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.RadioButton
+import android.widget.TextView
 import android.widget.Toast
 import com.example.hadifamilycerbung.databinding.ActivityCreate1Binding
 import com.example.hadifamilycerbung.databinding.ActivityCreate2Binding
 import com.example.hadifamilycerbung.databinding.ActivityHomeBinding
+import com.google.android.material.appbar.MaterialToolbar
 
 class Create2Activity : AppCompatActivity() {
     private lateinit var binding: ActivityCreate2Binding
@@ -34,6 +36,10 @@ class Create2Activity : AppCompatActivity() {
         binding = ActivityCreate2Binding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
+
+        val toolbar = findViewById<MaterialToolbar>(R.id.toolbar)
+        val titleTextView = toolbar.findViewById<TextView>(R.id.title)
+        titleTextView.text = "Create Cerbung"
 
         val title = intent.getStringExtra(title_cerbungHadiFamily)
         val description = intent.getStringExtra(description_cerbungHadiFamily)

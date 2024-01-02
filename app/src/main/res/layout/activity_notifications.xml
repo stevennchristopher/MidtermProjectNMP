@@ -16,6 +16,7 @@
     <!--      android:theme="@style/AppTheme.AppBarOverlay">-->
 
     <include
+        android:id="@+id/customToolbar"
         layout="@layout/custom_toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
@@ -56,9 +57,10 @@
 
   <com.google.android.material.bottomnavigation.BottomNavigationView
       android:id="@+id/bottomNav"
-      android:layout_width="0dp"
+      android:layout_width="match_parent"
       android:layout_height="wrap_content"
-      app:menu="@menu/bottom_navigation_menu" />
+      android:layout_gravity="bottom"
+      app:menu="@menu/bottom_navigation_menu">
 
-
+  </com.google.android.material.bottomnavigation.BottomNavigationView>
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

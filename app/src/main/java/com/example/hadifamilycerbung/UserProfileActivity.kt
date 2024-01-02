@@ -38,6 +38,10 @@ class UserProfileActivity : AppCompatActivity() {
         val view = binding.root
         setContentView(view)
 
+        setSupportActionBar(binding.customToolbar.toolbar)
+        supportActionBar?.setDisplayShowTitleEnabled(false)
+
+
         val userId = intent.getIntExtra(user_login_cerbungHadiFamily, 0)
         val selectedUserId = intent.getIntExtra(id_userSelectedHadiFamily, 0)
         Log.d("apiresult", userId.toString() + selectedUserId.toString())
@@ -64,6 +68,7 @@ class UserProfileActivity : AppCompatActivity() {
                         .load(urlPhoto)
                         .into(binding.profileImageAtUserProfile)
 
+                    binding.customToolbar.title.text = username
                     binding.txtUsernameUser.setText(username)
                     binding.txtLikesCerbungs.setText(totalLikes.toString() + " Likes | " + totalCerbungs.toString() + " Cerbungs Created")
 

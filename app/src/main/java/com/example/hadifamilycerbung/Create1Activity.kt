@@ -42,6 +42,11 @@ class Create1Activity : AppCompatActivity() {
         val view = binding.root
         setContentView(view)
 
+        setSupportActionBar(binding.customToolbar.toolbar)
+        supportActionBar?.setDisplayShowTitleEnabled(false)
+
+        binding.customToolbar.title.text = "Create Cerbung"
+
         val q = Volley.newRequestQueue(this)
         val url = "https://ubaya.me/native/160721046/project/get_genres.php"
 
