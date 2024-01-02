@@ -125,7 +125,6 @@ class PrefsActivity : AppCompatActivity() {
                     val stringRequestChangePass = object : StringRequest(
                         Request.Method.POST, urlChangePass,
                         { response ->
-                            Log.d("hasilU", "berhasil change pass " + password)
                             val jsonResponse = JSONObject(response)
                             if (jsonResponse.getString("result") == "OK") {
                                 Toast.makeText(applicationContext, "Password changed successfully", Toast.LENGTH_LONG).show()
@@ -134,6 +133,9 @@ class PrefsActivity : AppCompatActivity() {
                                 binding.txtRetypeNewPassword.setText("")
 
                                 password = newPassword
+                                binding.textSimpenPassHidden.setText(password)
+
+                                Log.d("hasilU", "berhasil change pass " + password)
                             }
                         },
                         Response.ErrorListener { error ->
