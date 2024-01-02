@@ -104,18 +104,6 @@
           app:layout_constraintStart_toStartOf="parent"
           app:layout_constraintTop_toBottomOf="@+id/imageView3" />
 
-      <ImageView
-          android:id="@+id/profileImageAtUserProfile"
-          android:layout_width="100dp"
-          android:layout_height="100dp"
-          android:layout_marginTop="48dp"
-          android:background="@drawable/circle"
-          android:scaleType="fitCenter"
-          android:src="@drawable/profile_pic"
-          app:layout_constraintEnd_toEndOf="parent"
-          app:layout_constraintStart_toStartOf="parent"
-          app:layout_constraintTop_toTopOf="parent" />
-
       <TextView
           android:id="@+id/txtCerbungs"
           android:layout_width="wrap_content"
@@ -137,6 +125,25 @@
           app:layout_constraintEnd_toEndOf="parent"
           app:layout_constraintStart_toStartOf="parent"
           app:layout_constraintTop_toBottomOf="@+id/txtCerbungs" />
+
+      <androidx.cardview.widget.CardView
+          android:id="@+id/cardViewProfileUser"
+          android:layout_width="100dp"
+          android:layout_height="100dp"
+          android:layout_marginTop="48dp"
+          app:cardCornerRadius="90dp"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/profileImageAtUserProfile"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:background="@drawable/circle"
+            android:scaleType="centerCrop"
+            android:src="@drawable/profile_pic" />
+      </androidx.cardview.widget.CardView>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
   </androidx.core.widget.NestedScrollView>
