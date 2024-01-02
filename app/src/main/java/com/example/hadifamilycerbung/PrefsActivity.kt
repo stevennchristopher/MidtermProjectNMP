@@ -104,7 +104,7 @@ class PrefsActivity : AppCompatActivity() {
             var password = binding.textSimpenPassHidden.text.toString()
 
             if (oldPassword.isEmpty() || newPassword.isEmpty() || retypeNewPassword.isEmpty()) {
-                Toast.makeText(applicationContext, "Please fill in all fields", Toast.LENGTH_SHORT).show()
+                Toast.makeText(applicationContext, "Please fill in all fields", Toast.LENGTH_LONG).show()
                 binding.txtOldPassword.setText("")
                 binding.txtNewPassword.setText("")
                 binding.txtRetypeNewPassword.setText("")
@@ -115,7 +115,7 @@ class PrefsActivity : AppCompatActivity() {
                 binding.txtRetypeNewPassword.setText("")
             } else {
                 if (oldPassword != password) {
-                    Toast.makeText(applicationContext, "Incorrect Old Password", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(applicationContext, "Incorrect Old Password", Toast.LENGTH_LONG).show()
                     binding.txtOldPassword.setText("")
                     binding.txtNewPassword.setText("")
                     binding.txtRetypeNewPassword.setText("")
@@ -128,13 +128,12 @@ class PrefsActivity : AppCompatActivity() {
                             Log.d("hasilU", "berhasil change pass " + password)
                             val jsonResponse = JSONObject(response)
                             if (jsonResponse.getString("result") == "OK") {
-                                Toast.makeText(applicationContext, "Password changed successfully", Toast.LENGTH_SHORT).show()
+                                Toast.makeText(applicationContext, "Password changed successfully", Toast.LENGTH_LONG).show()
                                 binding.txtOldPassword.setText("")
                                 binding.txtNewPassword.setText("")
                                 binding.txtRetypeNewPassword.setText("")
 
                                 password = newPassword
-
                             }
                         },
                         Response.ErrorListener { error ->
