@@ -82,12 +82,14 @@
           app:layout_constraintEnd_toEndOf="parent"
           app:layout_constraintHorizontal_bias="0.0"
           app:layout_constraintStart_toStartOf="parent"
-          app:layout_constraintTop_toBottomOf="@+id/textView5">
+          app:layout_constraintTop_toBottomOf="@+id/textView5"
+          app:passwordToggleEnabled="true">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/txtOldPassword"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:password="true" />
       </com.google.android.material.textfield.TextInputLayout>
 
       <com.google.android.material.textfield.TextInputLayout
@@ -101,12 +103,14 @@
           app:layout_constraintEnd_toEndOf="parent"
           app:layout_constraintHorizontal_bias="0.0"
           app:layout_constraintStart_toStartOf="parent"
-          app:layout_constraintTop_toBottomOf="@+id/textInputLayout">
+          app:layout_constraintTop_toBottomOf="@+id/textInputLayout"
+          app:passwordToggleEnabled="true">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/txtNewPassword"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:password="true" />
       </com.google.android.material.textfield.TextInputLayout>
 
       <com.google.android.material.textfield.TextInputLayout
@@ -119,12 +123,14 @@
           android:hint="Retype New Password"
           app:layout_constraintEnd_toEndOf="parent"
           app:layout_constraintStart_toStartOf="parent"
-          app:layout_constraintTop_toBottomOf="@+id/textInputLayout2">
+          app:layout_constraintTop_toBottomOf="@+id/textInputLayout2"
+          app:passwordToggleEnabled="true">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/txtRetypeNewPassword"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:password="true" />
       </com.google.android.material.textfield.TextInputLayout>
 
       <Button
