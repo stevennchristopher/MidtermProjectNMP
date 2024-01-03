@@ -101,10 +101,10 @@ class UserProfileActivity : AppCompatActivity() {
                                     val id = jsonObject.getInt("id")
                                     val title = jsonObject.getString("title")
                                     val urlPhoto = jsonObject.getString("urlPhoto")
-                                    val createDate = jsonObject.getString("createDate")
+                                    val lastUpdate = jsonObject.getString("lastUpdateDate")
                                     val cerbungLikes = jsonObject.getInt("totalLikes")
 
-                                    val cerbungFix = CerbungProfile(id, title, urlPhoto, createDate, cerbungLikes)
+                                    val cerbungFix = CerbungProfile(id, title, urlPhoto, lastUpdate, cerbungLikes)
                                     cerbungProfileList.add(cerbungFix)
                                 }
                                 cerbungProfile.updateData(cerbungProfileList)

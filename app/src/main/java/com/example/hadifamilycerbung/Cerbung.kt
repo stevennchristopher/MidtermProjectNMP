@@ -6,7 +6,7 @@ data class User(val id:Int, val username:String, val urlProfile:String, val pass
 data class UserInUser(val id:Int, val username:String, val urlProfile:String, val createdSince:String, val totalLikes:Int)
 data class Cerbung(val id:Int, val title:String, val urlPhoto:String, val description:String, val type:String, val userId:Int, val genreId:Int, val createDate: String)
 data class CerbungFollowing(val id:Int)
-data class CerbungProfile(val id:Int, val title:String, val urlPhoto:String, val createDate: String, val totalLikes:Int)
+data class CerbungProfile(val id:Int, val title:String, val urlPhoto:String, val lastUpdate: String, val totalLikes:Int)
 data class Paragraph(val id:Int, val cerbungId:Int, val userId:Int, val content:String)
 class Genre(val id:Int, val name:String){
     override fun toString(): String {

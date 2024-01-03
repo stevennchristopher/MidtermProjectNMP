@@ -36,9 +36,9 @@ class CerbungProfileAdapter (private val cerbungs:ArrayList<CerbungProfile>): Re
 
             txtCerbungTitle.text = currentCerbungs.title
 
-            val sinceJoin = LocalDateTime.parse(currentCerbungs.createDate, DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"))
+            val lastUpdate = LocalDateTime.parse(currentCerbungs.lastUpdate, DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"))
             val outputFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy")
-            txtLastUpdated.text = "Last update: " + sinceJoin.format(outputFormatter)
+            txtLastUpdated.text = "Last update: " + lastUpdate.format(outputFormatter)
 
             txtLikes.text = currentCerbungs.totalLikes.toString()
 
