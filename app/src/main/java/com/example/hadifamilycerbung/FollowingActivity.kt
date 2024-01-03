@@ -92,9 +92,9 @@ class FollowingActivity : AppCompatActivity() {
                                         val type = jsonObject.getString("type")
                                         val userId = jsonObject.getInt("user_id")
                                         val genreId = jsonObject.getInt("genre_id")
-                                        val createDate = jsonObject.getString("createDate")
+                                        val lastUpdate = jsonObject.getString("lastUpdated")
 
-                                        val cerbungFix = Cerbung(id, title, urlPhoto, description, type, userId, genreId, createDate)
+                                        val cerbungFix = Cerbung(id, title, urlPhoto, description, type, userId, genreId, lastUpdate)
                                         cerbungList.add(cerbungFix)
                                     }
                                     cerbungFollowingAdapter.updateData(cerbungList)
