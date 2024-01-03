@@ -47,9 +47,10 @@ class Create3Activity : AppCompatActivity() {
         val view = binding.root
         setContentView(view)
 
-        val toolbar = findViewById<MaterialToolbar>(R.id.toolbar)
-        val titleTextView = toolbar.findViewById<TextView>(R.id.title)
-        titleTextView.text = "Create Cerbung"
+        setSupportActionBar(binding.customToolbar.toolbar)
+        supportActionBar?.setDisplayShowTitleEnabled(false)
+
+        binding.customToolbar.title.text = "Create Cerbung"
 
 
         val title = intent.getStringExtra(title_cerbungHadiFamily)

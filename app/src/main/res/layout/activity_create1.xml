@@ -107,25 +107,30 @@
           style="?attr/materialButtonOutlinedStyle"
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
-          android:layout_marginEnd="32dp"
-          android:layout_marginBottom="32dp"
+          android:layout_marginTop="8dp"
+          android:layout_marginEnd="40dp"
+          android:layout_marginBottom="8dp"
           android:text="Next"
           android:textAllCaps="false"
           android:textSize="16sp"
           app:cornerRadius="18dp"
           app:layout_constraintBottom_toBottomOf="parent"
           app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintTop_toBottomOf="@+id/txtInputLayoutGenre"
           app:strokeColor="#79747E" />
 
       <TextView
           android:id="@+id/txtPageC1"
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
+          android:layout_marginStart="179dp"
+          android:layout_marginTop="25dp"
           android:layout_marginEnd="68dp"
-          android:layout_marginBottom="32dp"
           android:text="1 of 3"
-          app:layout_constraintBottom_toBottomOf="parent"
-          app:layout_constraintEnd_toStartOf="@+id/btnNextC1" />
+          app:layout_constraintEnd_toStartOf="@+id/btnNextC1"
+          app:layout_constraintHorizontal_bias="1.0"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toBottomOf="@+id/txtInputLayoutGenre" />
 
       <com.google.android.material.textfield.TextInputLayout
           android:id="@+id/txtInputLayoutImg"
