@@ -126,6 +126,14 @@ class Users1Activity : AppCompatActivity() {
                 else -> false
             }
         }
+
+        binding.customToolbar.notifIcon.setOnClickListener{
+            val intent = Intent(this, NotificationsActivity::class.java)
+            intent.putExtra(NotificationsActivity.user_login_cerbungHadiFamily, userId)
+            startActivity(intent)
+            finish()
+            true
+        }
     }
     override fun onBackPressed() {
         binding.bottomNav.selectedItemId = R.id.itemHome

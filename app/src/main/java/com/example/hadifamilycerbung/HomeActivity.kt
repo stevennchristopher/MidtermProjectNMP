@@ -127,10 +127,11 @@ class HomeActivity : AppCompatActivity() {
             }
         }
 
-//        binding.btnNotif.setOnClickListener{
-//            val intent = Intent(this, NotificationsActivity::class.java)
-//            intent.putExtra(user_login_cerbungHadiFamily, userId)
-//            startActivity(intent)
-//        }
+        binding.customToolbar.notifIcon.setOnClickListener{
+            val intent = Intent(this, NotificationsActivity::class.java)
+            intent.putExtra(NotificationsActivity.user_login_cerbungHadiFamily, userId)
+            startActivity(intent)
+            true
+        }
     }
 }

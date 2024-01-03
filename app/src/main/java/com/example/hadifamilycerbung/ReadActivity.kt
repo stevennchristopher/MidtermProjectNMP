@@ -143,6 +143,14 @@ class ReadActivity : AppCompatActivity() {
             }
         }
 
+        binding.customToolbar.notifIcon.setOnClickListener{
+            val intent = Intent(this, NotificationsActivity::class.java)
+            intent.putExtra(NotificationsActivity.user_login_cerbungHadiFamily, userId)
+            startActivity(intent)
+            finish()
+            true
+        }
+
         binding.btnSubmit.setOnClickListener(){
             if (binding.txtInputEditSearch.text.toString() == ""){
                 Toast.makeText(this, "Paragraf tidak boleh kosong", Toast.LENGTH_SHORT).show()
