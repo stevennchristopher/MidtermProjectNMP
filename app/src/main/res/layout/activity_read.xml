@@ -112,7 +112,6 @@
           android:layout_marginTop="8dp"
           android:text="3"
           android:textAlignment="textStart"
-          android:textColor="#000000"
           android:textSize="16sp"
           app:layout_constraintStart_toEndOf="@+id/imageView14"
           app:layout_constraintTop_toBottomOf="@+id/txtJudul" />
@@ -125,7 +124,6 @@
           android:layout_marginTop="8dp"
           android:text="3"
           android:textAlignment="textStart"
-          android:textColor="#000000"
           android:textSize="16sp"
           app:layout_constraintStart_toEndOf="@+id/btnLike"
           app:layout_constraintTop_toBottomOf="@+id/txtJudul" />
