@@ -133,5 +133,9 @@ class HomeActivity : AppCompatActivity() {
             startActivity(intent)
             true
         }
+
+        binding.customToolbar.menuIcon.setOnClickListener{
+            binding.bottomNav.selectedItemId = R.id.itemHome
+        }
     }
 }

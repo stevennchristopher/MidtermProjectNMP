@@ -229,5 +229,9 @@ class Create3Activity : AppCompatActivity() {
             finish()
             true
         }
+
+        binding.customToolbar.menuIcon.setOnClickListener{
+            binding.bottomNav.selectedItemId = R.id.itemHome
+        }
     }
 }

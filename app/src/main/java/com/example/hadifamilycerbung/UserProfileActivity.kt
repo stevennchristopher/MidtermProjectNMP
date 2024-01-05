@@ -187,6 +187,10 @@ class UserProfileActivity : AppCompatActivity() {
             finish()
             true
         }
+
+        binding.customToolbar.menuIcon.setOnClickListener{
+            binding.bottomNav.selectedItemId = R.id.itemHome
+        }
     }
     override fun onBackPressed() {
         binding.bottomNav.selectedItemId = R.id.itemHome

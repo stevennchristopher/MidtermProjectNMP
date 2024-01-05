@@ -386,6 +386,10 @@ class ReadActivity : AppCompatActivity() {
             }
             q3.add(stringRequest3)
         }
+
+        binding.customToolbar.menuIcon.setOnClickListener{
+            binding.bottomNav.selectedItemId = R.id.itemHome
+        }
     }
     override fun onBackPressed() {
         binding.bottomNav.selectedItemId = R.id.itemHome
